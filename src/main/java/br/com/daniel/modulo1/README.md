@@ -20,10 +20,10 @@ Em Java, tudo roda dentro de uma máquina virtual (JVM). O código começa sempr
 ## 📘 Tópico 2: Memória - Primitivos vs Wrappers
 Aqui é onde 90% dos erros de NullPointerException nascem.
 
-* Conceito:
+**Conceito:**
 
-**Primitivos (int, double, boolean):** Armazenam o valor direto na memória Stack. São rápidos e nunca são nulos. Padrão é 0 ou false.
+* **Primitivos (int, double, boolean):** Armazenam o valor direto na memória Stack. São rápidos e nunca são nulos. Padrão é 0 ou false.
 
-**Wrappers (Integer, Double, Boolean):** São Classes (Objetos). Armazenam uma referência na Stack que aponta para um objeto na Heap. Podem ser null.
+* **Wrappers (Integer, Double, Boolean):** São Classes (Objetos). Armazenam uma referência na Stack que aponta para um objeto na Heap. Podem ser null.
 
 > Código Pragmático em (TiposMemoria.java):
