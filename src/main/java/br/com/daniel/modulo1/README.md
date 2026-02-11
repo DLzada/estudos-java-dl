@@ -14,3 +14,14 @@ Em Java, tudo roda dentro de uma máquina virtual (JVM). O código começa sempr
 `String[] args`: Recebe parâmetros da linha de comando.
 
 > Código Pragmático do Tópico em (Main.java)
+
+## 📘 Tópico 2: Memória - Primitivos vs Wrappers
+Aqui é onde 90% dos erros de NullPointerException nascem.
+
+* Conceito:
+
+**Primitivos (int, double, boolean):** Armazenam o valor direto na memória Stack. São rápidos e nunca são nulos. Padrão é 0 ou false.
+
+**Wrappers (Integer, Double, Boolean):** São Classes (Objetos). Armazenam uma referência na Stack que aponta para um objeto na Heap. Podem ser null.
+
+> Código Pragmático em (TiposMemoria.java):
