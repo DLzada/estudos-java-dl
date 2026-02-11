@@ -39,4 +39,11 @@ Strings em Java são especiais. Se você não entender isso, vai criar bugs de l
 
 * **String Pool:** Uma área especial da memória para economizar espaço.
 
-> Código Pragmático do Tópico em (StringMaster.java):
+> Código Pragmático do Tópico em (StringMaster.java)
+
+---
+
+## 📘 Tópico 4: Arrays e Controle de Fluxo
+Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, morre com 5.
+
+> Código Pragmático (ArraysLoop.java)
