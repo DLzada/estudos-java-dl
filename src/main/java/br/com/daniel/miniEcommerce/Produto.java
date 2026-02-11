@@ -1,4 +1,4 @@
-package br.com.daniel.mini-ecommerce;
+package br.com.daniel.miniEcommerce;
 
 public abstract class Produto {
     protected String nome;

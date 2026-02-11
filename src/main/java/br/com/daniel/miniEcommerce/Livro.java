@@ -1,9 +1,9 @@
-package br.com.daniel.mini-ecommerce;
+package br.com.daniel.miniEcommerce;
 
-public class Livro extends Produto implements Descontavel{
+public class Livro extends Produto implements Descontavel {
     private String autor;
 
-    public Livro(String autor, String nome, double preco) {
+    public Livro(String nome, double preco, String autor) {
         super(nome, preco);
         this.autor = autor;
     }

@@ -1,4 +1,4 @@
-package br.com.daniel.mini-ecommerce;
+package br.com.daniel.miniEcommerce;
 
 class Eletronico extends Produto{
     private String marca;
