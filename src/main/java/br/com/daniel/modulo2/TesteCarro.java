@@ -1,4 +1,5 @@
 package br.com.daniel.modulo2;
+
 public class TesteCarro {
     public static void main(String[] args) {
         // 'c1' é uma REFERÊNCIA na Stack.
