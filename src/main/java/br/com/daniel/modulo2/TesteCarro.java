@@ -1,7 +1,4 @@
 package br.com.daniel.modulo2;
-import br.com.daniel.modulo2.Carro
-
-// 2. A fábrica (Onde a mágica acontece)
 public class TesteCarro {
     public static void main(String[] args) {
         // 'c1' é uma REFERÊNCIA na Stack.
