@@ -42,4 +42,11 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 
 * **Polimorfismo:** Tratar objetos diferentes de forma genérica.
 
-Código Pragmático do tópico em (SistemaRH.java)
+> Código Pragmático do tópico em (SistemaRH.java)
+
+---
+
+## 📘 Tópico 4: Interfaces (O Contrato Absoluto)
+> Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
+
+> Código Pragmático (SistemaPagamento.java)
