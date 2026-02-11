@@ -26,9 +26,9 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
 
 * **Wrappers (Integer, Double, Boolean):** São Classes (Objetos). Armazenam uma referência na Stack que aponta para um objeto na Heap. Podem ser null.
 
----
-
 > Código Pragmático do tópico em (TiposMemoria.java)
+
+---
 
 ## 📘 Tópico 3: O Pool de Strings (Imutabilidade)
 Strings em Java são especiais. Se você não entender isso, vai criar bugs de lógica.
