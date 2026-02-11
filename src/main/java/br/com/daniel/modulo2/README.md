@@ -10,4 +10,19 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
-> Código Pragmático do modulo em (Carro.java e TesteCarro.java)
+> Código Pragmático do tópico em (Carro.java e TesteCarro.java)
+
+---
+
+## 📘 Tópico 2: Encapsulamento e Modificadores (Segurança)
+**Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
+
+`private`: Só a própria classe vê.
+
+`public`: Todo mundo vê.
+
+`protected`: Só filhos e classes do mesmo pacote veem.
+
+`default` (sem nada): Só classes do mesmo pacote.
+
+Código Pragmático do tópico em (ContaBancaria.java)
