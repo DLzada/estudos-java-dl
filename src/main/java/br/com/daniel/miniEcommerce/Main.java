@@ -19,8 +19,8 @@ public class Main {
             System.out.println("Produto: " + p.getNome() + " | Preço Original: R$ "  + p.getPreco());
 
             // checando se o produto implementa a interface Descontavel
-            if (p instanceof Descontavel) {
-                ((Descontavel) p).aplicarDesconto(10);
+            if (p instanceof Descontavel d) {
+                d.aplicarDesconto(10);
                 System.out.println(" -> [DESCONTO APLICADO] Novo Preço: R$ " + p.getPreco());
             } else {
                 System.out.println(" -> [SEM DESCONTO] Eletrônicos não são descontáveis.");
