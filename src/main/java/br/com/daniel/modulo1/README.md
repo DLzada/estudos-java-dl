@@ -15,6 +15,8 @@ Em Java, tudo roda dentro de uma máquina virtual (JVM). O código começa sempr
 
 > Código Pragmático do Tópico em (Main.java)
 
+---
+
 ## 📘 Tópico 2: Memória - Primitivos vs Wrappers
 Aqui é onde 90% dos erros de NullPointerException nascem.
 
