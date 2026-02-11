@@ -1,0 +1,2 @@
+## 🛒 Mini-Projeto: E-commerce Java (Módulo 2)
+> Este projeto implementa um sistema de gerenciamento de produtos utilizando os conceitos fundamentais de POO: classes abstratas, interfaces, herança e polimorfismo.
