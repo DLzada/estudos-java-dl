@@ -12,7 +12,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
-> Código Pragmático do tópico em (Carro.java e TesteCarro.java)
+> Código Pragmático do tópico em (classesObjetos/Carro.java e TesteCarro.java)
 
 ---
 
@@ -27,7 +27,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 `default` (sem nada): Só classes do mesmo pacote.
 
-> Código Pragmático do tópico em (ContaBancaria.java)
+> Código Pragmático do tópico em (encapsulamento/ContaBancaria.java)
 
 ---
 
@@ -42,11 +42,11 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 
 * **Polimorfismo:** Tratar objetos diferentes de forma genérica.
 
-> Código Pragmático do tópico em (SistemaRH.java)
+> Código Pragmático do tópico em (herancaPolimorfismo)
 
 ---
 
 ## 📘 Tópico 4: Interfaces (O Contrato Absoluto)
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
-> Código Pragmático (SistemaPagamento.java)
+> Código Pragmático (interfaces)
