@@ -27,7 +27,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 `default` (sem nada): Só classes do mesmo pacote.
 
-> Código Pragmático do tópico em (ContaBancaria.java)
+> Código Pragmático do tópico em (classesObjetos/ContaBancaria.java)
 
 ---
 
