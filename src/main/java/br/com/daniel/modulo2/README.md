@@ -12,7 +12,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
-> Código Pragmático do tópico em (Carro.java e TesteCarro.java)
+> Código Pragmático do tópico em (classesObjetos/Carro.java e TesteCarro.java)
 
 ---
 
@@ -27,7 +27,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 `default` (sem nada): Só classes do mesmo pacote.
 
-> Código Pragmático do tópico em (classesObjetos/ContaBancaria.java)
+> Código Pragmático do tópico em (encapsulamento/ContaBancaria.java)
 
 ---
 
