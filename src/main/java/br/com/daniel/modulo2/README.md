@@ -49,4 +49,4 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 ## 📘 Tópico 4: Interfaces (O Contrato Absoluto)
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
-> Código Pragmático (SistemaPagamento.java)
+> Código Pragmático (interfaces)
