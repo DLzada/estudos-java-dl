@@ -1,4 +1,4 @@
-public class Retangulo {
+public class Retangulo implements Shape {
     private double altura;
     private double largura;
 
