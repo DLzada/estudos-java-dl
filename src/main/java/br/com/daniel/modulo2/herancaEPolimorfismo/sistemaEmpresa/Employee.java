@@ -1,4 +1,4 @@
-package br.com.daniel.modulo2.herancaEPolimofismo;
+package br.com.daniel.modulo2.herancaEPolimofismo.sistemaEmpresa;
 
 public class Employee {
 
