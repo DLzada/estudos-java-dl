@@ -42,7 +42,7 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 
 * **Polimorfismo:** Tratar objetos diferentes de forma genérica.
 
-> Código Pragmático do tópico em (SistemaRH.java)
+> Código Pragmático do tópico em (herancaPolimorfismo)
 
 ---
 
