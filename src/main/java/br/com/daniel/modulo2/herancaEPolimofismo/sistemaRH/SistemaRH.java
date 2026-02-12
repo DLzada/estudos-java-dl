@@ -1,4 +1,4 @@
-package br.com.daniel.modulo2;
+package br.com.daniel.modulo2.herancaEPolimofismo.sistemaRH;
 
 // Classe Pai (Genérica)
 abstract class Funcionario {

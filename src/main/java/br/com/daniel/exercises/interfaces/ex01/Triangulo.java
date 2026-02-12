@@ -1,4 +1,4 @@
-public class Triangulo implements Shape{
+public class Triangulo{
     private double base;
     private double altura;
 
@@ -7,8 +7,4 @@ public class Triangulo implements Shape{
         this.altura = altura;
     }
 
-    @Override
-    public double getArea(){
-        return 0.5 * base * altura;
-    }
 }

@@ -1,4 +1,4 @@
-package br.com.daniel.modulo2;
+package br.com.daniel.modulo2.interfaces;
 
 // O CONTRATO
 interface ProcessadorPagamento {

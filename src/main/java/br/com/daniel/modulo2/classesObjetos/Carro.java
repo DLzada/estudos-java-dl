@@ -1,4 +1,4 @@
-package br.com.daniel.modulo2;
+package br.com.daniel.modulo2.classesObjetos;
 
 //1. A Planta (Classe)
 public class Carro {

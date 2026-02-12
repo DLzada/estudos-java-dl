@@ -1,10 +1,10 @@
-package br.com.daniel.modulo2;
+package br.com.daniel.modulo2.classesObjetos;
 
 public class TesteCarro {
     public static void main(String[] args) {
         // 'c1' é uma REFERÊNCIA na Stack.
         // 'new Carro()' aloca memória na HEAP.
-        Carro c1 = new Carro(); 
+        Carro c1 = new Carro();
         c1.modelo = "Fusca";
         
         Carro c2 = new Carro();

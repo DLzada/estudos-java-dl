@@ -9,4 +9,9 @@ public class Circulo implements Shape{
     public double getArea(){
         return Math.PI * (raio * raio);
     }
+
+    @Override
+    public double getPerimetro(){
+        return 2 * Math.PI * raio;
+    }
 }

@@ -1,4 +1,4 @@
-package br.com.daniel.modulo2;
+package br.com.daniel.modulo2.encapsulamento;
 
 public class ContaBancaria {
     // 1. BLINDE OS DADOS (private)

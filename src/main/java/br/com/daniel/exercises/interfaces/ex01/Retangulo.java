@@ -11,4 +11,9 @@ public class Retangulo implements Shape {
     public double getArea(){
         return altura * largura;
     }
+
+    @Override
+    public double getPerimetro(){
+        return altura * 2 + largura * 2;
+    }
 }
