@@ -1,0 +1,10 @@
+# Ignorar arquivos compilados
+*.class
+
+# Ignorar pastas de build do IntelliJ
+out/
+bin/
+
+# Ignorar configurações locais do IntelliJ (opcional, mas recomendado)
+.idea/
+*.iml
