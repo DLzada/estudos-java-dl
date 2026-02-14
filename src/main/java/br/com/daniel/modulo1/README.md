@@ -54,9 +54,8 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   <tbody>
     <tr>
       <th>Está Chovendo</th>
-      <td>
-        Verdade
-      </td>
+      <th>Tenho Dinheiro</th>
+      <th>Vou ao mercado</th>
     </tr>
 
   </tbody>
