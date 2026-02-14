@@ -50,7 +50,7 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 
 ## Comparando dados
 
-# Tabela Verdade 1
+### Tabela Verdade 1
 
 > Só vou ao mercado se **não** estiver chovendo e se eu tiver dinheiro.
 
