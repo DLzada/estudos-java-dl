@@ -48,7 +48,7 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 
 > Código Pragmático (ArraysLoop.java)
 
-##Comparando dados
+## Comparando dados
 
 # Tabela Verdade 1
 
