@@ -47,3 +47,19 @@ Strings em Java são especiais. Se você não entender isso, vai criar bugs de l
 Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, morre com 5.
 
 > Código Pragmático (ArraysLoop.java)
+
+## Tabela Verdade
+
+<table>
+  <tbody>
+    <tr>
+      <th>Está Chovendo</th>
+      <td>
+        Verdade
+      </td>
+    </tr>
+>
+    </tr>
+
+  </tbody>
+</table>
