@@ -99,8 +99,6 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 `default` (sem nada): O comportamento de acesso quando não declaramos um modificador é parecido com o do protected, apenas classe e interfaces dentro do mesmo pacote podem acessar o atributo ou mátodo.
 
-**Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
-
 **Exemplo:**
 ```java
          public class Contador{
@@ -122,7 +120,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
           contador.primeiraParcela = 100;
           contador.segundaParcela = 77;
 ```
-Agora para que possamos preencher os atributos desse objeto devemos contar com o método construtor, já usamos ele naturalmente quando instânciamos a classe, ele está ali presente em todos os exemplos usados até agora. Quando usamos ``new Contador();` estamos justamente chamando o método construtor que literalmente constrói a instância da nossa classe.
+Agora para que possamos preencher os atributos desse objeto devemos contar com o método construtor, já usamos ele naturalmente quando instânciamos a classe, ele está ali presente em todos os exemplos usados até agora. Quando usamos `new Contador();` estamos justamente chamando o método construtor que literalmente constrói a instância da nossa classe.
 > OBS: A palavra `new` sempre vai representar uma nova instância de um objeto.
 
 ### 2.2 - Método Constructor:
