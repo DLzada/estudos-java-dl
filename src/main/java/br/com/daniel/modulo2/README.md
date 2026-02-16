@@ -129,20 +129,19 @@ Agora como os modificadores de acesso ao atributo da nossa classe Contador devem
 
 **Exemplo - Classe:**
 ```java
-         public class Contador{
+         public class Contador {
             private int primeiraParcela;
             private int segundaParcela;
 
-            private Contador(int primeiroNumero, inst segundoNumero){
-              this.primeiroNumero = primeiroNumero;
-              this.segundoNumero = segundoNumero;
+            public Contador(int primeiraParcela, int segundaParcela) {
+                this.primeiraParcela = primeiraParcela;
+                this.segundaParcela = segundaParcela;
             }
-
-            public int somarParcelas(){
-                int total = primeiraParcela + segundaParcela;
-                return total;
+        
+            public int somarParcelas() {
+                return primeiraParcela + segundaParcela;
             }
-         }
+        }
 ```
 
 **Classe principal com o método main:**
