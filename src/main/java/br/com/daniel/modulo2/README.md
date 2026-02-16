@@ -116,14 +116,46 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 > Declarando os atributos da classe contador como privados, não podemos mais realizar acessar livremente os atributos e preenchê-los como antes, utilizando o nome do objeto e os atributos.
 
-Agora para que possamos preencher os atributos desse objeto devemos contar com o método construtor, já usamos ele naturalmente quando instânciamos a classe, ele está ali presente em todos os exemplos usados até agora. Quando usamos ``new Contador();` estamos justamente chamando o método construtor que literalmente constrói a instância da nossa classe.
-> OBS: A palavra `new` sempre vai representar uma nova instância de um objeto.
-
 ```java
          // NAO FUNCIONA MAIS
           Contador contador = new Contador();
           contador.primeiraParcela = 100;
           contador.segundaParcela = 77;
+```
+Agora para que possamos preencher os atributos desse objeto devemos contar com o método construtor, já usamos ele naturalmente quando instânciamos a classe, ele está ali presente em todos os exemplos usados até agora. Quando usamos ``new Contador();` estamos justamente chamando o método construtor que literalmente constrói a instância da nossa classe.
+> OBS: A palavra `new` sempre vai representar uma nova instância de um objeto.
+
+### 2.2 - Método Constructor:
+
+Agora como os modificadores de acesso ao atributo da nossa classe Contador devemos criar um novo constructor para preencher esses atributos. Dentro da classe vamos criar um método que carrega o modificador de acesso `public` e que carrega `exatamente o nome da classe`. Também vamos adicionar os 2 parâmetros nesse método, que são os parâmetros que vamos receber os valores e usá-los no método para preencher nossos atributos.
+
+**Exemplo - Classe:**
+```java
+         public class Contador{
+            private int primeiraParcela;
+            private int segundaParcela;
+
+            private Contador(int primeiroNumero, inst segundoNumero){
+              this.primeiroNumero = primeiroNumero;
+              this.segundoNumero = segundoNumero;
+            }
+
+            public int somarParcelas(){
+                int total = primeiraParcela + segundaParcela;
+                return total;
+            }
+         }
+```
+
+**Classe principal com o método main:**
+```java
+         public class Main{
+            public static void main(String []args){
+                Contador contador = new Contador(100,77);
+                int total = contador.somarParcelas();
+                System.out.printl("A soma das parcelas é: " + total);
+            }
+         }
 ```
 
 **Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
