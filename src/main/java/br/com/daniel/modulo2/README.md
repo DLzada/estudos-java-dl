@@ -91,11 +91,11 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 ### 2.1 - Modificadores de acesso:
 
-<table style="width: 50%">
+<table>
   <tbody>
     <tr>
       <th>Modificador</th>
-      <th>Detalhes</th>
+      <th style="width: 250px;">Detalhes</th>
     </tr>
     <tr>
       <td> public </td>
