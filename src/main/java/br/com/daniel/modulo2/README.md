@@ -45,7 +45,15 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
          }
       ```
       
-* **Objeto:** A instância viva na memória Heap.
+* **Objeto:** A instância viva na memória Heap. Dentro da classe principal do projeto, a que carrega o método main, podemos instanciar nosso objeto.
+  * **Criando Objetos:**
+      ```java
+         public class Main{
+            public static void main(String[] args){
+                Contador contador = new Contador();
+            }
+         }
+      ```
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
