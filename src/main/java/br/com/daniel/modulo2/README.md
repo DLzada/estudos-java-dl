@@ -91,7 +91,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 ### 2.1 - Modificadores de acesso:
 
-<table>
+<table style="width: 50%">
   <tbody>
     <tr>
       <th>Modificador</th>
