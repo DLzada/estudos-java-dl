@@ -94,8 +94,8 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 <table>
   <tbody>
     <tr>
-      <th>Modificador</th>
-      <th style="width: 250px;">Detalhes</th>
+      <th style="width: 150px;">Modificador</th>
+      <th style="width: 300px;">Detalhes</th>
     </tr>
     <tr>
       <td> public </td>
