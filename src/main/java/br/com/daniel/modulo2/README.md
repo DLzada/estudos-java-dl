@@ -91,28 +91,28 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 ### 2.1 - Modificadores de acesso:
 
-<table style="width: 50%;">
-  <tbody>
-    <tr>
-      <th>Modificador</th>
-      <th>Detalhes</th>
-    </tr>
-    <tr>
-      <td> public </td>
-      <td> O modificador public permite que todas as classes dentro ou fora do mesmo pacote que a classe dona do atributo tenha acesso a ela.</td>
-    </tr>
+`public`: O modificador public permite que todas as classes dentro ou fora do mesmo pacote que a classe dona do atributo tenha acesso a ela.
 
+`private`: O modificador private impede que qualquer classe dentro ou fora da mesma classe dona do atributo ou método tenha acesso a ela.
 
-  </tbody>
-</table>
+`protected`: O modificador protected permite que apenas as classes dentro do mesmo pacote que a classe dona do atributo/método tenha acesso a eles.
 
-`private`: Só a própria classe vê.
+`default` (sem nada): O comportamento de acesso quando não declaramos um modificador é parecido com o do protected, apenas classe e interfaces dentro do mesmo pacote podem acessar o atributo ou mátodo.
 
-`public`: Todo mundo vê.
+**Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
 
-`protected`: Só filhos e classes do mesmo pacote veem.
+**Exemplo:**
+```java
+         public class Contador{
+            private int primeiraParcela;
+            private int segundaParcela;
 
-`default` (sem nada): Só classes do mesmo pacote.
+            public int somarParcelas(){
+                int total = primeiraParcela + segundaParcela;
+                return total;
+            }
+         }
+```
 
 **Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
 
