@@ -51,6 +51,8 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 
 > Código Pragmático (interfaces)
 
+---
+
 ### Padrão de Nomear Classes: 
 > PascalCase: Primeira letra de cada palavra maiúscula
 
