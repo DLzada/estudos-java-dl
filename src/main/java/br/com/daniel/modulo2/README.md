@@ -195,6 +195,7 @@ Em alguns casos temos a necessidade de ter mais de uma forma de construir um obj
 Outra forma de dar acesso a atributos privados é através dos métodos Get e Set de cada atributo. Um método get é criado para retornar o valor do atributo enquanto o méto set é feito para alterar o valor de um atributo.
   * Get = Pegar
   * Set = Inserir
+    
 Esses métodos são totalmente opcionais e devem ser criados apenas se for necessário o acesso a esse atributo, isso faz sentido quando pensamos que alguns atributos de controle de classes não devem ser alterados, apenas visualizados (get) ou apenas alterados e não visualizador (set). Os mátodos set e get também podem carregar alguma regra de negócio específica antes de alterar o valor no caso do set, por exemplo, assim garantimos que o atributo será peenchido apenas com valores corretos.
 
 **Classe Contador:**
