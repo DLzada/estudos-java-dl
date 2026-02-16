@@ -7,13 +7,26 @@
 Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Classe:** O molde/template. Não ocupa memória de execução.
+    * ### Padrão de Nomear Classes: 
+      > PascalCase: Primeira letra de cada palavra maiúscula
+
+    * ### Padrão de Nomear atributos e métodos:
+     > camelCase: Apenas a Letra da Segunda palavra em maiúsculo
+     
     * Como Criar uma Classe:
       ```java
          public class Contador{
             ...
          } 
       ```
-
+* **Atributos:** Caracteristicas das classes
+   * Adicionando Atributos:
+      ```java
+         public class Contador{
+            int primeiraParcela;
+            int segundaParcela;
+         } 
+      ```
 * **Objeto:** A instância viva na memória Heap.
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
@@ -59,8 +72,6 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 
 ---
 
-### Padrão de Nomear Classes: 
-> PascalCase: Primeira letra de cada palavra maiúscula
 
-### Padrão de Nomear atributos e métodos:
-> camelCase: Apenas a Letra da Segunda palavra em maiúsculo
+
+
