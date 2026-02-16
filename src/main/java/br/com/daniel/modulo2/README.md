@@ -87,7 +87,24 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 ---
 
 ## 📘 Tópico 2: Encapsulamento e Modificadores (Segurança)
-**Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
+**Encapsulamento:** O princípio dele é trazer a preocupação com os acesso aos atributose métodos dentro de uma classe garantindo que os atributos não sejam alterados durante a execução ou que um mátodo restrito da classe não seja executado.
+
+### 2.1 - Modificadores de acesso:
+
+<table>
+  <tbody>
+    <tr>
+      <th>Modificador</th>
+      <th>Detalhes</th>
+    </tr>
+    <tr>
+      <td> public </td>
+      <td> O modificador public permite que todas as classes dentro ou fora do mesmo pacote que a classe dona do atributo tenha acesso a ela.</td>
+    </tr>
+
+
+  </tbody>
+</table>
 
 `private`: Só a própria classe vê.
 
@@ -96,6 +113,8 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 `protected`: Só filhos e classes do mesmo pacote veem.
 
 `default` (sem nada): Só classes do mesmo pacote.
+
+**Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
 
 > Código Pragmático do tópico em (encapsulamento/ContaBancaria.java)
 
