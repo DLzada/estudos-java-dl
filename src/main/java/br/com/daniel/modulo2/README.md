@@ -9,9 +9,6 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 * **Classe:** O molde/template. Não ocupa memória de execução.
     * ### Padrão de Nomear Classes: 
       > PascalCase: Primeira letra de cada palavra maiúscula
-
-    * ### Padrão de Nomear atributos e métodos:
-     > camelCase: Apenas a Letra da Segunda palavra em maiúsculo
      
     * Como Criar uma Classe:
       ```java
@@ -19,14 +16,19 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
             ...
          } 
       ```
-* **Atributos:** Caracteristicas das classes
-   * Adicionando Atributos:
+
+* **Atributos:** Características das classes.
+    * ### Padrão de Nomear Atributos e métodos: 
+      > camelCase: apenas a partir da segunda palavra que as letras ficam maiúsculas
+     
+    * Adicionando Atributos:
       ```java
          public class Contador{
             int primeiraParcela;
             int segundaParcela;
-         } 
+         }
       ```
+      
 * **Objeto:** A instância viva na memória Heap.
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
@@ -69,9 +71,3 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
 > Código Pragmático (interfaces)
-
----
-
-
-
-
