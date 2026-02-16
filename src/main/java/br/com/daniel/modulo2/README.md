@@ -79,7 +79,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
             }
          }
       ```
-
+      
 ### **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
 > Código Pragmático do tópico em (classesObjetos/Carro.java e TesteCarro.java)
@@ -112,6 +112,18 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
                 return total;
             }
          }
+```
+
+> Declarando os atributos da classe contador como privados, não podemos mais realizar acessar livremente os atributos e preenchê-los como antes, utilizando o nome do objeto e os atributos.
+
+Agora para que possamos preencher os atributos desse objeto devemos contar com o método construtor, já usamos ele naturalmente quando instânciamos a classe, ele está ali presente em todos os exemplos usados até agora. Quando usamos ``new Contador();` estamos justamente chamando o método construtor que literalmente constrói a instância da nossa classe.
+> OBS: A palavra `new` sempre vai representar uma nova instância de um objeto.
+
+```java
+         // NAO FUNCIONA MAIS
+          Contador contador = new Contador();
+          contador.primeiraParcela = 100;
+          contador.segundaParcela = 77;
 ```
 
 **Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
