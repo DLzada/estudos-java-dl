@@ -191,6 +191,11 @@ Em alguns casos temos a necessidade de ter mais de uma forma de construir um obj
          }
 ```
 
+### 2.4 - Métodos Gets e Setters:
+Outra forma de dar acesso a atributos privados é através dos métodos Get e Set de cada atributo. Um método get é criado para retornar o valor do atributo enquanto o méto set é feito para alterar o valor de um atributo.
+  * Get = Pegar
+  * Set = Inserir
+
 **Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
 
 > Código Pragmático do tópico em (encapsulamento/ContaBancaria.java)
