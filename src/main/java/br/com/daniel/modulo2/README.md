@@ -30,7 +30,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
       ```
       
 * **Métodos:** Comportamento que os objetos criados tem.
-  * > **Tambem utiliza padrão de nomear camelCase** : apenas a partir da segunda palavra que as letras ficam maiúsculas
+  * **Tambem utiliza padrão de nomear camelCase** : apenas a partir da segunda palavra que as letras ficam maiúsculas
      
   * Adicionando Métodos:
       ```java
