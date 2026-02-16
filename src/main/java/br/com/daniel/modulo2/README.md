@@ -155,6 +155,42 @@ Agora como os modificadores de acesso ao atributo da nossa classe Contador devem
          }
 ```
 
+### 2.3 - Sobrecarga de Construtores:
+Em alguns casos temos a necessidade de ter mais de uma forma de construir um objeto de uma class. Nesses casos contamos com a sobrecarga de construtores que permite realizar diferente tipos de construções de instâncias de uma classe.
+
+**Exemplo - Classe:**
+```java
+         public class Contador {
+            private int primeiraParcela;
+            private int segundaParcela;
+
+            public Contador(int primeiraParcela, int segundaParcela) {
+                this.primeiraParcela = primeiraParcela;
+                this.segundaParcela = segundaParcela;
+            }
+        
+            public Contador(int primeiraParcela) {
+                this.primeiraParcela = primeiraParcela;
+                this.segundaParcela = 0;
+            }
+
+            public int somarParcelas() {
+                return primeiraParcela + segundaParcela;
+            }
+        }
+```
+
+**Classe principal com o método main:**
+```java
+         public class Main{
+            public static void main(String []args){
+                Contador contadorUm = new Contador(100,77);
+                Contador contadorDois = new Contador(100);
+                
+            }
+         }
+```
+
 **Regra de ouro:** Nunca deixe seus atributos públicos. Se alguém puder fazer conta.saldo = -5000, seu sistema falhou.
 
 > Código Pragmático do tópico em (encapsulamento/ContaBancaria.java)
