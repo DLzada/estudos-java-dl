@@ -7,10 +7,10 @@
 Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Classe:** O molde/template. Não ocupa memória de execução.
-    * ### Padrão de Nomear Classes: 
+   * ### Padrão de Nomear Classes: 
       > PascalCase: Primeira letra de cada palavra maiúscula
      
-    * Como Criar uma Classe:
+   * Como Criar uma Classe:
       ```java
          public class Contador{
             ...
@@ -18,10 +18,10 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
       ```
 
 * **Atributos:** Características das classes.
-    * ### Padrão de Nomear Atributos e métodos: 
+   * ### Padrão de Nomear Atributos e métodos: 
       > camelCase: apenas a partir da segunda palavra que as letras ficam maiúsculas
      
-    * Adicionando Atributos:
+   * Adicionando Atributos:
       ```java
          public class Contador{
             int primeiraParcela;
