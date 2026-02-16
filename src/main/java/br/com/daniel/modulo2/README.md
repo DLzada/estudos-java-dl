@@ -7,8 +7,14 @@
 Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Classe:** O molde/template. Não ocupa memória de execução.
+- Como Criar uma Classe:
+  ```java
+     public class Contador{
+        ...
+     } 
+  ```
 
-* **Objeto: **A instância viva na memória Heap.
+* **Objeto:** A instância viva na memória Heap.
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
