@@ -6,7 +6,7 @@
 ## 📘 Tópico 1: Classes, Atributos, Métodos,Objetos e Memória (Onde eles vivem?)
 Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
-* **Classe:** O molde/template. Não ocupa memória de execução.
+### **Classe:** O molde/template. Não ocupa memória de execução.
    * **Padrão de Nomear Classes:** 
       > PascalCase: Primeira letra de cada palavra maiúscula
      
@@ -17,7 +17,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
          } 
       ```
 
-* **Atributos:** Características das classes.
+### **Atributos:** Características das classes.
    * **Padrão de Nomear Atributos e métodos:**
       > camelCase: apenas a partir da segunda palavra que as letras ficam maiúsculas
      
@@ -29,7 +29,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
          }
       ```
       
-* **Métodos:** Comportamento que os objetos criados tem.
+### **Métodos:** Comportamento que os objetos criados tem.
   * **Tambem utiliza padrão de nomear camelCase** : apenas a partir da segunda palavra que as letras ficam maiúsculas
      
   * **Adicionando Métodos:**
@@ -45,7 +45,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
          }
       ```
       
-* **Objeto:** A instância viva na memória Heap. Dentro da classe principal do projeto, a que carrega o método main, podemos instanciar nosso objeto.
+### **Objeto:** A instância viva na memória Heap. Dentro da classe principal do projeto, a que carrega o método main, podemos instanciar nosso objeto.
   * **Criando Objetos:**
       ```java
          public class Main{
@@ -66,7 +66,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
          }
       ```
 
-* **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
+### **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
 > Código Pragmático do tópico em (classesObjetos/Carro.java e TesteCarro.java)
 
