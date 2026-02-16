@@ -50,3 +50,6 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
 > Código Pragmático (interfaces)
+
+## Padrões de Nomear Classes: 
+> PascalCase: Primeira letra de cada palavra maiúscula
