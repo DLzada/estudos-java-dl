@@ -65,6 +65,20 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
             }
          }
       ```
+  * **Chamando o método somarValores:** 
+      ```java
+         public class Main{
+            public static void main(String[] args){
+                Contador contador = new Contador();
+
+                contador.primeiraParcela = 100;
+                contador.segundaParcela = 77;
+
+                int total = contador.somarParcelas();
+                System.out.println(total)
+            }
+         }
+      ```
 
 ### **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
 
