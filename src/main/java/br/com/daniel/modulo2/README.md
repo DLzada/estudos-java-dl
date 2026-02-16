@@ -3,7 +3,7 @@
 
 ---
 
-## 📘 Tópico 1: Classes, Objetos e Memória (Onde eles vivem?)
+## 📘 Tópico 1: Classes, Atributos, Métodos,Objetos e Memória (Onde eles vivem?)
 Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 
 * **Classe:** O molde/template. Não ocupa memória de execução.
