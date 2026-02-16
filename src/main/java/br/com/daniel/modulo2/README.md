@@ -196,7 +196,7 @@ Outra forma de dar acesso a atributos privados é através dos métodos Get e Se
   * Get = Pegar
   * Set = Inserir
     
-Esses métodos são totalmente opcionais e devem ser criados apenas se for necessário o acesso a esse atributo, isso faz sentido quando pensamos que alguns atributos de controle de classes não devem ser alterados, apenas visualizados (get) ou apenas alterados e não visualizador (set). Os mátodos set e get também podem carregar alguma regra de negócio específica antes de alterar o valor no caso do set, por exemplo, assim garantimos que o atributo será peenchido apenas com valores corretos.
+Esses métodos são totalmente opcionais e devem ser criados apenas se for necessário o acesso a esse atributo, isso faz sentido quando pensamos que alguns atributos de controle de classes não devem ser alterados, apenas visualizados (get) ou apenas alterados e não visualizados (set). Os métodos set e get também podem carregar alguma regra de negócio específica antes de alterar o valor no caso do set, por exemplo, assim garantimos que o atributo será peenchido apenas com valores corretos.
 
 **Classe Contador:**
 ```java
@@ -233,13 +233,11 @@ Vale ressaltar que o padrão dos nomes dos métodos Get e Set são fundamentais 
 ## 📘 Tópico 3: Herança e Polimorfismo (O Poder do "É Um")
 Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcionario.
 
-* **extends:** Herda tudo que não é privado.
+### 3.1 - Herança: 
+Um dos principais pilares de um liguagem orientada a objetos. POr meio dela é possível realizar reaproveitamento de códigos através da criação de uma classe base (Também conhecida como superclasse), que permite que diversas outras classes (chamadas de subclasses ou classes derivadas) recebam características em comum de sua classe mãe. 
 
-* **super:** Chama construtor ou método da classe pai.
-
-* **@Override:** Sobrescreve um comportamento padrão.
-
-* **Polimorfismo:** Tratar objetos diferentes de forma genérica.
+**3.1.1 - Utilizando Herança** Suponhamos que nós fomos contratado para desenvolver um sistema de gestão para a escola X. Em uma das etapas, percebemos que precisaríamos criar duas classe: uma classe chamada técnicos admistrativos e uma classe chamada professores. Por mais que ambas possuam características e permissões diferentes, ambas possuem nome, telefone e cpf, por exemplo. 
+Neste Caso, ao invés de criar duas classes independentes com os mesmo atributos, podemos criar uma classe "mãe" chamada funcionário, na qual professores e técnicos irão herdar todas as características que eles possuem em comum. Isso não significa que eles terão as mesmas características, afinal, alunos e professores ainda são classes independentes, porém, ambos terão nome, cpf e telefone que herdaram de sua classe base.
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
