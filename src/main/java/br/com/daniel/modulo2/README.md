@@ -29,6 +29,22 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
          }
       ```
       
+* **Métodos:** Comportamento que os objetos criados tem.
+  * > **Tambem utiliza padrão de nomear camelCase** : apenas a partir da segunda palavra que as letras ficam maiúsculas
+     
+  * Adicionando Métodos:
+      ```java
+         public class Contador{
+            int primeiraParcela;
+            int segundaParcela;
+
+            public int somarParcelas(){
+                int total = primeiraParcela + segundaParcela;
+                return total;
+            }
+         }
+      ```
+      
 * **Objeto:** A instância viva na memória Heap.
 
 * **Referência:** A variável na Stack (memória rápida) que aponta para o endereço na Heap.
