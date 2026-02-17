@@ -238,6 +238,35 @@ Um dos principais pilares de um liguagem orientada a objetos. POr meio dela é p
 
 **3.1.1 - Utilizando Herança** Suponhamos que nós fomos contratado para desenvolver um sistema de gestão para a escola X. Em uma das etapas, percebemos que precisaríamos criar duas classe: uma classe chamada técnicos admistrativos e uma classe chamada professores. Por mais que ambas possuam características e permissões diferentes, ambas possuem nome, telefone e cpf, por exemplo. 
 Neste Caso, ao invés de criar duas classes independentes com os mesmo atributos, podemos criar uma classe "mãe" chamada funcionário, na qual professores e técnicos irão herdar todas as características que eles possuem em comum. Isso não significa que eles terão as mesmas características, afinal, alunos e professores ainda são classes independentes, porém, ambos terão nome, cpf e telefone que herdaram de sua classe base.
+Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, vamos criar uma relação de hereança entre a classe Funcionário e a classe professores, alegando que um professor é um funcionário.
+
+**Classe Funcionário:**
+```java
+         public class Funcionario(){
+            private String nome;
+            private String telefone;
+            private String cpf;
+
+            public Funcionario(String nome, String telefone, String cpf){
+                this.nome = nome;
+                this.telefone = telefone;
+                this.cpf = cpf;
+            }
+
+            public String getNome(){
+              return nome;
+            }
+
+            public String getTelefone(){
+              return telefone;
+            }
+
+            public String getCpf(){
+              return cpf;
+            }
+         }
+     
+```
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
