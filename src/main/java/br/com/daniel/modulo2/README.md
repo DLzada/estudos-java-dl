@@ -201,6 +201,7 @@ Esses métodos são totalmente opcionais e devem ser criados apenas se for neces
 **Classe Contador:**
 ```java
          public class Contador{
+
             private primeiraParcela;
             private segundaParcela;
 
@@ -243,6 +244,7 @@ Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, v
 **Classe Funcionário:**
 ```java
          public class Funcionario(){
+
             private String nome;
             private String telefone;
             private String cpf;
@@ -267,6 +269,20 @@ Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, v
          }
      
 ```
+
+No código abaixo iremos estabelecer uma relação de herança entre a classe **Funcionario** e suas subclasses: **Professore** e **TecnicoAdministrativo**.
+
+```java
+          public class Professor extends Funcionario(){
+            // Conteudo da subclasse Professor
+          }
+
+          public class TecnicoAdministrativo extends Funcionario(){
+            // Conteudo da subclasse Tecnico Administrativo
+          }
+     
+```
+
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
