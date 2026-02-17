@@ -283,7 +283,7 @@ No código abaixo iremos estabelecer uma relação de herança entre a classe **
      
 ```
 ### 3.1.2 - This e Super
-**This**: Este comando é fundamntal na criação dos "setter" em nosso código. Afinal, a responsabilidade desse comando é fazer referência a algum atributo encapsulado dentro de sua própria classe, como por exemplo, se quisermos criar os setters em nossa class Funcionario.
+**This:** Este comando é fundamntal na criação dos "setter" em nosso código. Afinal, a responsabilidade desse comando é fazer referência a algum atributo encapsulado dentro de sua própria classe, como por exemplo, se quisermos criar os setters em nossa class Funcionario.
 
 ```java
           public class Funcionario(){
@@ -325,6 +325,28 @@ No código abaixo iremos estabelecer uma relação de herança entre a classe **
          }
      
 ```
+Repare que dentro do **setNome**, nós recebemos uma string como argumento e inserimos essa string recebida dentro do `this.nome`. Nesse caso, como o comando `this` foi acionado, nós estamos incrementando o argumento recebido   diretamente no atributo declarado em cima da classe, é como se estivéssemos fazendo uma ligação direta ao `private String nome;`, conectando o conteúdo do método ao dado encapsulado anteriormente. Uma informação interessante, é que o comando this é opcional quando, no método, o nome dos parâmetros são diferentes dos atributos.
+
+**Super:** Já o Super, ao invés de fazer referência a um atributo dentro da própria classe, ele faz referência direta a atributos e métodos presentes dentro de sua superclasse, na qual você estabeleceu uma relação de herança. Em termos técnicos, você estará invocando o construtor de sua superclasse **Funcionario**, fazendo com que professores e técnicos administrativos tenham acesso aos dados então encapsulados de sua classe base.
+
+```java
+          public class Professor extends Funcionario(){
+            public Professor(String nome, String telefone, String cpf){
+              super(nome, telefone, cpf);
+            }
+
+          }
+
+          public class TecnicoAdministrativo extends Funcionario(){
+            public TecnicoAdministrativo(String nome, String telefone, String cpf){
+              super(nome, telefone, cpf);
+            }
+          }
+```
+
+No exemplo acima, podemos ver uma aplicação clássica do comando **super**. Onde criamos o método contrutor das classes, nós invocamos também através do comando `super` as características herdadas da classe mãe, sendo elas: nome, telefone e cpf. Com isso, conseguimos por meio da herança aproveitar os atributos criados na classe base em nossas subclasses, diminuindo o tempo de criação e aumentando a qualidade do código.
+
+Em resumo, o `this` possui a responsabilidade de criar uma conexão entre o método e os atributos encapsulados dentro de sua própria classe, enquanto o `super`, é utilizado sempre que desejamos acessa/manipular atributos e métodos estruturados na classe mãe de nossa subclasse em questão.
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
