@@ -270,7 +270,7 @@ Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, v
      
 ```
 
-No código abaixo iremos estabelecer uma relação de herança entre a classe **Funcionario** e suas subclasses: **Professore** e **TecnicoAdministrativo**.
+No código abaixo iremos estabelecer uma relação de herança entre a classe **Funcionario** e suas subclasses: **Professor** e **TecnicoAdministrativo**.
 
 ```java
           public class Professor extends Funcionario(){
@@ -282,7 +282,49 @@ No código abaixo iremos estabelecer uma relação de herança entre a classe **
           }
      
 ```
+### 3.1.2 - This e Super
+**This**: Este comando é fundamntal na criação dos "setter" em nosso código. Afinal, a responsabilidade desse comando é fazer referência a algum atributo encapsulado dentro de sua própria classe, como por exemplo, se quisermos criar os setters em nossa class Funcionario.
 
+```java
+          public class Funcionario(){
+
+            private String nome;
+            private String telefone;
+            private String cpf;
+
+            public Funcionario(String nome, String telefone, String cpf){
+                this.nome = nome;
+                this.telefone = telefone;
+                this.cpf = cpf;
+            }
+
+            public String getNome(){
+              return nome;
+            }
+
+            public String getTelefone(){
+              return telefone;
+            }
+
+            public String getCpf(){
+              return cpf;
+            }
+
+            public void setNome(String nome){
+              this.nome = nome;
+            }
+
+            public void setTelefone(String telefone){
+              this.telefone = telefone;
+            }
+
+            public void setCpf(String cpf){
+              this.cpf = cpf;
+            }
+
+         }
+     
+```
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
