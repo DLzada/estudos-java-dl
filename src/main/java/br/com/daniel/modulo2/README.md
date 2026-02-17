@@ -234,16 +234,16 @@ Vale ressaltar que o padrão dos nomes dos métodos Get e Set são fundamentais 
 ## 📘 Tópico 3: Herança e Polimorfismo (O Poder do "É Um")
 Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcionario.
 
-### 3.1 - Herança: 
+## 3.1 - Herança: 
 Um dos principais pilares de um liguagem orientada a objetos. POr meio dela é possível realizar reaproveitamento de códigos através da criação de uma classe base (Também conhecida como superclasse), que permite que diversas outras classes (chamadas de subclasses ou classes derivadas) recebam características em comum de sua classe mãe. 
 
-**3.1.1 - Utilizando Herança** Suponhamos que nós fomos contratado para desenvolver um sistema de gestão para a escola X. Em uma das etapas, percebemos que precisaríamos criar duas classe: uma classe chamada técnicos admistrativos e uma classe chamada professores. Por mais que ambas possuam características e permissões diferentes, ambas possuem nome, telefone e cpf, por exemplo. 
+### 3.1.1 - Utilizando Herança** Suponhamos que nós fomos contratado para desenvolver um sistema de gestão para a escola X. Em uma das etapas, percebemos que precisaríamos criar duas classe: uma classe chamada técnicos admistrativos e uma classe chamada professores. Por mais que ambas possuam características e permissões diferentes, ambas possuem nome, telefone e cpf, por exemplo. 
 Neste Caso, ao invés de criar duas classes independentes com os mesmo atributos, podemos criar uma classe "mãe" chamada funcionário, na qual professores e técnicos irão herdar todas as características que eles possuem em comum. Isso não significa que eles terão as mesmas características, afinal, alunos e professores ainda são classes independentes, porém, ambos terão nome, cpf e telefone que herdaram de sua classe base.
 Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, vamos criar uma relação de hereança entre a classe Funcionário e a classe professores, alegando que um professor é um funcionário.
 
 **Classe Funcionário:**
 ```java
-         public class Funcionario(){
+         public class Funcionario{
 
             private String nome;
             private String telefone;
@@ -273,11 +273,11 @@ Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, v
 No código abaixo iremos estabelecer uma relação de herança entre a classe **Funcionario** e suas subclasses: **Professor** e **TecnicoAdministrativo**.
 
 ```java
-          public class Professor extends Funcionario(){
+          public class Professor extends Funcionario{
             // Conteudo da subclasse Professor
           }
 
-          public class TecnicoAdministrativo extends Funcionario(){
+          public class TecnicoAdministrativo extends Funcionario{
             // Conteudo da subclasse Tecnico Administrativo
           }
      
@@ -286,7 +286,7 @@ No código abaixo iremos estabelecer uma relação de herança entre a classe **
 **This:** Este comando é fundamntal na criação dos "setter" em nosso código. Afinal, a responsabilidade desse comando é fazer referência a algum atributo encapsulado dentro de sua própria classe, como por exemplo, se quisermos criar os setters em nossa class Funcionario.
 
 ```java
-          public class Funcionario(){
+          public class Funcionario{
 
             private String nome;
             private String telefone;
@@ -330,14 +330,14 @@ Repare que dentro do **setNome**, nós recebemos uma string como argumento e ins
 **Super:** Já o Super, ao invés de fazer referência a um atributo dentro da própria classe, ele faz referência direta a atributos e métodos presentes dentro de sua superclasse, na qual você estabeleceu uma relação de herança. Em termos técnicos, você estará invocando o construtor de sua superclasse **Funcionario**, fazendo com que professores e técnicos administrativos tenham acesso aos dados então encapsulados de sua classe base.
 
 ```java
-          public class Professor extends Funcionario(){
+          public class Professor extends Funcionario{
             public Professor(String nome, String telefone, String cpf){
               super(nome, telefone, cpf);
             }
 
           }
 
-          public class TecnicoAdministrativo extends Funcionario(){
+          public class TecnicoAdministrativo extends Funcionario{
             public TecnicoAdministrativo(String nome, String telefone, String cpf){
               super(nome, telefone, cpf);
             }
@@ -347,6 +347,65 @@ Repare que dentro do **setNome**, nós recebemos uma string como argumento e ins
 No exemplo acima, podemos ver uma aplicação clássica do comando **super**. Onde criamos o método contrutor das classes, nós invocamos também através do comando `super` as características herdadas da classe mãe, sendo elas: nome, telefone e cpf. Com isso, conseguimos por meio da herança aproveitar os atributos criados na classe base em nossas subclasses, diminuindo o tempo de criação e aumentando a qualidade do código.
 
 Em resumo, o `this` possui a responsabilidade de criar uma conexão entre o método e os atributos encapsulados dentro de sua própria classe, enquanto o `super`, é utilizado sempre que desejamos acessa/manipular atributos e métodos estruturados na classe mãe de nossa subclasse em questão.
+
+## 3.2 - Polimorfismo
+
+De modo genérico, polimorfismo significa "muitas vezes". Na prática, o termo é utilizado quando temos duas ou mais classes derivadas da mesma superclasse compartilhando métodos de mesma assinatura, porém, com comportamentos diferentes.
+
+Para se compreender melhor o mesmo na prática, vamos trabalhar com um exemplo de formas geométricas. Inicialmente, vamos criar uma classe genérica chamada **FormasGeometricas** e estabelecer uma relação  de herança entre esta classe com suas duas subclasses: **Circulo** e **Quadrado**.
+
+```java
+          public class FormasGeometricas{
+            ...
+          }
+
+          public class Circulo extends FormasGeometricas{
+            ...
+          }
+
+          public class Quadrado extends FormasGeometricas{
+            ...
+          }
+
+```
+
+Depois de criar as classes, vamos criar um método que será responsável por calcular a área de cada uma das formas geométricas. Porém, temos um grande problema:
+
+  * Para calcular a área do quadrado, nós necessitamos de um lado, afinal, um quadrado nada mais é do que uma forma de quatro lados iguais.
+  * Já para calcular a área do cículom nós precisamos so raio, que é a distância do centro até a borda do círculo.
+Neste caso, precisamos de um método comum para ambas as classes que deve respeitar as suas características.
+
+```java
+          public class FormasGeometricas{
+            public double calcularArea(){
+              return 0;
+            }
+          }
+
+```
+
+Acima criamos o método na classe base que por enquanto vai retornar 0, afinal vamos reescrevê-lo nas subclasses com a mesma assinatura mas com comportamentos diferentes, respeitando as especificidades de cada classe. Processo conhecido como **polimorfismo dinâmico**, onde uma subclasse redefine um método presente na superclasse.
+
+```java
+          public class Circulo extends FormasGeometricas{
+            double raio;
+
+            public Circulo(double raio){
+              this.raio = raio;
+            }
+
+            @Override
+            public double calcularArea(){
+              double area = 0;
+              area = 3.14 * raio * raio;
+              return area;
+            }
+          }
+
+```
+
+Acima, temos a reescrita do método criado na superclasse dentro da subclasse **Circulo**. O método possui a mesma assinatura, porém, o conteúdo é diferente retornando o cálculo da área do círculo (3.14 * raio * raio).
+
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
