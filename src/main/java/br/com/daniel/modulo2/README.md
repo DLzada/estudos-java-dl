@@ -237,7 +237,8 @@ Não repita código. Se Gerente tem nome e Programador tem nome, crie um Funcion
 ## 3.1 - Herança: 
 Um dos principais pilares de um liguagem orientada a objetos. POr meio dela é possível realizar reaproveitamento de códigos através da criação de uma classe base (Também conhecida como superclasse), que permite que diversas outras classes (chamadas de subclasses ou classes derivadas) recebam características em comum de sua classe mãe. 
 
-### 3.1.1 - Utilizando Herança** Suponhamos que nós fomos contratado para desenvolver um sistema de gestão para a escola X. Em uma das etapas, percebemos que precisaríamos criar duas classe: uma classe chamada técnicos admistrativos e uma classe chamada professores. Por mais que ambas possuam características e permissões diferentes, ambas possuem nome, telefone e cpf, por exemplo. 
+### 3.1.1 - Utilizando Herança
+Suponhamos que nós fomos contratado para desenvolver um sistema de gestão para a escola X. Em uma das etapas, percebemos que precisaríamos criar duas classe: uma classe chamada técnicos admistrativos e uma classe chamada professores. Por mais que ambas possuam características e permissões diferentes, ambas possuem nome, telefone e cpf, por exemplo. 
 Neste Caso, ao invés de criar duas classes independentes com os mesmo atributos, podemos criar uma classe "mãe" chamada funcionário, na qual professores e técnicos irão herdar todas as características que eles possuem em comum. Isso não significa que eles terão as mesmas características, afinal, alunos e professores ainda são classes independentes, porém, ambos terão nome, cpf e telefone que herdaram de sua classe base.
 Primeiro, vamos observar o conteúdo da classe funcionário, e posteriormente, vamos criar uma relação de hereança entre a classe Funcionário e a classe professores, alegando que um professor é um funcionário.
 
@@ -425,12 +426,34 @@ Acima, temos a reescrita do método criado na superclasse dentro da subclasse **
 
 Acima, temos também a sobreposiçao do método **CalcularArea**, da classe `Quadrado`, onde o método possui a mesma assinatura de sua classe base, porém retornando o cáculo da área do quadrado `(lado * lado)`. Como podemos perceber em amabas as classes, sempre que um método é sobreposto, a palavra `@Override` aparece por cima do método, representando uma sobreposição.
 
-
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
 ---
 
-## 📘 Tópico 4: Interfaces (O Contrato Absoluto)
+## 📘 Tópico 4: Classes Abstratas
+
+Classes abstratas são classes genéricas que possuem um nível tão alto de abstração que não faz mais sentido criar objetos a partir dela. Uma grande característica das classes abstratas é que elas não podem ser instanciadas, apenas herdadas, servindo apenas como molde para classes concretas que serão geradas a partir delas, como podemos ver no exemplo abaixo:
+
+```java
+          public abstract class Animal{
+            //Conteundo da classe
+          }
+
+          public class Baleia extends Animal{
+            //Conteundo da classe
+          }
+
+          public class Cachorro extends Animal{
+            //Conteundo da classe
+          }
+
+          public class Papagaio extends Animal{
+            //Conteundo da classe
+          }
+```
+No exemplo acima, podemos observar a criação de uma classe abstrata chamada "Animal", tendo uma relação de herança com as outras classes presentes no código. Sempre que queremos criar uma classe abstrata, devemos utilizar o comando `abstract class`, assim o java compreenderá que aquele elemento é uma classe abstrata, que pode ser herdada por outras classes concretas, mas jamais instanciada.
+
+## 📘 Tópico 5: Interfaces (O Contrato Absoluto)
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
 > Código Pragmático (interfaces)
