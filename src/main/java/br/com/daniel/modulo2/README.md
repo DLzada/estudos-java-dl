@@ -406,6 +406,25 @@ Acima criamos o método na classe base que por enquanto vai retornar 0, afinal v
 
 Acima, temos a reescrita do método criado na superclasse dentro da subclasse **Circulo**. O método possui a mesma assinatura, porém, o conteúdo é diferente retornando o cálculo da área do círculo (3.14 * raio * raio).
 
+```java
+          public class Quadrado extends FormasGeometricas{
+            double lado;
+
+            public Circulo(double lado){
+              this.lado = lado;
+            }
+
+            @Override
+            public double calcularArea(){
+              double area = 0;
+              area = lado * lado;
+              return area;
+            }
+          }
+```
+
+Acima, temos também a sobreposiçao do método **CalcularArea**, da classe `Quadrado`, onde o método possui a mesma assinatura de sua classe base, porém retornando o cáculo da área do quadrado `(lado * lado)`. Como podemos perceber em amabas as classes, sempre que um método é sobreposto, a palavra `@Override` aparece por cima do método, representando uma sobreposição.
+
 
 > Código Pragmático do tópico em (herancaPolimorfismo)
 
