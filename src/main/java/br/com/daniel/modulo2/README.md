@@ -485,6 +485,18 @@ Métodos abstratos são métodos que não possuem corpo, apenas assinatura e ess
 
 No exemplo acima, podemos observar a criação de um método abstrato `abstract void formaDeMover();` dentro de uma classe abstrata. Como afirmamos anteriormente, este método não possui conteúdo, mas deve obrigatoriamente ser implementado em suas subclasses com suas especificações. Neste Caso em específico, todos os animais possuem suas formas de se mover, implementando o conceito abstrato de "Se mover".
 
+### 4.2 - Classes Abstratas x Classes concretas
+
+<table>
+  <tbody>
+    <tr>
+      <th>Classe Abstratas</th>
+      <th>Classes Concretas</th>
+    </tr>
+
+  </tbody>
+</table>
+
 ## 📘 Tópico 5: Interfaces (O Contrato Absoluto)
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
