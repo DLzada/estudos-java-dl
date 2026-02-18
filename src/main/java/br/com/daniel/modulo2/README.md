@@ -494,8 +494,12 @@ No exemplo acima, podemos observar a criação de um método abstrato `abstract 
       <th>Classes Concretas</th>
     </tr>
     <tr>
-      <th><b>Não pode ser instanciada</b>, mas pode estabeler relação de <b>herança</b></th>
-      <th>Classes Concretas</th>
+      <td><b>Não pode ser instanciada</b>, mas pode estabeler relação de <b>herança</b>.</td>
+      <td>Pode ser <b>instanciada</b> e pode estabelecer relação de <b>herança</b>.</td>
+    </tr>
+    <tr>
+      <td>Pode receber métodos abstratos e métodos concretos (Com implementação).</td>
+      <td>Pode conter <b>apenas</b> métodos concretos, com implementação.</td>
     </tr>
 
   </tbody>
