@@ -453,6 +453,36 @@ Classes abstratas são classes genéricas que possuem um nível tão alto de abs
 ```
 No exemplo acima, podemos observar a criação de uma classe abstrata chamada "Animal", tendo uma relação de herança com as outras classes presentes no código. Sempre que queremos criar uma classe abstrata, devemos utilizar o comando `abstract class`, assim o java compreenderá que aquele elemento é uma classe abstrata, que pode ser herdada por outras classes concretas, mas jamais instanciada.
 
+### 4.1 - Métodos Abstratas
+Métodos abstratos são métodos que não possuem corpo, apenas assinatura e esses métodos devem ser obrigatoriamente implementados dentro de suas classes filhas com o objetivo de definir o comportamento específico de cada uma, Exemplo:
+
+```java
+          public abstract class Animal{
+            abstract void formaDeMover();
+          }
+
+          public class Baleia extends Animal{
+            @Override
+            public void formaDeMover(){
+              System.out.println("Nadando");
+            }
+          }
+
+          public class Cachorro extends Animal{
+            @Override
+            public void formaDeMover(){
+              System.out.println("Andando");
+            }
+          }
+
+          public class Papagaio extends Animal{
+            @Override
+            public void formaDeMover(){
+              System.out.println("Voando");
+            }
+          }
+```
+
 ## 📘 Tópico 5: Interfaces (O Contrato Absoluto)
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
