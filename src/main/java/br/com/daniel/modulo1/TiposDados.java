@@ -7,8 +7,10 @@ public class TiposDados {
         // int idadeNula = null; // ERRO: Primitivo não aceita null.
         // Padrão de nomear variáveis -> camelCase
 
-         byte idade;
-         short ano;
+        // ====== Podemos criar mais de uma variavel apenas com uma declaraçao de tipo, só separar por vírgula  =======
+
+         byte idade, quantidadeDeDependentes;
+         short ano, mes, dia; 
          int quantidade;
          long numeroDeVendas;   
          float tamanho;
