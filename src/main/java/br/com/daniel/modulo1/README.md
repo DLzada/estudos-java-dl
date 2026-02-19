@@ -26,7 +26,7 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
 
 * **Wrappers (Integer, Double, Boolean):** São Classes (Objetos). Armazenam uma referência na Stack que aponta para um objeto na Heap. Podem ser null.
 
-**Tipos Primitivos**
+### **Tipos Primitivos:**
 
 <table>
   <tbody>
@@ -37,6 +37,18 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
     <tr>
       <td><b>byte</b></td>
       <td>8 bits - Armazenam números inteiros de -128 à 127</td>
+    </tr>
+    <tr>
+      <td><b>short</b></td>
+      <td>16 bits - Armazenam números inteiros de -32.768 à 32.767</td>
+    </tr>
+    <tr>
+      <td><b>int</b></td>
+      <td>32 bits - Armazenam números inteiros de -2.147.483.648 à 2.147.483.647</td>
+    </tr>
+    <tr>
+      <td><b>long</b></td>
+      <td>32 bits - Armazenam números inteiros de -2^63 à 2^63</td>
     </tr>
   </tbody>
 </table>
