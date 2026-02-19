@@ -53,6 +53,48 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
   </tbody>
 </table>
 
+
+### Palavras Reservadas Java (Nao nomear nada com elas): 
+
+<table border="1" style="width:100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 10px;">Categoria</th>
+      <th style="padding: 10px;">Palavras-Chave</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px;"><strong>Tipos Primitivos</strong></td>
+      <td style="padding: 10px;">boolean, byte, char, double, float, int, long, short</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;"><strong>Controle de Fluxo</strong></td>
+      <td style="padding: 10px;">break, case, continue, default, do, else, for, if, return, switch, while</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;"><strong>Tratamento de Erros</strong></td>
+      <td style="padding: 10px;">assert, catch, finally, throw, throws, try</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;"><strong>Modificadores</strong></td>
+      <td style="padding: 10px;">abstract, final, native, private, protected, public, static, strictfp, synchronized, transient, volatile</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;"><strong>Definições/Estrutura</strong></td>
+      <td style="padding: 10px;">class, enum, extends, implements, import, interface, package, super, this, void</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;"><strong>Outros / Literais</strong></td>
+      <td style="padding: 10px;">instanceof, new, true, false, null</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;"><strong>Não Utilizadas (Reservadas)</strong></td>
+      <td style="padding: 10px;">const, goto</td>
+    </tr>
+  </tbody>
+</table>
+
 > Código Pragmático do tópico em (TiposDados.java)
 
 ---
