@@ -58,7 +58,7 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
 
 <table >
   <thead>
-    <tr style="background-color: #f2f2f2;">
+    <tr>
       <th style="padding: 10px;">Categoria</th>
       <th style="padding: 10px;">Palavras-Chave</th>
     </tr>
@@ -89,8 +89,8 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
       <td style="padding: 10px;">instanceof, new, true, false, null</td>
     </tr>
     <tr>
-      <td style="padding: 10px;"><strong>Não Utilizadas (Reservadas)</strong></td>
-      <td style="padding: 10px;">const, goto</td>
+      <td><strong>Não Utilizadas (Reservadas)</strong></td>
+      <td>const, goto</td>
     </tr>
   </tbody>
 </table>
