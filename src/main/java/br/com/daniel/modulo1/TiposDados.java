@@ -2,9 +2,24 @@ package br.com.daniel.modulo1;
 
 public class TiposDados {
     public static void main(String[] args) {
+
         // --- PRIMITIVOS (Performance e Segurança) ---
-        int idadePrimitiva = 25;
         // int idadeNula = null; // ERRO: Primitivo não aceita null.
+        // Padrão de nomear variáveis -> camelCase
+
+         byte idade;
+         short ano;
+         int quantidade;
+         long numeroDeVendas;   
+
+         float tamanho;
+         double valor;
+
+         boolean ativo;
+
+         char sexo;
+
+        
         
         // --- WRAPPERS (Flexibilidade e Null) ---
         Integer idadeWrapper = 25; // Autoboxing (Java converte int para Integer sozinho)
