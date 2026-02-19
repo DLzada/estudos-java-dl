@@ -1,6 +1,6 @@
 package br.com.daniel.modulo2.herancaEPolimofismo.sistemaEmpresa;
 
-public class Manager extends Employee{
+public non-sealed class Manager extends Employee{
     private  String Login;
     private String password;
     private String commission;

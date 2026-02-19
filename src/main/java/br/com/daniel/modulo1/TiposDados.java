@@ -1,6 +1,6 @@
 package br.com.daniel.modulo1;
 
-public class TiposMemoria{
+public class TiposDados {
     public static void main(String[] args) {
         // --- PRIMITIVOS (Performance e Segurança) ---
         int idadePrimitiva = 25;

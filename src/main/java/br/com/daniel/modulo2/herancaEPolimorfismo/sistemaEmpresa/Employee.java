@@ -1,6 +1,6 @@
 package br.com.daniel.modulo2.herancaEPolimofismo.sistemaEmpresa;
 
-public class Employee {
+public sealed abstract class Employee permits Manager, Salesman {
 
     private String code;
     private String name;
