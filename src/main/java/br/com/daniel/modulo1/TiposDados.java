@@ -9,14 +9,14 @@ public class TiposDados {
 
         // ====== Podemos criar mais de uma variavel apenas com uma declaraçao de tipo, só separar por vírgula  =======
 
-         byte idade, quantidadeDeDependentes;
-         short ano, mes, dia; 
-         int quantidade;
-         long numeroDeVendas;   
-         float tamanho;
-         double valor;
-         boolean ativo;
-         char sexo;     
+         byte idade = 22, quantidadeDeDependentes = 6;
+         short ano = 2026, mes = 12, dia = 12; 
+         int quantidade = 77;
+         long numeroDeVendas = 313;   
+         float tamanho = 1.78f;
+         double valor = 19.99;
+         boolean ativo = true;
+         char sexo = 'M';     
         
         // --- WRAPPERS (Flexibilidade e Null) ---
         String nome;
