@@ -53,7 +53,7 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
   </tbody>
 </table>
 
-> Código Pragmático do tópico em (TiposMemoria.java)
+> Código Pragmático do tópico em (TiposDados.java)
 
 ---
 

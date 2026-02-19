@@ -11,17 +11,14 @@ public class TiposDados {
          short ano;
          int quantidade;
          long numeroDeVendas;   
-
          float tamanho;
          double valor;
-
          boolean ativo;
-
-         char sexo;
-
-        
+         char sexo;     
         
         // --- WRAPPERS (Flexibilidade e Null) ---
+        String nome;
+
         Integer idadeWrapper = 25; // Autoboxing (Java converte int para Integer sozinho)
         Integer idadeNula = null;  // Permitido. Usado em Bancos de Dados quando o campo é opcional.
 
