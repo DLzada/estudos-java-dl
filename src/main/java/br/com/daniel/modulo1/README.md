@@ -56,7 +56,7 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
 
 ### Palavras Reservadas Java (Nao nomear nada com elas): 
 
-<table border="1" style="width:100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
+<table >
   <thead>
     <tr style="background-color: #f2f2f2;">
       <th style="padding: 10px;">Categoria</th>
