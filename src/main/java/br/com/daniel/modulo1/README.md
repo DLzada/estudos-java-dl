@@ -26,6 +26,19 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
 
 * **Wrappers (Integer, Double, Boolean):** São Classes (Objetos). Armazenam uma referência na Stack que aponta para um objeto na Heap. Podem ser null.
 
+<table>
+  <tbody>
+    <tr>
+      <th>Tipos Primitivos</th>
+      <th>Sobre</th>
+    </tr>
+    <tr>
+      <td><b>byte</b></td>
+      <td>8 bits - Armazenam números inteiros de -128 à 127</td>
+    </tr>
+  </tbody>
+</table>
+
 > Código Pragmático do tópico em (TiposMemoria.java)
 
 ---
