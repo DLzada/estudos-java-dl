@@ -117,6 +117,51 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 
 > Código Pragmático (ArraysLoop.java)
 
+## Operadores de comparação 
+
+<table>
+  <tbody>
+    <tr>
+      <th>Operador</th>
+      <th>Siginificado</th>
+      <th>Exemplo</th>
+    </tr>
+    <tr>
+      <td>==</td>
+      <td>Igual</td>
+      <td>x == y</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>Diferente</td>
+      <td>x != y</td>
+    </tr>
+    <tr>
+      <td>></td>
+      <td>Maior que</td>
+      <td>x > y</td>
+    </tr>
+    <tr>
+      <td><</td>
+      <td>Menor que</td>
+      <td>x < y</td>
+    </tr>
+    <tr>
+      <td>>=</td>
+      <td>Maior ou igual que</td>
+      <td>x >= y</td>
+    </tr>
+    <tr>
+      <td><=</td>
+      <td>Menor ou igual que</td>
+      <td>x <= y</td>
+    </tr>
+
+  </tbody>
+</table>
+
+---
+
 ## Comparando dados
 
 ### Tabela Verdade 1
