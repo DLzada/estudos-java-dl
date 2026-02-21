@@ -119,7 +119,7 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 
 ---
 
-## Operadores de comparação 
+### Operadores de comparação 
 
 <table>
   <tbody>
@@ -162,7 +162,7 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   </tbody>
 </table>
 
-## Operadores Lógicos
+### Operadores Lógicos
 
 <table>
   <tbody>
@@ -204,7 +204,20 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   </tbody>
 </table>
 
-## Comparando dados
+### Fluxo de controle (If)
+
+```java
+      public class Main{
+        public static void main(String[] args){
+            var a = true;
+            if(a == true){
+              System.out.println(a)
+            }
+        }
+      }
+```
+
+### Comparando dados
 
 ### Tabela Verdade 1
 
