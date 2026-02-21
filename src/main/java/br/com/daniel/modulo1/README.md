@@ -204,18 +204,24 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   </tbody>
 </table>
 
-### Fluxo de controle (If)
+### Fluxo de controle (If - else - else if)
+> Verifica a idade com as seguintes condições
 
 ```java
       public class Main{
         public static void main(String[] args){
-            var a = true;
-            if(a == true){
-              System.out.println(a)
+            int idade = 17;
+            if(idade >= 18){
+              System.out.println("Acesso liberado")
+            } else if(idade == 17){
+              System.out.println("Só pode entrar com um responsável!")
+            } else{
+              System.out.println("Nao pode entrar")
             }
         }
       }
 ```
+
 
 ### Comparando dados
 
