@@ -194,6 +194,13 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
       <td>true</td>
       <td>true</td>
     </tr>
+    <tr>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+      <td>true</td>
+    </tr>
   </tbody>
 </table>
 
