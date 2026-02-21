@@ -162,6 +162,27 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   </tbody>
 </table>
 
+## Operadores Lógicos
+
+<table>
+  <tbody>
+    <tr>
+      <th>X</th>
+      <th>Y</th>
+      <th>X && Y </th>
+      <th>X || Y</th>
+      <th>!X</th>
+    </tr>
+    <tr>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Comparando dados
 
 ### Tabela Verdade 1
