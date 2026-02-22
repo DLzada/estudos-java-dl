@@ -222,6 +222,27 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
       }
 ```
 
+> Verificando com If e else:
+
+```java
+      public class Main{
+        public static void main(String[] args){
+            float provaSemestral = 7, tcc = 8, av1 = 10, av2 = 8;
+            double notaFinal = provaSemestral * 0.5 + tcc * 0.3 ((av1 + av2) / 2) * 0.2;
+
+            System.out.println("A nota final é: " + notaFinal);
+
+            if(mediaFinal >= 6){
+              System.out.println("Aprovado")
+            } else if(mediaFinal >= 3){
+              System.out.println("Está na recuperação")
+            } else{
+              System.out.println("Reprovado")
+            }
+        }
+      }
+```
+
 
 ### Comparando dados
 
