@@ -228,9 +228,9 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
       public class Main{
         public static void main(String[] args){
             float provaSemestral = 7, tcc = 8, av1 = 10, av2 = 8;
-            double notaFinal = provaSemestral * 0.5 + tcc * 0.3 ((av1 + av2) / 2) * 0.2;
+            double mediaFinal = provaSemestral * 0.5 + tcc * 0.3 ((av1 + av2) / 2) * 0.2;
 
-            System.out.println("A nota final é: " + notaFinal);
+            System.out.println("A media final é: " + mediaFinal);
 
             if(mediaFinal >= 6){
               System.out.println("Aprovado")
@@ -242,7 +242,42 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
         }
       }
 ```
+---
 
+> Recebendo valores de entrada:
+ 
+```java
+import java.util.Scanner;
+
+      public class Main{
+        public static void main(String[] args){
+            Scanner entrada = new Scanner(System.in); // Inicializa o Scanner
+
+            System.out.println("Informe a nota da prova semestral: ")
+            float provaSemestral = entrada.nextFloat();
+
+            System.out.println("Informe a nota do seu TCC: ")
+            float tcc = entrada.nextFloat();
+
+            System.out.println("Informe a nota da Avaliação 1: ")
+            float av1 = entrada.nextFloat();
+
+            System.out.println("Informe a nota da Avaliação 2: ")
+            float av2 = entrada.nextFloat();
+
+            double mediaFinal = provaSemestral * 0.5 + tcc * 0.3 ((av1 + av2) / 2) * 0.2;
+            System.out.println("A media final é: " + medialFinal);
+
+            if(mediaFinal >= 6){
+              System.out.println("Aprovado")
+            } else if(mediaFinal >= 3){
+              System.out.println("Está na recuperação")
+            } else{
+              System.out.println("Reprovado")
+            }
+        }
+      }
+```
 
 ### Comparando dados
 
