@@ -368,7 +368,19 @@ import java.util.Scanner;
 ```java
     public class Main{
         public static void main(String[] args){
-            //int valor1 = 12; Cometário de linha "//"
+            //inpultando a primeira nota
+            int nota1 = 8;
+
+            //inpultando a segunda nota
+            int nota2 = 5;
+
+            //Impultando a quantidade de notas
+            var qantNotas = 2;
+
+            //Calculando a media das notas 
+            double media = (nota1 + nota2)/ quantNotas;
+
+            System.out.println("A média é: " + media);
         }
       }
 ```
