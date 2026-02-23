@@ -328,17 +328,36 @@ import java.util.Scanner;
                                           );
             int opcao = leitor.nextInt();
             //Com If e else
-            if(opcao == 1){
-                System.out.println(opcao + " - Pesquisar Usuário");
-            } else if(opcao == 2){
-                System.out.println(opcao + " - Cadastrar Usuário");
-            } else if(opcao == 3){
-                System.out.println(opcao + " - Abrir pedido");
-            } else if(opcao == 4){
-                System.out.println(opcao + " - Fechar pedido");
-            } else{
-                System.out.println("Opção inválida");
-            }
+            /*
+            *if(opcao == 1){
+            *    System.out.println(opcao + " - Pesquisar Usuário");
+            *} else if(opcao == 2){
+            *    System.out.println(opcao + " - Cadastrar Usuário");
+            *} else if(opcao == 3){
+            *    System.out.println(opcao + " - Abrir pedido");
+            *} else if(opcao == 4){
+            *    System.out.println(opcao + " - Fechar pedido");
+            *} else{
+            *    System.out.println("Opção inválida");
+            *}
+
+            //Com Switch case
+            swich (opcao){
+                case 1:
+                  System.out.println(opcao + " - Pesquisar Usuário");
+                  break;
+                case 2:
+                  System.out.println(opcao + " - Cadastrar Usuário");
+                  break;
+                case 3:
+                  System.out.println(opcao + " - Abrir pedido");
+                  break;
+                case 4:
+                  System.out.println(opcao + " - Fechar pedido");
+                  break;
+                default:
+                  System.out.println(opcao + " - Opcao Invalida")
+            }  
         }
       }
 ```
