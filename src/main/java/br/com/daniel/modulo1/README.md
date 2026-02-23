@@ -283,7 +283,7 @@ import java.util.Scanner;
 
 ### Operadores Ternários:
 
-> implemente um programa que recebe a quantidade de laranjas que o cliente deseja comprar e se o pagamento será por pix ou não (boolean).
+> Ex: Implemente um programa que recebe a quantidade de laranjas que o cliente deseja comprar e se o pagamento será por pix ou não (boolean).
 Caso a quantidade de laranjas seja menor do que 10, o valor de cada laranja será R$ 2,50. Caso seja maior ou igual a 10,o valor será R$ 2,00.Se o pagamento for por pix, será adicionado um desconto de 10%.
 
 
