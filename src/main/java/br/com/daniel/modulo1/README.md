@@ -535,6 +535,19 @@ Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do
 ### Aviso importante sobre loops:
 > Apesar de serem ferramentas poderosas, é necessário seguir algumas boas práticas ao utilizar as estruturas de repetição. Evitar loops infinitos é uma delas. Um loop infinito ocorre quando a condição de término nunca é alcançada, resultando em uma execução contínua do bloco de código, o que pode causar travamentos ou consumo excessivo de recursos. Outra recomendação é utilizar os comandos `break` e `continue` com moderação. O `break` interrompe o loop imediatamente, enquanto o `continue` faz com que a próxima iteração seja executada, pulando o código restante do ciclo atual. Embora úteis em certos cenários, o uso excessivo desses comandos pode prejudicar a legibilidade do código e dificultar sua manutenção.
 
+> 1. Break: O break encerra o loop imediatamente. Ele "quebra" a estrutura e pula para a primeira linha de código após o bloco de repetição.
+> Exemplo: Imagine que você está procurando um erro específico em um log de 1000 linhas. Assim que encontrar, não precisa ler o resto.
+
+```java
+  for (int i = 1; i <= 10; i++) {
+      if (i == 5) {
+          System.out.println("Achei o 5! Parando a busca...");
+          break; // Sai do loop completamente
+      }
+      System.out.println("Verificando número: " + i);
+  }
+```
+
 ---
 
 ### Comparando dados
