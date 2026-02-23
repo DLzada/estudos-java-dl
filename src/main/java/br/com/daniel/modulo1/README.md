@@ -309,6 +309,41 @@ import java.util.Scanner;
       }
 ```
 
+---
+
+###Switch case:
+
+```java
+import java.util.Scanner;
+
+      public class Main{
+        public static void main(String[] args){
+            Scanner leitor = new Scanner(System.in); // Inicializa o Scanner
+
+            System.out.println("Escolha: \n"
+                               + "1 - Pesquisar usuário \n"
+                               + "2 - Cadastrar usuário \n"
+                               + "3 - Abrir pedido \n"
+                               + "4 - Fechar pedido \n"      
+                                          );
+            int opcao = leitor.nextInt();
+            //Com If e else
+            if(opcao == 1){
+                System.out.println(opcao + " - Pesquisar Usuário");
+            } else if(opcao == 2){
+                System.out.println(opcao + " - Cadastrar Usuário");
+            } else if(opcao == 3){
+                System.out.println(opcao + " - Abrir pedido");
+            } else if(opcao == 4){
+                System.out.println(opcao + " - Fechar pedido");
+            } else{
+                System.out.println("Opção inválida");
+            }
+        }
+      }
+```
+
+
 ### Comparando dados
 
 ### Tabela Verdade 1
