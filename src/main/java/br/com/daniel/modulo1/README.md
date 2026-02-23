@@ -458,7 +458,7 @@ Por outro lado, o loop `while` é indicado quando não sabemos de antemão quant
       }
 ```
 
-> Exemplo 1:
+> Exemplo:
 ```java
       public class Main{
         public static void main(String[] args){
@@ -470,6 +470,26 @@ Por outro lado, o loop `while` é indicado quando não sabemos de antemão quant
         }
       }
 ```
+
+### Do While:
+A estrutura `do-while` funciona de maneira semelhante ao `while`, mas com uma diferença importante: ela garante que o bloco de código será executado pelo menos uma vez, pois a condição de verificação só ocorre após a execução do código. Essa peculiaridade é útil em situações onde é necessário executar uma ação antes de verificar se a condição de término foi atingida, como quando pedimos uma entrada de dados ao usuário e queremos garantir que ele sempre faça uma primeira tentativa.
+
+> Estrutura:
+```java
+      do{
+        //instruções
+      } while(<condição lógica>)
+```
+
+> Exemplo:
+```java
+      int i = 0;
+      do{
+        System.out.println(i)
+        i++;
+      } while(i <= 50);
+```
+
 ---
 
 ### Comparando dados
