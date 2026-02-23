@@ -394,7 +394,28 @@ As estruturas de repetição, conhecidas também como loops, são ferramentas es
 Em Java, as principais estruturas de repetição são: `for`, `while`, `do-while` e `for-each`. Cada uma delas tem características específicas e é mais adequada para determinados contextos. 
 
 **For**
+
 O loop `for` é amplamente utilizado quando o número de iterações é conhecido antecipadamente. Ele possui três componentes principais: inicialização, condição e incremento. Esse tipo de estrutura é ideal quando trabalhamos com intervalos definidos, como em contagens ou iterações sobre arrays com tamanho fixo.
+> Estrutura:
+```java
+        // Estrutura:
+        for(<inicializacao>; <condicao>; <incremento ou decremento>){
+          ...
+        }    
+```
+
+> Exemplo:
+```java
+        public class Main{
+        public static void main(String[] args){
+            // Exemplo
+            for(int i = 0; i < 50; i++){
+              System.out.println(i);
+            }
+        }
+      }  
+```
+
 
 ---
 
