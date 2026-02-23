@@ -446,8 +446,19 @@ O loop `for` é amplamente utilizado quando o número de iterações é conhecid
         }
 ```
 
-**While:**
+**While - Enquanto:**
 
+Por outro lado, o loop `while` é indicado quando não sabemos de antemão quantas vezes o código precisará ser repetido, mas temos uma condição que será verificada a cada ciclo. Enquanto essa condição for verdadeira, o bloco de código continuará sendo executado.
+> Um exemplo prático seria a leitura de dados em um sistema até que o usuário insira um comando específico para encerrar.
+
+> Estrutura:
+```java
+      while(<condição lógica>){
+      ...
+      }
+```
+
+> Exemplo 1: 
 ---
 
 ### Comparando dados
