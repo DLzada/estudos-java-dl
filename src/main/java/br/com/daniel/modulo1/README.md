@@ -386,6 +386,15 @@ import java.util.Scanner;
         }
       }
 ```
+---
+
+### Estruturas de repetição: 
+As estruturas de repetição, conhecidas também como loops, são ferramentas essenciais na programação em Java. Elas permitem que um bloco de código seja executado repetidamente enquanto uma condição é verdadeira. Essa funcionalidade é especialmente útil quando precisamos automatizar tarefas repetitivas, como iterar sobre coleções de dados ou realizar cálculos complexos em ciclos.
+
+Em Java, as principais estruturas de repetição são: `for`, `while`, `do-while` e `for-each`. Cada uma delas tem características específicas e é mais adequada para determinados contextos. 
+
+**For**
+O loop `for` é amplamente utilizado quando o número de iterações é conhecido antecipadamente. Ele possui três componentes principais: inicialização, condição e incremento. Esse tipo de estrutura é ideal quando trabalhamos com intervalos definidos, como em contagens ou iterações sobre arrays com tamanho fixo.
 
 ---
 
