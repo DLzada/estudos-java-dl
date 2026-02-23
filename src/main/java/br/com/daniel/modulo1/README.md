@@ -458,7 +458,18 @@ Por outro lado, o loop `while` é indicado quando não sabemos de antemão quant
       }
 ```
 
-> Exemplo 1: 
+> Exemplo 1:
+```java
+      public class Main{
+        public static void main(String[] args){
+          int i = 0;
+          while(i <= 50){
+            System.out.println(i);
+            i++;
+          }  
+        }
+      }
+```
 ---
 
 ### Comparando dados
