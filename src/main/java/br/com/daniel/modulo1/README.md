@@ -407,13 +407,13 @@ O loop `for` é amplamente utilizado quando o número de iterações é conhecid
 > Exemplo:
 ```java
         public class Main{
-        public static void main(String[] args){
-            // Exemplo
-            for(int i = 0; i < 50; i++){
-              System.out.println(i);
-            }
-        }
-      }  
+          public static void main(String[] args){
+              // Exemplo
+              for(int i = 0; i < 50; i++){
+                System.out.println(i);
+              }
+          }
+        }  
 ```
 
 
