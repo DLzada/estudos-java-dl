@@ -547,7 +547,16 @@ Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do
       System.out.println("Verificando número: " + i);
   }
 ```
-
+> 2. **Continue** : O continue pula a iteração atual. Ele ignora o que vem abaixo dele e volta para o topo do loop para a próxima rodada (ou para a verificação da condição).
+> Exemplo: Imprimir apenas números ímpares (pulando os pares).
+```java
+  for (int i = 1; i <= 10; i++) {
+      if (i % 2 == 0) {
+          continue; // Pula para o próximo 'i' sem executar o print abaixo
+      }
+      System.out.println("Número ímpar: " + i);
+  }
+```
 ---
 
 ### Comparando dados
