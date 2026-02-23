@@ -233,11 +233,11 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
             System.out.println("A media final é: " + mediaFinal);
 
             if(mediaFinal >= 6){
-              System.out.println("Aprovado")
+              System.out.println("Aprovado");
             } else if(mediaFinal >= 3){
-              System.out.println("Está na recuperação")
+              System.out.println("Está na recuperação");
             } else{
-              System.out.println("Reprovado")
+              System.out.println("Reprovado");
             }
         }
       }
@@ -253,27 +253,27 @@ import java.util.Scanner;
         public static void main(String[] args){
             Scanner entrada = new Scanner(System.in); // Inicializa o Scanner
 
-            System.out.println("Informe a nota da prova semestral: ")
+            System.out.println("Informe a nota da prova semestral: ");
             float provaSemestral = entrada.nextFloat();
 
-            System.out.println("Informe a nota do seu TCC: ")
+            System.out.println("Informe a nota do seu TCC: ");
             float tcc = entrada.nextFloat();
 
-            System.out.println("Informe a nota da Avaliação 1: ")
+            System.out.println("Informe a nota da Avaliação 1: ");
             float av1 = entrada.nextFloat();
 
-            System.out.println("Informe a nota da Avaliação 2: ")
+            System.out.println("Informe a nota da Avaliação 2: ");
             float av2 = entrada.nextFloat();
 
             double mediaFinal = provaSemestral * 0.5 + tcc * 0.3 ((av1 + av2) / 2) * 0.2;
             System.out.println("A media final é: " + medialFinal);
 
             if(mediaFinal >= 6){
-              System.out.println("Aprovado")
+              System.out.println("Aprovado");
             } else if(mediaFinal >= 3){
-              System.out.println("Está na recuperação")
+              System.out.println("Está na recuperação");
             } else{
-              System.out.println("Reprovado")
+              System.out.println("Reprovado");
             }
         }
       }
@@ -286,6 +286,21 @@ import java.util.Scanner;
 > Ex: Implemente um programa que recebe a quantidade de laranjas que o cliente deseja comprar e se o pagamento será por pix ou não (boolean).
 Caso a quantidade de laranjas seja menor do que 10, o valor de cada laranja será R$ 2,50. Caso seja maior ou igual a 10,o valor será R$ 2,00.Se o pagamento for por pix, será adicionado um desconto de 10%.
 
+```java
+import java.util.Scanner;
+
+      public class Main{
+        public static void main(String[] args){
+            Scanner entrada = new Scanner(System.in); // Inicializa o Scanner
+
+            System.out.println("Informe a quantidade de laranjas: ");
+            var laranjas = entrada.nextInt();
+
+            System.out.println("A forma de pagamento é PIX? (true ou false): ");
+            boolean pix = entrada.nextBoolean();
+        }
+      }
+```
 
 ### Comparando dados
 
