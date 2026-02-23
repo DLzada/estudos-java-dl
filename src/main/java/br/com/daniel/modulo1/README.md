@@ -377,7 +377,9 @@ import java.util.Scanner;
             //Impultando a quantidade de notas
             var qantNotas = 2;
 
-            //Calculando a media das notas 
+            /*
+              Para calcular a media eu soma as notas e divido pela quantidade de notas - Isto é um comentário de Bloco
+            */
             double media = (nota1 + nota2)/ quantNotas;
 
             System.out.println("A média é: " + media);
