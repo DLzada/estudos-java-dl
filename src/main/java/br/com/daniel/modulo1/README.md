@@ -516,6 +516,22 @@ Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do
   }
 ```
 
+> Exemplo 2 (soma de números):
+```java
+  public class Main {
+      public static void main(String[] args) {
+          int[] notas = {8, 9, 7, 10};
+          int soma = 0;
+  
+          for (int nota : notas) {
+              soma += nota;
+          }
+  
+          System.out.println("Soma total: " + soma);
+      }
+  }
+```
+
 ### Aviso importante sobre loops:
 > Apesar de serem ferramentas poderosas, é necessário seguir algumas boas práticas ao utilizar as estruturas de repetição. Evitar loops infinitos é uma delas. Um loop infinito ocorre quando a condição de término nunca é alcançada, resultando em uma execução contínua do bloco de código, o que pode causar travamentos ou consumo excessivo de recursos. Outra recomendação é utilizar os comandos `break` e `continue` com moderação. O `break` interrompe o loop imediatamente, enquanto o `continue` faz com que a próxima iteração seja executada, pulando o código restante do ciclo atual. Embora úteis em certos cenários, o uso excessivo desses comandos pode prejudicar a legibilidade do código e dificultar sua manutenção.
 
