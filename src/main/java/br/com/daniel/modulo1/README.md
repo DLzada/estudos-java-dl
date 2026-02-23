@@ -362,7 +362,18 @@ import java.util.Scanner;
         }
       }
 ```
+---
 
+### Cometários em Java:
+```java
+    public class Main{
+        public static void main(String[] args){
+            //int valor1 = 12; Cometário de linha "//"
+        }
+      }
+```
+
+---
 
 ### Comparando dados
 
