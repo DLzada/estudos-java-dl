@@ -495,6 +495,27 @@ A estrutura `do-while` funciona de maneira semelhante ao `while`, mas com uma di
 
 Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do `for` que é ideal para percorrer coleções, como arrays ou listas, sem a necessidade de controlar manualmente os índices. Ele permite iterar diretamente sobre os elementos da coleção, tornando o código mais limpo e fácil de entender. Ao utilizar o `for-each`, o desenvolvedor se livra da preocupação com detalhes de controle, como o tamanho da coleção ou o incremento de um contador, e foca diretamente no processamento dos dados.
 
+> Estrutura
+```java
+    for (Tipo item : colecao) {
+    // Código a ser executado com o 'item'
+    }
+```
+
+> Exemplo 1 (Array de Strings):
+```java
+  public class Main {
+      public static void main(String[] args) {
+          String[] tecnologias = {"Java", "Next.js", "Spring Boot", "Prisma"};
+  
+          System.out.println("Minha stack atual:");
+          for (String tech : tecnologias) {
+              System.out.println("- " + tech);
+          }
+      }
+  }
+```
+
 ### Aviso importante sobre loops:
 > Apesar de serem ferramentas poderosas, é necessário seguir algumas boas práticas ao utilizar as estruturas de repetição. Evitar loops infinitos é uma delas. Um loop infinito ocorre quando a condição de término nunca é alcançada, resultando em uma execução contínua do bloco de código, o que pode causar travamentos ou consumo excessivo de recursos. Outra recomendação é utilizar os comandos `break` e `continue` com moderação. O `break` interrompe o loop imediatamente, enquanto o `continue` faz com que a próxima iteração seja executada, pulando o código restante do ciclo atual. Embora úteis em certos cenários, o uso excessivo desses comandos pode prejudicar a legibilidade do código e dificultar sua manutenção.
 
