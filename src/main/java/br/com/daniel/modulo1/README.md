@@ -222,7 +222,7 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
       }
 ```
 
-> Verificando com If e else:
+> Verificando com If - else - else if:
 
 ```java
       public class Main{
