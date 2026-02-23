@@ -302,7 +302,7 @@ import java.util.Scanner;
             double valor = laranjas < 10 ? 2.5 : 2;
             double desconto = pix == true ? 0.9 : 1;
 
-            double valorFinal = valor * laranjas *desconto;
+            double valorFinal = valor * laranjas * desconto;
 
   	        System.out.println("Valor: " + valorFinal);
         }
