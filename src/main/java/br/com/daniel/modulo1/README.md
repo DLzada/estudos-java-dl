@@ -471,7 +471,7 @@ Por outro lado, o loop `while` é indicado quando não sabemos de antemão quant
       }
 ```
 
-### Do While:
+**Do While:**
 
 A estrutura `do-while` funciona de maneira semelhante ao `while`, mas com uma diferença importante: ela garante que o bloco de código será executado pelo menos uma vez, pois a condição de verificação só ocorre após a execução do código. Essa peculiaridade é útil em situações onde é necessário executar uma ação antes de verificar se a condição de término foi atingida, como quando pedimos uma entrada de dados ao usuário e queremos garantir que ele sempre faça uma primeira tentativa.
 
@@ -491,7 +491,7 @@ A estrutura `do-while` funciona de maneira semelhante ao `while`, mas com uma di
       } while(i <= 50);
 ```
 
-### For each:
+**For each:**
 
 Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do `for` que é ideal para percorrer coleções, como arrays ou listas, sem a necessidade de controlar manualmente os índices. Ele permite iterar diretamente sobre os elementos da coleção, tornando o código mais limpo e fácil de entender. Ao utilizar o `for-each`, o desenvolvedor se livra da preocupação com detalhes de controle, como o tamanho da coleção ou o incremento de um contador, e foca diretamente no processamento dos dados.
 
