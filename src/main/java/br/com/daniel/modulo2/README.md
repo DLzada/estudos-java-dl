@@ -547,3 +547,8 @@ O LocalDate é uma classe imutável que representa uma data sem fuso horário (f
         }
     }
 ```
+---
+
+## Local Date Time: 
+
+O LocalDateTime é uma classe imutável que representa a combinação de Data e Hora. É a escolha ideal quando você precisa registrar o momento exato de um evento (como o horário de uma venda ou a criação de um post).
