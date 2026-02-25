@@ -552,3 +552,37 @@ O LocalDate é uma classe imutável que representa uma data sem fuso horário (f
 ## Local Date Time: 
 
 O LocalDateTime é uma classe imutável que representa a combinação de Data e Hora. É a escolha ideal quando você precisa registrar o momento exato de um evento (como o horário de uma venda ou a criação de um post).
+**O que é?** Diferente do LocalDate, ele armazena a precisão do tempo.
+
+> Formato padrão: AAAA-MM-DDTHH:MM:SS.nnn (O 'T' separa a data da hora).
+
+```java
+    import java.time.LocalDateTime;
+    import java.time.format.DateTimeFormatter;
+    
+    public class EstudoLocalDateTime {
+        public static void main(String[] args) {
+            
+            // 1. Captura data e hora atual
+            LocalDateTime agora = LocalDateTime.now();
+            System.out.println("Agora: " + agora);
+    
+            // 2. Criando uma data e hora específica (Ex: 25/12/2026 às 20:30)
+            LocalDateTime natal = LocalDateTime.of(2026, 12, 25, 20, 30);
+            System.out.println("Natal: " + natal);
+    
+            // 3. Extraindo informações
+            System.out.println("Hora: " + agora.getHour());
+            System.out.println("Minuto: " + agora.getMinute());
+            System.out.println("Segundo: " + agora.getSecond());
+    
+            // 4. Manipulação (Retorna nova instância)
+            LocalDateTime daquiDuasHoras = agora.plusHours(2);
+            LocalDateTime semanaPassada = agora.minusWeeks(1);
+    
+            // 5. Formatação (Padrão Brasileiro)
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            System.out.println("Formatado: " + agora.format(formatador));
+        }
+    }
+```
