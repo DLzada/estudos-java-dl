@@ -509,3 +509,41 @@ No exemplo acima, podemos observar a criação de um método abstrato `abstract 
  Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
 > Código Pragmático (interfaces)
+
+---
+
+### LocalDate - Java:
+
+O LocalDate é uma classe imutável que representa uma data sem fuso horário (fuso horário zero/local) no formato ISO-8601 (AAAA-MM-DD).
+
+```java
+    import java.time.LocalDate;
+
+    public class Main {
+        public static void main(String[] args) {
+    
+            // Captura a data atual do sistema
+            LocalDate localDate = LocalDate.now();
+    
+            // Exibe a data completa (AAAA-MM-DD)
+            System.out.println(localDate);
+    
+            // Extraindo informações específicas da data
+            System.out.println("Dia da semana (nome): " + localDate.getDayOfWeek().name());
+            
+            // Dia da semana
+            System.out.println("Dia da semana (ordinal): " + localDate.getDayOfWeek().getValue());
+            
+            System.out.println("Mes (nome): " + localDate.getMonthValue());
+            System.out.println("Mes (ordinal): " + localDate.getMonth().name());
+            System.out.println("Ano: " + localDate.getYear());
+            
+            // Verificação de ano bissexto
+            System.out.println("Ano bissexto: " + localDate.isLeapYear());
+            
+            // Informações sobre a duração do período
+            System.out.println("Número de dias do mês: " + localDate.lengthOfMonth());
+            System.out.println("Número de dias do ano: " + localDate.lengthOfYear());
+        }
+    }
+```
