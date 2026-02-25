@@ -368,13 +368,13 @@ import java.util.Scanner;
 ```java
     public class Main{
         public static void main(String[] args){
-            //inpultando a primeira nota
+            //declarando a primeira nota
             int nota1 = 8;
 
-            //inpultando a segunda nota
+            //declarando a segunda nota
             int nota2 = 5;
 
-            //Impultando a quantidade de notas
+            //declarando a quantidade de notas
             var qantNotas = 2;
 
             /*
