@@ -572,7 +572,7 @@ Uma das grandes diferenças para as classes abstratas é que uma classe pode imp
 
 ```java
           public class Drone implements Voador, Eletronico {
-            // Deve implementar métodos de Voador E de Eletronico
+            // Deve implementar métodos de Voador e de Eletronico
           }
 ```
 
