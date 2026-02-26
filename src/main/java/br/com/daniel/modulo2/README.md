@@ -513,6 +513,34 @@ Interfaces são estruturas que definem um contrato de comportamento que as class
 * **Múltiplos Contratos:** Uma das maiores vantagens é que uma classe pode implementar **múltiplas interfaces**, superando a limitação da herança única do Java (onde só se pode herdar de uma classe pai).
 * **Base do Spring Boot:** Este conceito é crucial, pois o ecossistema Spring é quase inteiramente baseado em interfaces para permitir que diferentes componentes se comuniquem de forma desacoplada.
 
+**Exemplo:**
+```java
+          public interface Autenticavel {
+            void logar();
+          }
+
+          public class Usuario implements Autenticavel {
+            @Override
+            public void logar() {
+              System.out.println("Login efetuado com email e senha.");
+            }
+          }
+
+          public class Cliente implements Autenticavel {
+            @Override
+            public void logar() {
+              System.out.println("Login efetuado via Redes Sociais.");
+            }
+          }
+
+          public class Admin implements Autenticavel {
+            @Override
+            public void logar() {
+              System.out.println("Login efetuado via Biometria.");
+            }
+          }
+```
+
 > Código Pragmático (interfaces)
 
 ---
