@@ -541,6 +541,8 @@ Interfaces são estruturas que definem um contrato de comportamento que as class
           }
 ```
 
+> No exemplo acima, criamos a interface `Autenticavel`. Diferente da herança (extends), aqui utilizamos a palavra-chave `implements`. Isso indica que as classes Usuario, Cliente e Admin assinaram um contrato: todas elas garantem que possuem o método `logar()`, cada uma com sua própria lógica interna.
+
 > Código Pragmático (interfaces)
 
 ---
