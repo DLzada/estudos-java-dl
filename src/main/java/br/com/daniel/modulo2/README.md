@@ -506,7 +506,9 @@ No exemplo acima, podemos observar a criação de um método abstrato `abstract 
 </table>
 
 ## 📘 Tópico 5: Interfaces (O Contrato Absoluto)
- Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
+
+Interfaces são estruturas que definem um contrato de comportamento que as classes devem seguir. Elas são 100% abstratas (por padrão), o que significa que elas apenas dizem "o que" uma classe deve fazer, mas deixam para a classe a responsabilidade de decidir "como" fazer. Uma das maiores vantagens das interfaces é permitir que uma classe implemente múltiplos contratos, superando a limitação da herança única do Java.
+Isso é crucial. O Spring Boot é baseado em Interfaces. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
 
 > Código Pragmático (interfaces)
 
