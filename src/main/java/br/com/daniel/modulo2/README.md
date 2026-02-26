@@ -567,8 +567,14 @@ Assim como nas classes abstratas, os métodos em uma interface são, por defini�
 
 > No exemplo acima, qualquer classe que decidir ser um `Pagamento` é obrigada a implementar tanto o processamento quanto o estorno. Isso garante segurança ao código, pois você sabe que, independentemente do tipo de pagamento, esses métodos estarão lá.
 
-### 5.2 - Múltiplas Interfaces
+### 5.3 - Múltiplas Interfaces
 Uma das grandes diferenças para as classes abstratas é que uma classe pode implementar várias interfaces ao mesmo tempo, permitindo que um objeto tenha múltiplas capacidades.
+
+```java
+          public class Drone implements Voador, Eletronico {
+            // Deve implementar métodos de Voador E de Eletronico
+          }
+```
 
 > Código Pragmático (interfaces)
 
