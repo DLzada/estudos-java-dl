@@ -3,7 +3,7 @@
 ## 📘 Tópico 1: A "Máquina" (JVM e o Main)
 Em Java, tudo roda dentro de uma máquina virtual (JVM). O código começa sempre num método específico.
 
-* Conceito:
+Conceito:
 
 `public`: Visível para a JVM iniciar.
 
