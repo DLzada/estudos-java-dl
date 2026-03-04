@@ -11,6 +11,7 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
       > PascalCase: Primeira letra de cada palavra maiúscula
      
    * **Como Criar uma Classe:**
+      > Ex:
       ```java
          public class Contador{
             ...
@@ -506,6 +507,151 @@ No exemplo acima, podemos observar a criação de um método abstrato `abstract 
 </table>
 
 ## 📘 Tópico 5: Interfaces (O Contrato Absoluto)
- Isso é crucial. O Spring Boot é baseado em Interfaces. Uma interface diz O QUE fazer, não COMO. Classes podem implementar MÚLTIPLAS interfaces (mas só herdam de UMA classe).
+
+Interfaces são estruturas que definem um contrato de comportamento que as classes devem seguir. Elas são, por padrão, 100% abstratas, o que significa que elas apenas definem "o que" deve ser feito, deixando para a classe a responsabilidade de implementar o "como".
+
+### 5.1 - Diferenciais Estratégicos
+* **Múltiplos Contratos:** Uma das maiores vantagens é que uma classe pode implementar **múltiplas interfaces**, superando a limitação da herança única do Java (onde só se pode herdar de uma classe pai).
+* **Base do Spring Boot:** Este conceito é crucial, pois o ecossistema Spring é quase inteiramente baseado em interfaces para permitir que diferentes componentes se comuniquem de forma desacoplada.
+
+**Exemplo:**
+```java
+          public interface Autenticavel {
+            void logar();
+          }
+
+          public class Usuario implements Autenticavel {
+            @Override
+            public void logar() {
+              System.out.println("Login efetuado com email e senha.");
+            }
+          }
+
+          public class Cliente implements Autenticavel {
+            @Override
+            public void logar() {
+              System.out.println("Login efetuado via Redes Sociais.");
+            }
+          }
+
+          public class Admin implements Autenticavel {
+            @Override
+            public void logar() {
+              System.out.println("Login efetuado via Biometria.");
+            }
+          }
+```
+
+> No exemplo acima, criamos a interface `Autenticavel`. Diferente da herança (extends), aqui utilizamos a palavra-chave `implements`. Isso indica que as classes Usuario, Cliente e Admin assinaram um contrato: todas elas garantem que possuem o método `logar()`, cada uma com sua própria lógica interna.
+
+### 5.2 - Métodos em Interfaces
+Assim como nas classes abstratas, os métodos em uma interface são, por definição, abstratos. Eles não possuem corpo e servem como um guia obrigatório para as classes filhas.
+
+```java
+          public interface Pagamento {
+            void processar();
+            void estornar();
+          }
+
+          public class CartaoCredito implements Pagamento {
+            @Override
+            public void processar() {
+              System.out.println("Validando limite e capturando valor...");
+            }
+
+            @Override
+            public void estornar() {
+              System.out.println("Estornando valor na próxima fatura.");
+            }
+          }
+```
+
+> No exemplo acima, qualquer classe que decidir ser um `Pagamento` é obrigada a implementar tanto o processamento quanto o estorno. Isso garante segurança ao código, pois você sabe que, independentemente do tipo de pagamento, esses métodos estarão lá.
+
+### 5.3 - Múltiplas Interfaces
+Uma das grandes diferenças para as classes abstratas é que uma classe pode implementar várias interfaces ao mesmo tempo, permitindo que um objeto tenha múltiplas capacidades.
+
+```java
+          public class Drone implements Voador, Eletronico {
+            // Deve implementar métodos de Voador e de Eletronico
+          }
+```
 
 > Código Pragmático (interfaces)
+
+---
+
+### LocalDate - Java:
+
+O LocalDate é uma classe imutável que representa uma data sem fuso horário (fuso horário zero/local) no formato ISO-8601 (AAAA-MM-DD).
+
+```java
+    import java.time.LocalDate;
+
+    public class Main {
+        public static void main(String[] args) {
+    
+            // Captura a data atual do sistema
+            LocalDate localDate = LocalDate.now();
+    
+            // Exibe a data completa (AAAA-MM-DD)
+            System.out.println(localDate);
+    
+            // Extraindo informações específicas da data
+            System.out.println("Dia da semana (nome): " + localDate.getDayOfWeek().name());
+            
+            // Dia da semana
+            System.out.println("Dia da semana (ordinal): " + localDate.getDayOfWeek().getValue());
+            
+            System.out.println("Mes (nome): " + localDate.getMonthValue());
+            System.out.println("Mes (ordinal): " + localDate.getMonth().name());
+            System.out.println("Ano: " + localDate.getYear());
+            
+            // Verificação de ano bissexto
+            System.out.println("Ano bissexto: " + localDate.isLeapYear());
+            
+            // Informações sobre a duração do período
+            System.out.println("Número de dias do mês: " + localDate.lengthOfMonth());
+            System.out.println("Número de dias do ano: " + localDate.lengthOfYear());
+        }
+    }
+```
+---
+
+## Local Date Time: 
+
+O LocalDateTime é uma classe imutável que representa a combinação de Data e Hora. É a escolha ideal quando você precisa registrar o momento exato de um evento (como o horário de uma venda ou a criação de um post).
+**O que é?** Diferente do LocalDate, ele armazena a precisão do tempo.
+
+> Formato padrão: AAAA-MM-DDTHH:MM:SS.nnn (O 'T' separa a data da hora).
+
+```java
+    import java.time.LocalDateTime;
+    import java.time.format.DateTimeFormatter;
+    
+    public class EstudoLocalDateTime {
+        public static void main(String[] args) {
+            
+            // 1. Captura data e hora atual
+            LocalDateTime agora = LocalDateTime.now();
+            System.out.println("Agora: " + agora);
+    
+            // 2. Criando uma data e hora específica (Ex: 25/12/2026 às 20:30)
+            LocalDateTime natal = LocalDateTime.of(2026, 12, 25, 20, 30);
+            System.out.println("Natal: " + natal);
+    
+            // 3. Extraindo informações
+            System.out.println("Hora: " + agora.getHour());
+            System.out.println("Minuto: " + agora.getMinute());
+            System.out.println("Segundo: " + agora.getSecond());
+    
+            // 4. Manipulação (Retorna nova instância)
+            LocalDateTime daquiDuasHoras = agora.plusHours(2);
+            LocalDateTime semanaPassada = agora.minusWeeks(1);
+    
+            // 5. Formatação (Padrão Brasileiro)
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            System.out.println("Formatado: " + agora.format(formatador));
+        }
+    }
+```
