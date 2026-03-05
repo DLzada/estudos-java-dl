@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package br.com.daniel.produtos.model;
 
 import java.math.BigDecimal;
@@ -33,3 +34,9 @@ public class Produto {
 
     
 }
+=======
+package br.com.daniel.produtos.model;
+
+public class Produto {
+}
+>>>>>>> be6dbe98f636ec860a77ee88ff23e23f713edc0f
