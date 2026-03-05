@@ -1,4 +1,4 @@
-package br.com.daniel.produtos;
+package br.com.daniel.;
 import br.com.daniel.produtos.model.Categoria;
 import br.com.daniel.produtos.model.Produto;
 
@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
-        categoria.setId(1L).setNome("Eletronicos");
+        categoria.setId(1L);
+        categoria.setNome("Eletronicos");
 
         Produto produto = new Produto();
         produto.setId(1L)
