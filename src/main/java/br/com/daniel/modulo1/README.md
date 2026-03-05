@@ -311,7 +311,7 @@ import java.util.Scanner;
 
 ---
 
-###Switch case:
+### Switch case:
 
 ```java
 import java.util.Scanner;
