@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package br.com.daniel.produtos.model;
 
 import java.math.BigDecimal;
