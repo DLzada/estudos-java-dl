@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
-        categoria.setId("1l").setNome("Eletronicos");
+        categoria.setId(1L).setNome("Eletronicos");
 
         Produto produto = new Produto();
-        produto.setId(1l)
+        produto.setId(1L)
                 .setNome("Batedeira")
                 .setDescricao("Bate Bem")
                 .setCategoria(categoria)
