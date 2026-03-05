@@ -1,4 +1,4 @@
-package br.com.daniel.produtos.model;
+package br.com.daniel;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

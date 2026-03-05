@@ -1,4 +1,4 @@
-package br.com.daniel.produtos;
+package br.com.daniel.dl-produtos-java;
 import br.com.daniel.produtos.model.Categoria;
 import br.com.daniel.produtos.model.Produto;
 
