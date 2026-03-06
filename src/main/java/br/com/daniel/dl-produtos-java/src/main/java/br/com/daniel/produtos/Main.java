@@ -1,31 +1,45 @@
 package br.com.daniel.produtos;
+
 import br.com.daniel.produtos.model.Categoria;
 import br.com.daniel.produtos.repository.CategoriaCollectionRepository;
-import br.com.daniel.produtos.repository.ProdutoCollectionRepository;
-import br.com.daniel.produtos.model.Produto;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
+import br.com.daniel.produtos.view.Opcao;
+import br.com.daniel.produtos.view.CategoriaView;
+import br.com.daniel.produtos.view.OpcaoView;
 
 public class Main {
     public static void main(String[] args) {
-//        Categoria categoria = new Categoria();
-//        categoria.setNome("informatica");
-//
-//        Categoria categoriaSalva = CategoriaCollectionRepository.save(categoria);
-//
-//        System.out.println("Categoria:" + categoriaSalva);
+        Opcao opcao = null;
 
-        Produto produto = new Produto();
-        produto .setNome("Kindle")
-                .setDescricao("Somente Leitura")
-                .setCategoria(CategoriaCollectionRepository.findByNome("eletrônicos").get(0))
-                .setDataDeCadastro(LocalDateTime.now())
-                .setPreco(BigDecimal.valueOf(150));
+        do {
+            opcao = OpcaoView.select();
 
-        Produto produto1 = ProdutoCollectionRepository.save(produto);
+            switch (opcao) {
+                case CADASTRAR_CATEGORIA -> cadastrarCategoria();
+                case CADASTRAR_PRODUTO -> cadastrarProduto();
+                case CONSULTAR_PRODUTO_POR_ID -> consultarProdutoPorId();
+                case CONSULTAR_PRODUTO_POR_CATEGORIA -> consultarProdutoPorCategoria();
+                case ENCERRAR_SISTEMA -> encerrarSistema();
+            }
+        } while (opcao != Opcao.ENCERRAR_SISTEMA);
+    }
 
-        System.out.println("ID: " + produto1.getId() + " Produto: " + produto1.getNome());
+    private static void cadastrarCategoria() {
+        CategoriaView view = new CategoriaView();
+        Categoria categoria = view.form();
+        CategoriaCollectionRepository.save(categoria);
+        view.sucesso(categoria);
+    }
+
+    private static void cadastrarProduto() {
+    }
+
+    private static void consultarProdutoPorId() {
+    }
+
+    private static void consultarProdutoPorCategoria() {
+    }
+
+    private static void encerrarSistema(){
+        System.exit(0);
     }
 }
