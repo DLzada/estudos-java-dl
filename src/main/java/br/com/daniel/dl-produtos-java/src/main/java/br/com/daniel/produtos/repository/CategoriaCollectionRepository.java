@@ -12,9 +12,9 @@ public class CategoriaCollectionRepository {
     static {
         categorias = new Vector<>();
 
-        Categoria eletronicos = new Categoria("Eletronicos");
-        Categoria celulares = new Categoria("Celulares");
-        Categoria livros = new Categoria("Livros");
+        Categoria eletronicos = new Categoria(1L, "Eletrônicos");
+        Categoria celulares = new Categoria(2L,"Celulares");
+        Categoria livros = new Categoria(3L,"Livros");
 
         categorias.add(eletronicos);
         categorias.add(celulares);
