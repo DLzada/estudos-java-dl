@@ -1,24 +1,28 @@
 package br.com.daniel.produtos;
 import br.com.daniel.produtos.model.Categoria;
+import br.com.daniel.produtos.repository.CategoriaCollectionRepository;
 import br.com.daniel.produtos.model.Produto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
 public class Main {
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
-        categoria.setId(1L).setNome("Eletronicos");
+        categoria.setNome("informatica");
 
-        Produto produto = new Produto();
-        produto.setId(1L)
-                .setNome("Batedeira")
-                .setDescricao("Bate Bem")
-                .setCategoria(categoria)
-                .setDataDeCadastro(LocalDateTime.now())
-                .setPreco(BigDecimal.valueOf(150));
+//        Produto produto = new Produto();
+//        produto.setId(1L)
+//                .setNome("Batedeira")
+//                .setDescricao("Bate Bem")
+//                .setCategoria(categoria)
+//                .setDataDeCadastro(LocalDateTime.now())
+//                .setPreco(BigDecimal.valueOf(150));
 
-        System.out.println("Categoria:" + categoria);
-        System.out.println("Produto: " + produto);
+        Categoria categoriaSalva = CategoriaCollectionRepository.save(categoria);
+
+        System.out.println("Categoria:" + categoriaSalva);
+//        System.out.println("Produto: " + produto);
     }
 }
