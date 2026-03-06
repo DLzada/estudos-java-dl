@@ -2,6 +2,7 @@ package br.com.daniel.produtos.repository;
 
 import br.com.daniel.produtos.model.Categoria;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.Vector;
 
@@ -35,6 +36,17 @@ public class CategoriaCollectionRepository {
         return categorias.stream()
                 .filter(c->c.getNome().equalsIgnoreCase(nome))
                 .toList();
+    }
+
+    public static Categoria save(Categoria categoria){
+        if(!categorias.contains(categoria)){
+            categoria.setId((long)categorias.size() + 1);
+            categorias.add(categoria);
+            return categoria;
+        }else {
+            JOptionPane.showMessageDialog(null, "Ja existe uma categoria com o nome informado! ");
+            return null;
+        }
     }
 
 }
