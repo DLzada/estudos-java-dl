@@ -204,6 +204,8 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   </tbody>
 </table>
 
+---
+
 ### Fluxo de controle (If - else - else if)
 > Verifica a idade com as seguintes condições
 
@@ -595,3 +597,4 @@ Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do
 
   </tbody>
 </table>
+
