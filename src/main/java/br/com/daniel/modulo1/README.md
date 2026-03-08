@@ -162,6 +162,8 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   </tbody>
 </table>
 
+---
+
 ### Operadores Lógicos
 
 <table>
@@ -597,4 +599,5 @@ Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do
 
   </tbody>
 </table>
+
 
