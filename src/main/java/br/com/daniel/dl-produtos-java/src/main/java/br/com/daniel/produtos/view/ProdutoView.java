@@ -45,4 +45,12 @@ public class ProdutoView {
 
         return ret;
     }
+
+    public void sucesso(){
+        JOptionPane.showMessageDialog(null, "Produto salvo com sucesso!");
+    }
+
+    public void sucesso(Produto produto){
+        JOptionPane.showMessageDialog(null, "Produto "+ produto.getNome() + " salvo com sucesso!");
+    }
 }
