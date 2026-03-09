@@ -8,29 +8,30 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class ProdutoView {
-    public static Produto form() {
+    public static Produto form(Produto produto) {
 
         Categoria categoria = null;
         do{
-            categoria = CategoriaView.form();
+            categoria = CategoriaView.form(produto.getCategoria());
         }while (categoria==null);
+
 
         String nome = "";
         do{
-            nome = JOptionPane.showInputDialog(null, "Informe o nome do produto");
+            nome = JOptionPane.showInputDialog(null, "Informe o nome do produto", produto.getNome());
         }while (nome.equals(""));
 
 
         String descricao = "";
         do{
-            descricao = JOptionPane.showInputDialog(null, "Informe a descrição do produto");
+            descricao = JOptionPane.showInputDialog(null, "Informe a descrição do produto", produto.getDescricao());
         }while (descricao.equals(""));
 
 
         double preco = 0;
         do{
             try {
-                preco = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o preço do produto"));
+                preco = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o preço do produto", produto.getPreco()));
             }catch (Exception e){
               preco = 0;
             }
@@ -46,11 +47,11 @@ public class ProdutoView {
         return ret;
     }
 
-    public void sucesso(){
+    public static void sucesso(){
         JOptionPane.showMessageDialog(null, "Produto salvo com sucesso!");
     }
 
-    public void sucesso(Produto produto){
+    public static void sucesso(Produto produto){
         JOptionPane.showMessageDialog(null, "Produto "+ produto.getNome() + " salvo com sucesso!");
     }
 
@@ -70,5 +71,11 @@ public class ProdutoView {
 
         return ret;
         // @formatter:on
+    }
+
+    public static void update(Produto produto){
+        form(produto);
+        sucesso(produto);
+        show(produto);
     }
 }

@@ -33,7 +33,7 @@ public class Main {
 
     private static void cadastrarProduto() {
 
-        Produto produto = ProdutoView.form();
+        Produto produto = ProdutoView.form(produto);
         ProdutoCollectionRepository.save(produto);
         ProdutoView.sucesso();
     }

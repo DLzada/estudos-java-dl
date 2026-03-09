@@ -35,8 +35,8 @@ public class CategoriaView {
         JOptionPane.showMessageDialog(null, "Categoria "+ categoria.getNome() + "  foi salva com sucesso!");
     }
 
-    public static Categoria form(){
-        String nome = JOptionPane.showInputDialog(null, "Informe o nome da Categoria ");
+    public static Categoria form(CategoriaView categoria){
+        String nome = JOptionPane.showInputDialog(null, "Informe o nome da Categoria ", categoria.getNome());
         return new Categoria(nome);
     }
 }
