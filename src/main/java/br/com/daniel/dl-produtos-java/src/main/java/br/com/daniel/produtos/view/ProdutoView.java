@@ -2,40 +2,44 @@ package br.com.daniel.produtos.view;
 
 import br.com.daniel.produtos.model.Categoria;
 import br.com.daniel.produtos.model.Produto;
+import java.util.List;
 
 import javax.swing.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class ProdutoView {
+
     public static Produto form(Produto produto) {
+        if (produto == null) produto = new Produto();
 
         Categoria categoria = null;
-        do{
+        do {
             categoria = CategoriaView.form(produto.getCategoria());
-        }while (categoria==null);
-
+        } while (categoria == null);
 
         String nome = "";
-        do{
+        do {
             nome = JOptionPane.showInputDialog(null, "Informe o nome do produto", produto.getNome());
-        }while (nome.equals(""));
-
+            if (nome == null) return null;
+        } while (nome.trim().isEmpty());
 
         String descricao = "";
-        do{
+        do {
             descricao = JOptionPane.showInputDialog(null, "Informe a descrição do produto", produto.getDescricao());
-        }while (descricao.equals(""));
-
+            if (descricao == null) return null;
+        } while (descricao.trim().isEmpty());
 
         double preco = 0;
-        do{
+        do {
             try {
-                preco = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o preço do produto", produto.getPreco()));
-            }catch (Exception e){
-              preco = 0;
+                String inputPreco = JOptionPane.showInputDialog(null, "Informe o preço do produto", produto.getPreco());
+                if (inputPreco == null) return null;
+                preco = Double.parseDouble(inputPreco);
+            } catch (Exception e) {
+                preco = 0;
             }
-        }while (preco<=0);
+        } while (preco <= 0);
 
         Produto ret = new Produto();
         ret.setCategoria(categoria)
@@ -47,42 +51,52 @@ public class ProdutoView {
         return ret;
     }
 
-    public static void sucesso(){
+    public static void sucesso() {
         JOptionPane.showMessageDialog(null, "Produto salvo com sucesso!");
     }
 
-    public static void sucesso(Produto produto){
-        JOptionPane.showMessageDialog(null, "Produto "+ produto.getNome() + " salvo com sucesso!");
+    public static void sucesso(Produto produto) {
+        JOptionPane.showMessageDialog(null, "Produto " + produto.getNome() + " salvo com sucesso!");
     }
 
-    public static Produto select(Produto produto) {
-        // @formatter:off
-        Object[] opcoes = repository.findAll().toArray();
+    public static Produto select(List<Produto> produtos) {
+        if (produtos == null || produtos.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nenhum produto encontrado.");
+            return null;
+        }
 
-        Produto ret = (Produto) JOptionPane.showInputDialog(
+        Object[] opcoes = produtos.toArray();
+
+        return (Produto) JOptionPane.showInputDialog(
                 null,
-                "Selecione uma produto",
+                "Selecione um produto",
                 "Menu",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 opcoes,
-                produto
+                opcoes[0]
         );
-
-        return ret;
-        // @formatter:on
     }
 
-    public static void update(Produto produto){
-        form(produto);
-        sucesso(produto);
-        show(produto);
+    public static void update(Produto produto) {
+        Produto atualizado = form(produto);
+        if (atualizado != null) {
+            sucesso(atualizado);
+            show(atualizado);
+        }
     }
 
-    private static void show(Produto p){
-        System.out.println(p);
-
-        String textoFormatado = String.format("Produto: " + p.getNome() + System.lineSeparator() + " Descrição: " + p.getDescricao() + System.lineSeparator() + " Categoria: "  + p.getCategoria().toString() + System.lineSeparator() + " Preco: %,.2f ", p.getPreco);
+    private static void show(Produto p) {
+        String textoFormatado = String.format(
+                "Produto: %s%n" +
+                        "Descrição: %s%n" +
+                        "Categoria: %s%n" +
+                        "Preço: R$ %,.2f",
+                p.getNome(),
+                p.getDescricao(),
+                p.getCategoria() != null ? p.getCategoria().toString() : "N/A",
+                p.getPreco()
+        );
 
         JOptionPane.showMessageDialog(null, textoFormatado);
     }

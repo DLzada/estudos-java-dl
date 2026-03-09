@@ -1,7 +1,9 @@
 package br.com.daniel.produtos;
 
 import br.com.daniel.produtos.model.Categoria;
+import br.com.daniel.produtos.model.Produto;
 import br.com.daniel.produtos.repository.CategoriaCollectionRepository;
+import br.com.daniel.produtos.repository.ProdutoCollectionRepository;
 import br.com.daniel.produtos.view.Opcao;
 import br.com.daniel.produtos.view.CategoriaView;
 import br.com.daniel.produtos.view.OpcaoView;
@@ -14,6 +16,8 @@ public class Main {
         do {
             opcao = OpcaoView.select();
 
+            if (opcao == null) break;
+
             switch (opcao) {
                 case CADASTRAR_CATEGORIA -> cadastrarCategoria();
                 case CADASTRAR_PRODUTO -> cadastrarProduto();
@@ -25,23 +29,30 @@ public class Main {
     }
 
     private static void cadastrarCategoria() {
-        CategoriaView view = new CategoriaView();
-        Categoria categoria = view.form(new Categoria());
-        CategoriaCollectionRepository.save(categoria);
-        view.sucesso(categoria);
+        Categoria categoria = CategoriaView.form(new Categoria());
+
+        if (categoria != null) {
+            CategoriaCollectionRepository.save(categoria);
+            CategoriaView.sucesso(categoria);
+        }
     }
 
     private static void cadastrarProduto() {
 
         Produto produto = ProdutoView.form(new Produto());
-        ProdutoCollectionRepository.save(produto);
-        ProdutoView.sucesso(produto);
+
+        if (produto != null) {
+            ProdutoCollectionRepository.save(produto);
+            ProdutoView.sucesso(produto);
+        }
     }
 
     private static void consultarProdutoPorId() {
+
     }
 
     private static void consultarProdutoPorCategoria() {
+
     }
 
     private static void encerrarSistema(){
