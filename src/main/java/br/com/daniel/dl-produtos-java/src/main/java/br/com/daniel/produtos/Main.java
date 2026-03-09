@@ -5,6 +5,7 @@ import br.com.daniel.produtos.repository.CategoriaCollectionRepository;
 import br.com.daniel.produtos.view.Opcao;
 import br.com.daniel.produtos.view.CategoriaView;
 import br.com.daniel.produtos.view.OpcaoView;
+import br.com.daniel.produtos.view.ProdutoView;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,6 +32,10 @@ public class Main {
     }
 
     private static void cadastrarProduto() {
+
+        Produto produto = ProdutoView.form();
+        ProdutoCollectionRepository.save(produto);
+        ProdutoView.sucesso();
     }
 
     private static void consultarProdutoPorId() {
