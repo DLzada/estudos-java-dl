@@ -26,16 +26,16 @@ public class Main {
 
     private static void cadastrarCategoria() {
         CategoriaView view = new CategoriaView();
-        Categoria categoria = view.form();
+        Categoria categoria = view.form(new Categoria());
         CategoriaCollectionRepository.save(categoria);
         view.sucesso(categoria);
     }
 
     private static void cadastrarProduto() {
 
-        Produto produto = ProdutoView.form(produto);
+        Produto produto = ProdutoView.form(new Produto());
         ProdutoCollectionRepository.save(produto);
-        ProdutoView.sucesso();
+        ProdutoView.sucesso(produto);
     }
 
     private static void consultarProdutoPorId() {

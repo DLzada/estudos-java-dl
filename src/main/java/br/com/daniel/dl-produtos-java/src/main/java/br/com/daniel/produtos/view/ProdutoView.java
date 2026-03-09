@@ -78,4 +78,12 @@ public class ProdutoView {
         sucesso(produto);
         show(produto);
     }
+
+    private static void show(Produto p){
+        System.out.println(p);
+
+        String textoFormatado = String.format("Produto: " + p.getNome() + System.lineSeparator() + " Descrição: " + p.getDescricao() + System.lineSeparator() + " Categoria: "  + p.getCategoria().toString() + System.lineSeparator() + " Preco: %,.2f ", p.getPreco);
+
+        JOptionPane.showMessageDialog(null, textoFormatado);
+    }
 }
