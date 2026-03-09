@@ -53,4 +53,22 @@ public class ProdutoView {
     public void sucesso(Produto produto){
         JOptionPane.showMessageDialog(null, "Produto "+ produto.getNome() + " salvo com sucesso!");
     }
+
+    public static Produto select(Produto produto) {
+        // @formatter:off
+        Object[] opcoes = repository.findAll().toArray();
+
+        Produto ret = (Produto) JOptionPane.showInputDialog(
+                null,
+                "Selecione uma produto",
+                "Menu",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opcoes,
+                produto
+        );
+
+        return ret;
+        // @formatter:on
+    }
 }
