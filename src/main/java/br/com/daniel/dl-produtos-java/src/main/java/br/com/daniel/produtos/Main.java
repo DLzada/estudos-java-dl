@@ -47,13 +47,9 @@ public class Main {
         }
     }
 
-    private static void consultarProdutoPorId() {
+    private static void consultarProdutoPorId() {}
 
-    }
-
-    private static void consultarProdutoPorCategoria() {
-
-    }
+    private static void consultarProdutoPorCategoria() {}
 
     private static void encerrarSistema(){
         System.exit(0);
