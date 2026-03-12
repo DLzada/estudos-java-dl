@@ -54,7 +54,7 @@ Aqui é onde 90% dos erros de NullPointerException nascem.
 </table>
 
 
-### Palavras Reservadas Java (Nao nomear nada com elas): 
+### Palavras Reservadas Java (Não nomear nada com elas): 
 
 <table >
   <thead>
@@ -599,5 +599,6 @@ Outra estrutura amplamente usada é o `for-each`, uma variação simplificada do
 
   </tbody>
 </table>
+
 
 
