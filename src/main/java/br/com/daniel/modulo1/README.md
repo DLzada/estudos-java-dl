@@ -209,7 +209,7 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 ---
 
 ### Fluxo de controle (If - else - else if)
- Verifica a idade com as seguintes condições
+ > Verifica a idade com as seguintes condições
 
 ```java
       public class Main{
