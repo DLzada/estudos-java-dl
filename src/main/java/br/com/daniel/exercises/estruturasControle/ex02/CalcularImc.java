@@ -36,7 +36,7 @@ public class CalcularImc {
             System.out.println("Levemente acima do peso");
         } else if (imc < 35.0) {
             System.out.println("Obesidade Grau I");
-        } else if (imc < 40.0) {
+        } else if (imc < 39.9) {
             System.out.println("Obesidade Grau II (Severa)");
         } else {
             System.out.println("Obesidade III (Mórbida)");
