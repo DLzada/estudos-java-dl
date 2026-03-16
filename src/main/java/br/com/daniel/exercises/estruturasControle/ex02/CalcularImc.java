@@ -41,5 +41,7 @@ public class CalcularImc {
         } else {
             System.out.println("Obesidade III (Mórbida)");
         }
+
+        scanner.close();
     }
 }

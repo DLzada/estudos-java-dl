@@ -17,5 +17,6 @@ public class Tabuada {
             System.out.printf("%s x %s = %s \n", numero, i, resultado);
         }
 
+        scanner.close();
     }
 }
