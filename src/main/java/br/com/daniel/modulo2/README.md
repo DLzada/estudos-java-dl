@@ -86,6 +86,9 @@ Entenda a diferença entre a Planta (Classe) e a Casa Construída (Objeto).
 > Código Pragmático do tópico em (classesObjetos/Carro.java e TesteCarro.java)
 
 ### Classes seladas (Sealed Classes)
+
+* **Controle de Herança:** Impede que classes estranhas ou inesperadas estendam sua classe, mantendo o design da API coeso.
+
 > Exemplo de sintaxe
 
 ```java
