@@ -1,3 +1,5 @@
+package herancaPolimorfismo.ex01;
+
 public abstract class Ingresso {
     private String nomeFilme;
     private double valorBase;
