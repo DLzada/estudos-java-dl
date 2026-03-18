@@ -16,6 +16,12 @@ public class Main {
         de pessoas for maior que 3.
         */
 
+
+        Ingresso i1 = new MeiaEntrada("Batman", 40.0, false);
+        Ingresso i2 = new IngressoFamilia("Shrek 5", 30.0, true, 4);
+
+        System.out.println("Filme: " + i1.getInfoFilme() + " | Preço: R$" + i1.valorReal());
+        System.out.println("Filme: " + i2.getInfoFilme() + " | Preço (Família): R$" + i2.valorReal());
     }
 
 }
