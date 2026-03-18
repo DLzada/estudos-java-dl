@@ -3,8 +3,8 @@ package herancaPolimorfismo.ex02;
 public class Atendente extends Usuario{
     private double valorEmCaixa;
 
-    public Atendente(String nome, boolean administrador, String senha, String email, double valorEmCaixa) {
-        super(nome, administrador, senha, email);
+    public Atendente(String nome, String email, String senha) {
+        super(nome, email, senha, false);
         this.valorEmCaixa = 0.0;
     }
 

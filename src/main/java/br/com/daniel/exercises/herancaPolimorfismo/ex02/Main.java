@@ -33,5 +33,8 @@ public class Main {
 
         Gerente gerente1 = new Gerente("Gullit Junior", "gullitjunior2025@gmail.com", "gulli123");
         Vendedor vendedor1 = new Vendedor("Maria Cruz", "mariacruzsantos@gmail.com", "maris321");
+        Atendente atendente1 = new Atendente("Roger Guedes", "rogercorintiano@hotmail.com", "roger2021");
+
+
     }
 }
