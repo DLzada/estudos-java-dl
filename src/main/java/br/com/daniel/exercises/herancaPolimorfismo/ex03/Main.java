@@ -19,5 +19,18 @@ public class Main {
         e deve-se extrair as informações dele e usa-la no objeto que
         recebeu para setar as novas informações do relógio.
         */
+
+        Relogio relogioBrasileiro = new RelogioBrasileiro(20, 30, 0);
+        Relogio relogioAmericano = new RelogioAmericano(10, 15, 45);
+
+        System.out.println("Antes da sincronização:");
+        System.out.println("Brasil: " + relogioBrasileiro.getHoraFormatada());
+        System.out.println("EUA: " + relogioAmericano.getHoraFormatada());
+
+        relogioAmericano.sincronizar(relogioBrasileiro);
+
+        System.out.println("\nDepois da sincronização:");
+        System.out.println("Brasil: " + relogioBrasileiro.getHoraFormatada());
+        System.out.println("EUA: " + relogioAmericano.getHoraFormatada());
     }
 }

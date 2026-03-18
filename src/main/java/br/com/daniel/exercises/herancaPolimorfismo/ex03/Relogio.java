@@ -11,7 +11,7 @@ public abstract class Relogio {
         this.segundo = segundo;
     }
 
-    public abstract void sincronizar(Relogio outroRelogio)
+    public abstract void sincronizar(Relogio outroRelogio);
 
     public int getHora() {
         return hora;
