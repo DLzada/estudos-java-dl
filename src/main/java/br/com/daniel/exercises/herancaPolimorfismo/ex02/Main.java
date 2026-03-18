@@ -32,6 +32,6 @@ public class Main {
         */
 
         Gerente gerente1 = new Gerente("Gullit Junior", "gullitjunior2025@gmail.com", "gulli123");
-
+        Vendedor vendedor1 = new Vendedor("Maria Cruz", "mariacruzsantos@gmail.com", "maris321");
     }
 }

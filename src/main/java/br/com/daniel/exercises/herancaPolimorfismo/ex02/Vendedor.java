@@ -3,8 +3,8 @@ package herancaPolimorfismo.ex02;
 public class Vendedor extends Usuario{
     private int quantidadeVendas;
 
-    public Vendedor(String nome, boolean administrador, String senha, String email, int quantidadeVendas) {
-        super(nome, administrador, senha, email);
+    public Vendedor(String nome, String email, String senha, boolean administrador) {
+        super(nome, email, senha, administrador);
         this.quantidadeVendas = 0;
     }
 
