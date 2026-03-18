@@ -30,5 +30,8 @@ public class Main {
         Fechar o caixa, Realizar Login, Realizar logoff, alterar dados e
         alterar senha;
         */
+
+        Gerente gerente1 = new Gerente("Gullit Junior", "gullitjunior2025@gmail.com", "gulli123");
+
     }
 }

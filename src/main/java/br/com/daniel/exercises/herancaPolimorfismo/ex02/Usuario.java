@@ -6,11 +6,11 @@ public class Usuario {
     private String senha;
     private boolean administrador;
 
-    public Usuario(String nome, boolean administrador, String senha, String email) {
+    public Usuario(String nome, String email, String senha, boolean administrador) {
         this.nome = nome;
-        this.administrador = administrador;
         this.senha = senha;
         this.email = email;
+        this.administrador = administrador;
     }
 
     // Methods commom
