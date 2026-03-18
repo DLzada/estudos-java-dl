@@ -6,7 +6,7 @@ public class Gerente extends Usuario{
     }
 
     public void gerarRelatorioFinanceiro(){
-        System.out.println("Gerando relatoria completo do sistema);
+        System.out.println("Gerando relatoria completo do sistema");
     }
 
     public void consultarVendas(){
