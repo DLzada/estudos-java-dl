@@ -3,7 +3,7 @@ package interfaces.ex02;
 class RedesSociaisService implements ServicoNotificacao{
 
     @Override
-    public void enviarMensagens(String mensagem) {
-        System.out.println("Enviando mensagem para redes sociais... " + mensagem);
+    public void enviarMensagem(String mensagem) {
+        System.out.println("Redes Sociais: Enviando mensagem para redes sociais... " + mensagem);
     }
 }
