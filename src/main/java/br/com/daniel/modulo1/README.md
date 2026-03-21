@@ -121,13 +121,28 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 ### Principais métodos de **String**:
 * Manipulação e Informação:
   
-  * **length()** Retorna o número de caracteres na string.
-  * **charAt(int index)** Retorna o char em um índice específico (começando em 0). 
-  * **substring(int beginIndex, int endIndex)** Retorna uma nova string que é uma parte da original.  
-  * **concat(String str)** Concatena a string especificada ao final da string atual.
-  * **trim()** Remove espaços em branco do início e do fim da string.
-  * **strip()** (Java 11+) Semelhante ao trim(), mas suporta Unicode.
+  * **length()**: Retorna o número de caracteres na string.
+  * **charAt(int index)**: Retorna o char em um índice específico (começando em 0). 
+  * **substring(int beginIndex, int endIndex)**: Retorna uma nova string que é uma parte da original.  
+  * **concat(String str)**: Concatena a string especificada ao final da string atual.
+  * **trim()**: Remove espaços em branco do início e do fim da string.
+  * **strip()** (Java 11+): Semelhante ao trim(), mas suporta Unicode.
+ 
+* Comparação e Busca:
   
+  * equals(Object anObject): Compara o conteúdo das strings, retornando verdadeiro se forem iguais.
+  * equalsIgnoreCase(String anotherString): Compara strings ignorando diferenças entre maiúsculas e minúsculas.
+  * contains(CharSequence s): Verifica se a string contém a sequência informada.
+  * indexOf(String str): Retorna o índice da primeira ocorrência de uma substring.
+  * startsWith(String prefix): Verifica se a string começa com um determinado prefixo.
+  * endsWith(String suffix): Verifica se a string termina com um determinado sufixo.
+
+* Transformação:
+
+  * toUpperCase() / toLowerCase(): Converte a string para maiúsculas ou minúsculas.
+  * replace(char oldChar, char newChar): Substitui ocorrências de um caractere ou sequência por outra.
+  * split(String regex): Divide a string em um array de strings com base em uma expressão regular.
+  * valueOf(): Método estático que converte outros tipos de dados (int, long, etc.) para uma String.
 ---
 
 ### Operadores de comparação 
