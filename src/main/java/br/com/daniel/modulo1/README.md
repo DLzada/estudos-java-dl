@@ -170,10 +170,26 @@ public class BigDecimalExample {
 ### Enum
 > Em Java, enum (enumeração) é um tipo especial de classe usada para definir coleções fixas de constantes imutáveis (ex: dias da semana, status de pedido). Criado com a palavra-chave enum, ele aumenta a segurança de tipos, legibilidade e manutenibilidade do código, garantindo que apenas valores predefinidos sejam utilizados.
 
-**Constantes:** As instâncias são fixas, imutáveis e geralmente declaradas em MAIÚSCULAS.
-**Tipo de Classe:** Enums podem ter atributos, métodos e construtores (privados).
-**Herança:** Herdam implicitamente de java.lang.Enum, não podendo estender outras classes.
-**Métodos Integrados:** `values()` (retorna todas as constantes) e `valueOf()` (converte string para enum).
+* **Constantes:** As instâncias são fixas, imutáveis e geralmente declaradas em MAIÚSCULAS.
+* **Tipo de Classe:** Enums podem ter atributos, métodos e construtores (privados).
+* **Herança:** Herdam implicitamente de java.lang.Enum, não podendo estender outras classes.
+* **Métodos Integrados:** `values()` (retorna todas as constantes) e `valueOf()` (converte string para enum).
+
+> Ex:
+
+```java
+  // Declaração do Enum
+  public enum DiaSemana {
+      SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO, DOMINGO;
+  }
+  
+  // Uso no código
+  DiaSemana hoje = DiaSemana.SEGUNDA;
+  
+  if (hoje == DiaSemana.SEGUNDA) {
+      System.out.println("Começo da semana!");
+  }
+```
 
 ---
 ### Operadores de comparação 
