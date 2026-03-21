@@ -1,6 +1,6 @@
 ## Módulo 3 - Collections
 
-### Array e Listas
+### Array e Listas:
 
 Arrays (vetores) em Java possuem tamanho fixo e são ideais para dados estáticos, enquanto Listas (ArrayList) são redimensionáveis e flexíveis para dados dinâmicos. Ambos armazenam elementos sequenciais (iniciados em 0), mas listas oferecem métodos avançados (add, remove, size) e armazenam apenas objetos, enquanto arrays aceitam tipos primitivos.
 
@@ -30,3 +30,33 @@ Arrays (vetores) em Java possuem tamanho fixo e são ideais para dados estático
 * **get(index)**: Acessa um elemento.
 * **remove(index)**: Remove por posição.
 * **size()**: Retorna o tamanho atual.
+
+---
+
+### Set: 
+
+Um Set em Java é uma coleção da interface java.util.Set que não permite elementos duplicados e garante a unicidade, sendo ideal para conjuntos matemáticos ou coleções únicas. Diferente da List, não garante ordem específica (dependendo da implementação). As implementações principais são HashSet (rápido, sem ordem), LinkedHashSet (ordem de inserção) e TreeSet (ordenado naturalmente).
+
+* **Principais Características:**
+    * **Sem Duplicatas:** Tentar adicionar um elemento existente não altera o set.
+
+* **Implementações:**
+    * **HashSet:** Alta performance, ideal quando a ordem não importa.
+    * **LinkedHashSet:** Mantém a ordem em que os elementos foram inseridos.
+    * **TreeSet:** Ordena os elementos de forma crescente ou por um Comparator.
+    * **Métodos Comuns:** `add()`, `remove()`, `contains()`, `size()`, `isEmpty()`.
+
+
+* **Exemplo de Uso:**
+
+```java
+    Set<String> set = new HashSet<>();
+    set.add("Maçã");
+    set.add("Banana");
+    set.add("Maçã"); // Este será ignorado pois já existe
+    System.out.println(set); // Saída: [Banana, Maçã] (a ordem pode variar)
+```
+
+> Use Set quando precisar de exclusividade de elementos e performance de busca.
+---
+
