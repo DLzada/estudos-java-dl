@@ -145,6 +145,12 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
   * valueOf(): Método estático que converte outros tipos de dados (int, long, etc.) para uma String.
 ---
 
+### BibDecimal():
+
+> A classe BigDecimal do Java é essencial para aplicações que requerem alta precisão nos cálculos, como em contextos financeiros e científicos. Diferente dos tipos primitivos como double, BigDecimal evita imprecisões, oferecendo métodos específicos para operações aritméticas e modos de arredondamento configuráveis.
+
+---
+
 ### Operadores de comparação 
 
 <table>
