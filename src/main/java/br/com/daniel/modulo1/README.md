@@ -149,6 +149,22 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 
 > A classe BigDecimal do Java é essencial para aplicações que requerem alta precisão nos cálculos, como em contextos financeiros e científicos. Diferente dos tipos primitivos como double, BigDecimal evita imprecisões, oferecendo métodos específicos para operações aritméticas e modos de arredondamento configuráveis.
 
+```java
+import java.math.BigDecimal;
+
+public class BigDecimalExample {
+    public static void main(String[] args) {
+        BigDecimal value1 = new BigDecimal("100.25");
+        BigDecimal value2 = new BigDecimal("50.10");
+
+        BigDecimal sum = value1.add(value2);
+
+        System.out.println("Value 1: " + value1);
+        System.out.println("Value 2: " + value2);
+        System.out.println("Sum: " + sum);
+    }
+}
+```
 ---
 
 ### Operadores de comparação 
