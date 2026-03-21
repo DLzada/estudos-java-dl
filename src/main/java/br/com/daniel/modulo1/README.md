@@ -121,17 +121,12 @@ Diferente do JS/TS, Arrays em Java têm tamanho fixo. Nasceu com 5 posições, m
 ### Principais métodos de **String**:
 * Manipulação e Informação:
   
-  *length(): Retorna o número de caracteres na string.
-  
-  *charAt(int index): Retorna o char em um índice específico (começando em 0).
-  
-  *substring(int beginIndex, int endIndex): Retorna uma nova string que é uma parte da original.
-  
-  *concat(String str): Concatena a string especificada ao final da string atual.
-  
-  *trim(): Remove espaços em branco do início e do fim da string.
-  
-  *strip() (Java 11+): Semelhante ao trim(), mas suporta Unicode.
+  * length(): Retorna o número de caracteres na string.
+  * charAt(int index): Retorna o char em um índice específico (começando em 0). 
+  * substring(int beginIndex, int endIndex): Retorna uma nova string que é uma parte da original.  
+  * concat(String str): Concatena a string especificada ao final da string atual.
+  * trim(): Remove espaços em branco do início e do fim da string.
+  * strip() (Java 11+): Semelhante ao trim(), mas suporta Unicode.
   
 ---
 
