@@ -529,3 +529,40 @@ Diferença entre classes de tempo (Java 8+):
 * `LocalDateTime:` Data e hora juntos (ex: 2026-03-22T14:00).
 
 Para garantir o uso correto, importe: `import java.time.LocalTime;`
+
+---
+
+## LocalDateTime
+
+A classe LocalDateTime no Java (pacote java.time) representa uma data e hora (ano, mês, dia, hora, minuto, segundo) sem fuso horário. É imutável, thread-safe e parte da API de data e hora do Java 8+. Utilizada para representar horários locais, exibe no formato ISO-8601, ex: 2023-10-27T10:15:30.
+
+**Principais Funcionalidades:**
+* **Obter Agora:** `LocalDateTime.now();` obtém a data/hora atual do sistema.
+* **Criar Específico:** `LocalDateTime.of(2023, 10, 27, 10, 30);` cria uma instância com valores definidos.
+* **Manipulação:** Métodos `plusDays()`, `minusHours()`, withMonth()`, etc., para adicionar, subtrair ou definir campos.
+* **Formatação:** Usa-se DateTimeFormatter para converter para/de String.
+* **Extração:** Métodos `getYear()`, `getMonth()`, `getHour()` para acessar campos individuais. 
+
+**Exemplo de código:**
+```java
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Exemplo {
+    public static void main(String[] args) {
+        // Data e hora atual
+        LocalDateTime agora = LocalDateTime.now();
+        System.out.println("Agora: " + agora);
+
+        // Manipulação
+        LocalDateTime futuro = agora.plusDays(5).minusHours(2);
+        System.out.println("Futuro: " + futuro);
+
+        // Formatação
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        System.out.println("Formatado: " + agora.format(formatter));
+    }
+}
+```
+
+A LocalDateTime não armazena informações de fuso horário, focando apenas na representação da data/hora local.
