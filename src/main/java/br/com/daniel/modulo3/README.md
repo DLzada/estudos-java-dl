@@ -566,3 +566,78 @@ public class Exemplo {
 ```
 
 A LocalDateTime não armazena informações de fuso horário, focando apenas na representação da data/hora local.
+
+---
+## offSetTime
+
+A classe java.time.OffsetTime (introduzida no Java 8) é um objeto de data-hora imutável que representa uma hora (hora-minuto-segundo-nanosegundo) com um deslocamento (offset) em relação a UTC/Greenwich no sistema de calendário ISO-8601.
+
+**Características Principais**
+* **Imutável e Thread-Safe:** As instâncias não mudam após a criação, tornando-as seguras para uso em ambientes concorrentes.
+* **Precisão:** Armazena campos de tempo até a precisão de nanosegundos.
+* **Estrutura:** Representa uma hora, como `10:15:30+01:00`.
+* **Uso:** É ideal quando você precisa gravar uma hora específica em uma zona geográfica definida, mas não precisa de uma data completa (dia, mês, ano).
+
+* **Como usar OffsetTime**: A classe fornece métodos estáticos para criar instâncias, como `now()` ou `of()`.
+
+```java
+    import java.time.OffsetTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.LocalTime;
+
+public class ExemploOffsetTime {
+    public static void main(String[] args) {
+        // 1. Hora atual com o offset padrão
+        OffsetTime agora = OffsetTime.now();
+        System.out.println("Agora: " + agora);
+
+        // 2. Criar uma hora específica com offset (+02:00)
+        OffsetTime tempoEspecifico = OffsetTime.of(13, 45, 30, 0, ZoneOffset.ofHours(2));
+        System.out.println("Tempo específico: " + tempoEspecifico);
+
+        // 3. Converter para outra zona (ex: UTC)
+        OffsetTime emUTC = tempoEspecifico.withOffsetSameInstant(ZoneOffset.UTC);
+        System.out.println("Em UTC: " + emUTC);
+    }
+}
+```
+* **Metodos importantes**
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Método</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>now()</code></td>
+            <td>Obtém a hora atual com o deslocamento padrão do sistema.</td>
+        </tr>
+        <tr>
+            <td><code>of(int h, int m, int s, int ns, ZoneOffset offset)</code></td>
+            <td>Cria uma instância com valores específicos.</td>
+        </tr>
+        <tr>
+            <td><code>withOffsetSameInstant(ZoneOffset offset)</code></td>
+            <td>Retorna uma cópia com um novo offset, ajustando a hora para ser o mesmo instante.</td>
+        </tr>
+        <tr>
+            <td><code>getHour()</code>, <code>getMinute()</code></td>
+            <td>Obtém componentes específicos da hora.</td>
+        </tr>
+        <tr>
+            <td><code>plusHours(long hours)</code></td>
+            <td>Retorna uma cópia com horas adicionadas.</td>
+        </tr>
+    </tbody>
+</table>
+
+**Diferença de outras classes `java.time`:**
+* **LocalTime:** Sem fuso horário ou offset `(ex: 10:00)`.
+* **OffsetTime:** Hora com offset `(ex: 10:00+03:00)`.
+* **ZonedDateTime:** Data e hora completa com zona horária `(ex: 2023-10-05T10:00-03:00 America/Sao_Paulo)`.
+
+A classe OffsetTime é uma classe baseada em valor; instâncias iguais devem ser tratadas como intercambiáveis e não devem ser usadas para sincronização (bloqueios).
