@@ -460,3 +460,24 @@ A classe java.util.Date em Java representa um instante específico no tempo, com
     * **LocalTime:** Apenas hora.
     * **LocalDateTime:** Data e hora.
     * **DateTimeFormatter:** Para formatação e parsing (substitui o antigo SimpleDateFormat).
+
+
+## Classe Calendar
+
+A classe java.util.Calendar é uma classe abstrata utilizada para manipular datas e horas, permitindo converter instantes de tempo em campos como ano, mês, dia e hora. Como é abstrata, utiliza-se o método estático Calendar.getInstance() para obter uma instância atualizada. Ela é superior à classe Date por suportar internacionalização e fuso horário. 
+
+**Pontos Principais da Classe Calendar:**
+* **Instanciação:** Calendar cal = Calendar.getInstance();.
+**Campos Comuns:** Calendar.YEAR, Calendar.MONTH (0-11, janeiro é 0), Calendar.DAY_OF_MONTH, Calendar.HOUR_OF_DAY, Calendar.MINUTE, Calendar.SECOND.
+* **Manipulação:**
+  * **get(int field):** Obtém o valor de um campo.
+  * **set(int field, int value):** Define um valor para um campo.
+  * **add(int field, int amount):** Adiciona ou subtrai tempo (ex: cal.add(Calendar.DAY_OF_MONTH, 5) adiciona 5 dias).
+* **Conversão:** **cal.getTime()** retorna um objeto Date.
+
+* **Exemplo de Uso:**
+```java
+Calendar cal = Calendar.getInstance(); // Data/hora atual
+int ano = cal.get(Calendar.YEAR);
+cal.add(Calendar.MONTH, 1); // Adiciona um mês
+```
