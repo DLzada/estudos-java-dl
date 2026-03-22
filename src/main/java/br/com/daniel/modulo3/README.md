@@ -641,3 +641,46 @@ public class ExemploOffsetTime {
 * **ZonedDateTime:** Data e hora completa com zona horária `(ex: 2023-10-05T10:00-03:00 America/Sao_Paulo)`.
 
 A classe OffsetTime é uma classe baseada em valor; instâncias iguais devem ser tratadas como intercambiáveis e não devem ser usadas para sincronização (bloqueios).
+
+---
+
+## OffSetDateTime
+
+A classe java.time.OffsetDateTime (introduzida no Java 8) representa uma data e hora com precisão de nanossegundos e um deslocamento (offset) fixo em relação a UTC/Greenwich `(ex: 2023-10-27T10:15:30+02:00)`. É imutável, ideal para gravar dados com fuso horário exato, seguindo o padrão ISO-8601.
+
+**Principais Características:**
+* **Imutabilidade:** Métodos que modificam a data retornam uma nova instância.
+* **Pacote:** `java.time.OffsetDateTime`.
+* **Composição:** Combina `LocalDateTime` com `ZoneOffset`
+
+**Exemplos de uso:**
+* **1. Obter a data/hora atual (com offset local):**
+```java
+OffsetDateTime now = OffsetDateTime.now();
+System.out.println(now); // Ex: 2023-10-27T14:30:00-03:00
+```
+
+* **2. Obter em UTC:**
+```java
+OffsetDateTime utc = OffsetDateTime.now(ZoneOffset.UTC);
+System.out.println(utc); // Ex: 2023-10-27T17:30:00Z
+```
+
+* **3. Criar uma data específica:**
+```java
+LocalDateTime ldt = LocalDateTime.of(2023, 10, 27, 10, 0);
+ZoneOffset offset = ZoneOffset.of("-05:00");
+OffsetDateTime specific = OffsetDateTime.of(ldt, offset);
+```
+
+* **4. Formatação (ISO 8601):**
+```java
+String formatted = OffsetDateTime.now().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+```
+
+**Diferença para outras classes:**
+* **LocalDateTime**: Não tem fuso horário ou `offset`.
+* **OffsetDateTime**: Tem `data/hora` e `offset` fixo `(ex: +03:00)`.
+* **ZonedDateTime:** Tem data/hora e regras de fuso horário completo `(ex: America/Sao_Paulo)`, lidando com horário de verão.
+
+`OffsetDateTime` é geralmente recomendado para armazenamento de banco de dados e APIs, por ser mais simples que `ZonedDateTime`.
