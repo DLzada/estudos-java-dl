@@ -482,3 +482,26 @@ Calendar cal = Calendar.getInstance(); // Data/hora atual
 int ano = cal.get(Calendar.YEAR);
 cal.add(Calendar.MONTH, 1); // Adiciona um mês
 ```
+
+## LocalDate
+
+A classe LocalDate (pacote java.time, Java 8+) representa uma data imutável (ano, mês, dia) sem fuso horário, ideal para aniversários ou datas de calendário. Criada com LocalDate.now() ou of(), é a forma moderna e recomendada para manipulação segura de datas, substituindo java.util.Date.
+
+* **Principais Recursos e Exemplos:**
+    * **Importação:** `import java.time.LocalDate;`
+    * **Data Atual:** `LocalDate hoje = LocalDate.now();`
+    * **Criar Data Específica:** `LocalDate aniversario = LocalDate.of(2025, 10, 25);`
+
+* **Manipulação (Imutável):**
+   * `hoje.plusDays(5);` (Adiciona dias)
+   * `hoje.minusMonths(1);` (Subtrai meses)
+   * `hoje.withYear(2026);` (Altera o ano)
+  
+* **Obter Informações:**
+   * `hoje.getYear();` (Ano)
+   * `hoje.getMonthValue();` (Mês como número)
+   * `hoje.getDayOfWeek();` (Dia da semana)
+
+* Formatação: `hoje.format(DateTimeFormatter.ISO_DATE);`
+
+LocalDate é imutável, o que significa que métodos de manipulação retornam uma nova instância, garantindo thread-safety. 
