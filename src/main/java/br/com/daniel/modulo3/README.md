@@ -277,3 +277,33 @@ public class BigDecimalExample {
       System.out.println("Começo da semana!");
   }
 ```
+
+## Classe Optional
+
+A classe java.util.Optional<T (introduzida no Java 8) é um contêiner que pode ou não conter um valor não nulo, usada para evitar NullPointerException e tornar o código mais limpo e seguro. Ela indica explicitamente que um valor pode estar ausente, dispensando verificações manuais de null
+
+* **Principais métodos:**
+    * `Optional.of(valor)`: Cria um Optional com um valor não nulo.
+    * `Optional.ofNullable(valor)`: Cria um Optional que pode conter nulo.
+    * `isPresent()`: Retorna true se houver valor, false caso contrário.
+    * `ifPresent(Consumer)`: Executa uma ação se o valor estiver presente.
+    * `get()`: Retorna o valor, mas lança exceção se estiver vazio (use com cuidado).
+    * `orElse(padrao)`: Retorna o valor ou um padrão se vazio.
+    * `orElseGet(Supplier)`: Retorna o valor ou gera um padrão via Supplier.
+  
+
+* Exemplo:
+```java
+    import java.util.Optional;
+    
+    public class ExemploOptional {
+        public static void main(String[] args) {
+            String nome = null;
+            Optional<String> opt = Optional.ofNullable(nome);
+    
+            // Imprime "Visitante" se nome for null
+            System.out.println(opt.orElse("Visitante")); 
+        }
+    }
+
+```
