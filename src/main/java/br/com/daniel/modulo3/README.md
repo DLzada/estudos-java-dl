@@ -461,6 +461,7 @@ A classe java.util.Date em Java representa um instante específico no tempo, com
     * **LocalDateTime:** Data e hora.
     * **DateTimeFormatter:** Para formatação e parsing (substitui o antigo SimpleDateFormat).
 
+---
 
 ## Classe Calendar
 
