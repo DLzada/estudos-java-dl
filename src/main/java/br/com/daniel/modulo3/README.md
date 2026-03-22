@@ -307,3 +307,85 @@ A classe java.util.Optional<T (introduzida no Java 8) é um contêiner que pode 
     }
 
 ```
+
+## Stream API
+
+A Stream API foi introduzida no Java 8, em 2014, e trouxe consigo uma das maiores revoluções da linguagem: a capacidade de processar coleções de forma declarativa e fluida, usando expressões lambda e pipelines de dados. Em vez de escrever código dizendo “faça isso, depois aquilo”, você cria um fluxo de operações encadeadas como se estivesse montando uma linha de produção de dados. O resultado é um código menor, mais expressivo e mais próximo da lógica real do problema.
+
+* **Exemplo simples:** Digamos que queira filtrar uma lista de números, pegar apenas os pares e dobrar o valor de cada um.
+  * Jeito clássico:
+    * Modo tradicional (imperativo) 
+```java
+       List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6);
+       List<Integer> resultado = new ArrayList<>();
+        
+       for (Integer n : numeros) {
+       if (n % 2 == 0) {
+       resultado.add(n * 2);
+       }
+       }
+        
+       System.out.println(resultado);
+```
+
+  * O mesmo exemplo só que com Stream API:
+    * Modo funcional (declarativo) 
+```java
+      List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6);
+      List<Integer> resultado = numeros.stream()
+                                        .filter(n -> n % 2 == 0)
+                                        .map(n -> n * 2)
+                                        .toList();
+      System.out.println(resultado);
+```
+O mais fascinante da Stream API é que ela traz conceitos da programação funcional, um paradigma que valoriza funções puras, imutabilidade e processamento declarativo.
+Um bom exemplo é o trio filter-map-reduce, considerado o coração das Streams:
+
+```java
+    int soma = Arrays.asList(1, 2, 3, 4, 5, 6).stream()
+                  .filter(n -> n % 2 == 0)
+                  .map(n -> n * 2)
+                  .reduce(0, Integer::sum);
+    
+    System.out.println(soma); // Saída: 12
+```
+* Um bom poder real das Streams é quando precisa-se filtrar listas de objetos.
+  * Método convencional: 
+    ```java
+        List<Pessoa> maioresDeIdade = new ArrayList<>();
+        for (Pessoa p : pessoas) {
+            if (p.getIdade() >= 18) {
+                maioresDeIdade.add(p);
+            }
+        }
+    ```
+    
+  * Com Streams: 
+    ```java
+    List<Pessoa> maioresDeIdade = pessoas.stream()
+                                      .filter(p -> p.getIdade() >= 18)
+                                      .toList();
+    ```
+* Outro Exemplo, ordenamento dos nomes de forma alfabética:
+    ```java
+        List<String> nomes = pessoas.stream()
+                                .filter(p -> p.getIdade() >= 18)
+                                .map(Pessoa::getNome)
+                                .sorted()
+                                .toList();
+    ```
+  
+* **Stream Paralelas:**
+
+Outro ponto incrível da Stream API é o paralelismo simplificado. Basta trocar .stream() por .parallelStream(), e o Java distribui o trabalho entre múltiplos núcleos do processador.
+
+
+```java
+long count = lista.parallelStream()
+                .filter(n -> n > 100)
+                .count();
+```
+
+Esse tipo de processamento é extremamente útil em grandes volumes de dados, pois você consegue um ganho de performance sem precisar gerenciar threads manualmente.
+
+Mas é importante lembrar: o paralelismo nem sempre é vantajoso em listas pequenas, pois há custo de coordenação entre as threads. Saber quando usar é parte da maturidade com a API.
