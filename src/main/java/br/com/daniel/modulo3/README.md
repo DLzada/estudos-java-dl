@@ -405,4 +405,40 @@ Mas é importante lembrar: o paralelismo nem sempre é vantajoso em listas peque
     * `forEach(Consumer c)`: Executa uma ação para cada elemento (geralmente impressão).
     * `reduce(BinaryOperator b)`: Combina elementos em um único valor (soma, média, máx/min).
     * `count()`: Conta o número de elementos na stream.
-    * `anyMatch(Predicate p)` / `allMatch(Predicate p)`: Verifica se algum ou todos os elementos atendem a uma condição. 
+    * `anyMatch(Predicate p)` / `allMatch(Predicate p)`: Verifica se algum ou todos os elementos atendem a uma condição.
+
+--- 
+
+## Generics:
+
+Generics em Java, introduzidos no Java 5, permitem criar classes, interfaces e métodos que operam com tipos parametrizados, garantindo segurança de tipos (type safety) em tempo de compilação e eliminando a necessidade de casts explícitos. Eles tornam o código mais reutilizável e evitam erros comuns como ClassCastException em tempo de execução.
+
+* **Principais Benefícios e Características:**
+    * **Segurança de Tipo:** O compilador verifica se você está usando o tipo correto, evitando erros durante a execução, diz o Medium.
+    * **Reutilização de Código:** Permite escrever algoritmos que funcionam em diferentes tipos de dados.
+    * **Eliminação de Casting:** Reduz a necessidade de converter objetos manualmente, como explicado no YouTube.
+    * **Limitação:** Não funcionam com tipos primitivos (`int`, `char`, etc.), apenas objetos.
+  
+  * Exemplo Prático (Sintaxe <T>) A convenção utiliza letras maiúsculas como T (Type), E (Element), ou K/V (Key/Value).
+
+      ```java
+          // Classe Genérica
+          public class Caixa<T> {
+            private T conteudo;
+    
+            public void adicionar(T conteudo) {
+              this.conteudo = conteudo;
+            }
+    
+            public T obter() {
+              return conteudo;
+            }
+         }
+    
+        // Uso
+        Caixa<String> caixaDeTexto = new Caixa<>();
+        caixaDeTexto.adicionar("Olá, Generics!");
+        // caixaDeTexto.adicionar(10); // Erro de compilação: seguro!
+
+      ``` 
+---
