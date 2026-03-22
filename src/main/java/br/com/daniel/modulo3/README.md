@@ -442,3 +442,21 @@ Generics em Java, introduzidos no Java 5, permitem criar classes, interfaces e m
 
       ``` 
 ---
+
+## Classe Date
+
+A classe java.util.Date em Java representa um instante específico no tempo, com precisão de milissegundos, sendo usada para armazenar data e hora atuais através de new Date(). Embora funcional, muitos de seus métodos estão depreciados (obsoletos) desde o JDK 1.1, sendo recomendada a API java.time (Java 8+) para novas aplicações.
+
+* **Principais Características e Métodos (java.util.Date):**
+    * **Importação:** import java.util.Date;.
+    * **Data Atual:** Date agora = new Date(); - Cria um objeto com a data e hora do sistema.
+    * **Milissegundos:** Date(long ms) cria uma data baseada em milissegundos desde 1º de Janeiro de 1970.
+    * **getTime():** Retorna o número de milissegundos desde a época (1970).
+    * **before(Date when) / after(Date when):** Compara se a data é anterior ou posterior à outra.
+    * **equals(Object obj):** Verifica se duas datas são iguais.
+
+* **Alternativas Modernas (Java 8+):** Para manipulação de datas e horas mais robusta, internacionalizada e imutável, prefira:
+    * **LocalDate:** Apenas data (ano, mês, dia).
+    * **LocalTime:** Apenas hora.
+    * **LocalDateTime:** Data e hora.
+    * **DateTimeFormatter:** Para formatação e parsing (substitui o antigo SimpleDateFormat).
