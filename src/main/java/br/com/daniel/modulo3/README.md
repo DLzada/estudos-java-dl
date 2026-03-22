@@ -482,7 +482,7 @@ Calendar cal = Calendar.getInstance(); // Data/hora atual
 int ano = cal.get(Calendar.YEAR);
 cal.add(Calendar.MONTH, 1); // Adiciona um mês
 ```
-
+---
 ## LocalDate
 
 A classe LocalDate (pacote java.time, Java 8+) representa uma data imutável (ano, mês, dia) sem fuso horário, ideal para aniversários ou datas de calendário. Criada com LocalDate.now() ou of(), é a forma moderna e recomendada para manipulação segura de datas, substituindo java.util.Date.
@@ -505,3 +505,27 @@ A classe LocalDate (pacote java.time, Java 8+) representa uma data imutável (an
 * Formatação: `hoje.format(DateTimeFormatter.ISO_DATE);`
 
 LocalDate é imutável, o que significa que métodos de manipulação retornam uma nova instância, garantindo thread-safety. 
+
+---
+
+## LocalTime 
+
+A classe java.time.LocalTime (introduzida no Java 8) representa um horário (hora, minuto, segundo e nanossegundos) sem data ou fuso horário, ideal para relógios locais. É imutável e segura para threads. Principais métodos: now() para hora atual, of() para criar horários específicos, plusHours()/minusMinutes() para manipulação.
+
+**Principais Características e Usos:**
+    * **Representação:** Focada estritamente em horas, minutos, segundos e nanossegundos, no formato HH:mm:ss.SSS.
+    * **Imutabilidade:** Objetos LocalTime não mudam; métodos de manipulação retornam uma nova instância.
+    * **Exemplos de Uso:**
+        * **Hora atual:** `LocalTime agora = LocalTime.now();`
+        * **Criar um horário:** `LocalTime almoço = LocalTime.of(12, 30); // 12:30`
+        * **Adicionar tempo:** `LocalTime maisUmaHora = agora.plusHours(1);`
+        * **Formatação:** `DateTimeFormatter` pode ser usado para customizar a exibição.
+
+Onde usar: Ideal para cenários onde a data é irrelevante, como definir "horário de abertura" ou "alarme" (ex: 08:00), sem considerar TimeZone.
+Diferença entre classes de tempo (Java 8+):
+
+* `LocalTime:`Apenas hora (ex: 14:00).
+* `LocalDate:` Apenas data (ex: 2026-03-22).
+* `LocalDateTime:` Data e hora juntos (ex: 2026-03-22T14:00).
+
+Para garantir o uso correto, importe: `import java.time.LocalTime;`
