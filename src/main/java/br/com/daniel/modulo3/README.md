@@ -389,3 +389,20 @@ long count = lista.parallelStream()
 Esse tipo de processamento é extremamente útil em grandes volumes de dados, pois você consegue um ganho de performance sem precisar gerenciar threads manualmente.
 
 Mas é importante lembrar: o paralelismo nem sempre é vantajoso em listas pequenas, pois há custo de coordenação entre as threads. Saber quando usar é parte da maturidade com a API.
+
+* **Principais Métodos da API de Streams:** 
+  * Intermediários (Retornam nova Stream, preguiçosos - lazy)
+      * `filter(Predicate p)`: Filtra elementos com base em uma condição (booleano).
+      * `map(Function f)`: Transforma cada elemento da stream em outro objeto ou valor.
+      * `sorted()`: Ordena os elementos.
+      * `distinct()`: Remove elementos duplicados baseando-se no equals().
+      * `limit(long n)`: Limita o número de elementos processados.
+      * `skip(long n)`: Pula os primeiros elementos.
+  
+
+  * Terminais (Finalizam a pipeline e retornam resultado):
+    * `collect(Collector c)`: Converte a stream em outra estrutura, como List ou Map (ex: Collectors.toList()).
+    * `forEach(Consumer c)`: Executa uma ação para cada elemento (geralmente impressão).
+    * `reduce(BinaryOperator b)`: Combina elementos em um único valor (soma, média, máx/min).
+    * `count()`: Conta o número de elementos na stream.
+    * `anyMatch(Predicate p)` / `allMatch(Predicate p)`: Verifica se algum ou todos os elementos atendem a uma condição. 
