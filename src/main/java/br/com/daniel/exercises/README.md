@@ -1,1 +1,1 @@
-## Folder of Execises and pratices
+## Folder of Execises and pratices of repository
