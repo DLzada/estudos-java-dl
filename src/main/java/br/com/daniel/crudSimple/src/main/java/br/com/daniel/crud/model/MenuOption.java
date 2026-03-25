@@ -6,5 +6,5 @@ public enum MenuOption {
     DELETE,
     FIND_BY_ID,
     FIND_ALL,
-    EXIT
+    EXIT;
 }
