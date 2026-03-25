@@ -14,26 +14,56 @@ public class Main {
     private final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Bem vindo ao cadastro de usuários, selecione a operação desejada");
-        System.out.println("1 - Cadastrar");
-        System.out.println("2 - Atualizar");
-        System.out.println("3 - Excluir");
-        System.out.println("4 - Buscar por identificador");
-        System.out.println("5 - Listar");
-        System.out.println("6 - Sair");
-        var userInput = scanner.nextInt();
         while (true){
+            System.out.println("Bem vindo ao cadastro de usuários, selecione a operação desejada");
+            System.out.println("1 - Cadastrar");
+            System.out.println("2 - Atualizar");
+            System.out.println("3 - Excluir");
+            System.out.println("4 - Buscar por identificador");
+            System.out.println("5 - Listar");
+            System.out.println("6 - Sair");
+            var userInput = scanner.nextInt();
             var selectOption = MenuOption.values()[userInput -1];
 
             switch (selectOption){
                 case SAVE -> {
-                    var user = requestUserInfo();
+                    var user = dao.save(requestToSave());
+                    System.out.printf("Usuario cadastrado %s!", user);
                 }
+                case UPDATE -> {
+                    var user =  dao.update(requestUpdate());
+                    System.out.printf("Usuario atualizado %s", user);
+                }
+                case DELETE -> {
+                    var id = requestId();
+                    dao.delete(id);
+                    System.out.printf("Usuário com ID %s excluído com sucesso!%n", id);
+                }
+
+                case FIND_BY_ID -> {
+                    var id = requestId();
+                    var user = dao.findById(id);
+                    System.out.printf("Usuario com id %s: ", id);
+                    System.out.println(user);
+                }
+                case FIND_ALL -> {
+                    var users = dao.findAll();
+                    System.out.printf("Usuários cadastrados");
+                    System.out.println("================");
+                    users.forEach(System.out::println);
+                    System.out.println("========fimm=======");
+                }
+                case EXIT -> System.exit(0);
             }
         }
     }
 
-    private static UserModel requestUserInfo(){
+    private static long requestId(){
+        System.out.println("Informe o identificador do usuário");
+        return scanner.nextLong();
+    }
+
+    private static UserModel requestToSave(){
         System.out.println("Informe o nome do usuário");
         var name = scanner.next();
         System.out.println("Informe o email do usuário");
@@ -43,5 +73,18 @@ public class Main {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         var birthday = OffsetDateTime.parse(birthdayString, formatter);
         return new UserModel(0, name, email, birthday);
+    }
+    private static UserModel requestUpdate(){
+        System.out.println("Informe o identificador do usuário");
+        var id = scanner.nextLong();
+        System.out.println("Informe o nome do usuário");
+        var name = scanner.next();
+        System.out.println("Informe o email do usuário");
+        var email = scanner.next();
+        System.out.println("Informe a data de nascimento do usuário (dd/MM/yyyy)");
+        var birthdayString = scanner.next();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        return new UserModel(id, name, email, birthday);
     }
 }

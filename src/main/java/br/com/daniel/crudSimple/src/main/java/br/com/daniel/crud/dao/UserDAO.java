@@ -8,20 +8,20 @@ import java.util.List;
 
 public class UserDAO {
 
-    private log nextId = 1L;
+    private long nextId = 1L;
 
     private final List<UserModel> models = new ArrayList<>();
 
     public UserModel save(final UserModel model){
         model.setId(nextId++);
-        model.add(model);
+        models.add(model);
         return model;
     }
 
-    public userModel update(final UserModel model){
+    public UserModel update(final UserModel model){
         var toUpdate = findById(model.getId());
-        models.remove(toUpdate);
-        models.add(model);
+        int index = models.indexOf(toUpdate);
+        models.set(index, model);
         return model;
     }
 
