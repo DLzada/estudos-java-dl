@@ -15,7 +15,7 @@ public class UserValidator {
             throw  new ValidatorException("O nome deve ter pelo mais que 1 caractere");
         if (StringIsBlank(model.getEmail()))
             throw  new ValidatorException("Informe um e-mail válido");
-        if((!model.getEmail().contains("@")) && (model.getEmail().contains(".")))
+        if((!model.getEmail().contains("@")) || (!model.getEmail().contains(".")))
             throw  new ValidatorException("Informe um email válido!");
     }
 

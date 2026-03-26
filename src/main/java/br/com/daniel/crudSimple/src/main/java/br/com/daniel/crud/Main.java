@@ -1,6 +1,7 @@
 package br.com.daniel.crud;
 
 import br.com.daniel.crud.dao.UserDAO;
+import br.com.daniel.crud.exception.CustomException;
 import br.com.daniel.crud.exception.EmptyStorageException;
 import br.com.daniel.crud.exception.UserNotFoundException;
 import br.com.daniel.crud.exception.ValidatorException;
@@ -35,7 +36,7 @@ public class Main {
                     try {
                         var user = dao.save(requestToSave());
                         System.out.printf("Usuario cadastrado %s!", user);
-                    } catch (ValidatorException ex) {
+                    } catch (CustomException ex) {
                         System.out.println(ex.getMessage());
                         ex.printStackTrace();
                     }
@@ -48,7 +49,7 @@ public class Main {
                         System.out.printf("Usuario atualizado %s", user);
                     } catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
-                    }catch (ValidatorException ex){
+                    }catch (CustomException ex){
                         System.out.println(ex.getMessage());
                         ex.printStackTrace();
                     }
@@ -97,7 +98,7 @@ public class Main {
         return scanner.nextLong();
     }
 
-    private static UserModel requestToSave() throws ValidatorException {
+    private static UserModel requestToSave() {
         System.out.println("Informe o nome do usuário");
         var name = scanner.next();
         System.out.println("Informe o email do usuário");
@@ -109,13 +110,18 @@ public class Main {
         return validateInputs(0, name, email, birthday);
     }
 
-    private static UserModel validateInputs(final long id, final String name, final String email, final LocalDate birthday) throws ValidatorException{
+    private static UserModel validateInputs(final long id, final String name, final String email, final LocalDate birthday){
         var user = new UserModel(0, name, email, birthday);
-        verifyModel(user);
-        return user;
+        try{
+            verifyModel(user);
+            return user;
+        } catch (ValidatorException ex){
+            throw new CustomException("O seu modelo contem erros: " + ex.getMessage(), ex);
+        }
+
     }
 
-    private static UserModel requestUpdate() throws ValidatorException {
+    private static UserModel requestUpdate() {
         System.out.println("Informe o identificador do usuário");
         var id = scanner.nextLong();
         System.out.println("Informe o nome do usuário");

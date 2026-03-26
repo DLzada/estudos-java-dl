@@ -49,10 +49,10 @@ public class UserDAO {
             ex.printStackTrace();
             result = new ArrayList<>();
         }
-        return result
+        return result;
     }
 
     private void verifyStorage(){
-        if (models.isEmpty()) throw new EmptyStorageException("O armazenamento esta vazio!")
+        if (models.isEmpty()) throw new EmptyStorageException("O armazenamento esta vazio!");
     }
 }
