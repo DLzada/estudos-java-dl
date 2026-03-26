@@ -1,5 +1,6 @@
 package br.com.daniel.crud.dao;
 
+import br.com.daniel.crud.exception.EmptyStorageException;
 import br.com.daniel.crud.exception.UserNotFoundException;
 import br.com.daniel.crud.model.UserModel;
 
@@ -31,6 +32,7 @@ public class UserDAO {
     }
 
     public UserModel findById(final long id){
+        verifyStorage();
         var message = String.format("Não existe com o id %s cadastrado", id);
         return models.stream()
                 .filter(u -> u.getId() == id)
@@ -39,6 +41,18 @@ public class UserDAO {
     }
 
     public List<UserModel> findAll(){
-        return models;
+        List<UserModel> result;
+        try{
+            verifyStorage();
+            result = models;
+        }catch (EmptyStorageException ex){
+            ex.printStackTrace();
+            result = new ArrayList<>();
+        }
+        return result
+    }
+
+    private void verifyStorage(){
+        if (models.isEmpty()) throw new EmptyStorageException("O armazenamento esta vazio!")
     }
 }

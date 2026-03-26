@@ -1,6 +1,8 @@
 package br.com.daniel.crud;
 
 import br.com.daniel.crud.dao.UserDAO;
+import br.com.daniel.crud.exception.EmptyStorageException;
+import br.com.daniel.crud.exception.UserNotFoundException;
 import br.com.daniel.crud.model.MenuOption;
 import br.com.daniel.crud.model.UserModel;
 
@@ -31,20 +33,32 @@ public class Main {
                     System.out.printf("Usuario cadastrado %s!", user);
                 }
                 case UPDATE -> {
-                    var user =  dao.update(requestUpdate());
-                    System.out.printf("Usuario atualizado %s", user);
+                    try{
+                        var user =  dao.update(requestUpdate());
+                        System.out.printf("Usuario atualizado %s", user);
+                    } catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
                 case DELETE -> {
-                    var id = requestId();
-                    dao.delete(id);
-                    System.out.printf("Usuário com ID %s excluído com sucesso!%n", id);
-                }
+                    try{
+                        var id = requestId();
+                        dao.delete(id);
+                        System.out.printf("Usuário com ID %s excluído com sucesso!%n", id);
+                    } catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
+                                    }
 
                 case FIND_BY_ID -> {
-                    var id = requestId();
-                    var user = dao.findById(id);
-                    System.out.printf("Usuario com id %s: ", id);
-                    System.out.println(user);
+                    try {
+                        var id = requestId();
+                        var user = dao.findById(id);
+                        System.out.printf("Usuario com id %s: ", id);
+                        System.out.println(user);
+                    }catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
                 case FIND_ALL -> {
                     var users = dao.findAll();
