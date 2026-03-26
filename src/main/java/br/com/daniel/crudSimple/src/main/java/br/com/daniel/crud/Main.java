@@ -4,7 +4,7 @@ import br.com.daniel.crud.dao.UserDAO;
 import br.com.daniel.crud.model.MenuOption;
 import br.com.daniel.crud.model.UserModel;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -71,7 +71,7 @@ public class Main {
         System.out.println("Informe a data de nascimento do usuário (dd/MM/yyyy)");
         var birthdayString = scanner.next();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        var birthday = LocalDate.parse(birthdayString, formatter);
         return new UserModel(0, name, email, birthday);
     }
     private static UserModel requestUpdate(){
@@ -84,7 +84,7 @@ public class Main {
         System.out.println("Informe a data de nascimento do usuário (dd/MM/yyyy)");
         var birthdayString = scanner.next();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        var birthday = LocalDate.parse(birthdayString, formatter);
         return new UserModel(id, name, email, birthday);
     }
 }
