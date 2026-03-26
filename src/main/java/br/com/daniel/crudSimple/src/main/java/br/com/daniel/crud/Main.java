@@ -38,6 +38,8 @@ public class Main {
                         System.out.printf("Usuario atualizado %s", user);
                     } catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    }finally {
+                        System.out.println("====================");
                     }
                 }
                 case DELETE -> {
@@ -47,8 +49,10 @@ public class Main {
                         System.out.printf("Usuário com ID %s excluído com sucesso!%n", id);
                     } catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    }finally {
+                        System.out.println("====================");
                     }
-                                    }
+                }
 
                 case FIND_BY_ID -> {
                     try {
@@ -58,6 +62,8 @@ public class Main {
                         System.out.println(user);
                     }catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    }finally {
+                        System.out.println("====================");
                     }
                 }
                 case FIND_ALL -> {
