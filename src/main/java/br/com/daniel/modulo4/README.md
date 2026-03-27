@@ -14,20 +14,6 @@ Exceções em Java são eventos inesperados que interrompem o fluxo normal do pr
   * **Error:** Problemas graves da JVM, como OutOfMemoryError, que não devem ser capturados.
 * **Hierarquia:** Todas herdam de Throwable, dividindo-se entre Exception (recuperável) e Error (grave, falha da JVM).
 
-**Exemplo prático:**
-```java
-    try {
-        // Código que pode gerar erro
-        int resultado = 10 / 0;
-    } catch (ArithmeticException e) {
-        // Tratamento específico
-        System.out.println("Erro: Divisão por zero.");
-    } finally {
-        // Executado sempre
-        System.out.println("Finalizando operação.");
-    }
-```
-
 ### Debugging e aprofundamento em exceções:
 Debugging em Java envolve usar IDEs (como IntelliJ/Eclipse) para pausar a execução com breakpoints, inspecionar variáveis e analisar o fluxo de código. Exceções como citado anteriormente são objetos Throwable (Checked ou Unchecked) que representam erros, gerenciados com try-catch-finally para garantir a robustez e evitar interrupções inesperadas no programa.
 
@@ -61,6 +47,41 @@ Debugging em Java envolve usar IDEs (como IntelliJ/Eclipse) para pausar a execu�
   * **try-catch-finally:** Utilize o bloco `try` para o código de risco, `catch` para tratar a exceção e `finally` para garantir o fechamento de recursos (como conexões de banco de dados), independente de erro.
   * **Evitar capturar Exception genérica:** Capture exceções específicas para saber exatamente o que falhou.
   * **Unchecked vs Checked:** Use `checked` para erros recuperáveis pelo usuário e `unchecked` para erros de programação.
+
+**Exemplos práticos:**
+
+* **Ex 01** Tratamento Básico `(try-catch)` - Captura de um erro de divisão por zero.
+```java
+    try {
+        int resultado = 10 / 0; // Gera ArithmeticException
+    } catch (ArithmeticException e) {
+        System.out.println("Erro: Divisão por zero não permitida! " + e.getMessage());
+    }
+```
+
+* **Ex 02** Múltiplos Catch e Finally - Tratando diferentes tipos de exceção e garantindo o fechamento de recursos.
+
+```java
+    try {
+        int[] numeros = {1, 2, 3};
+        System.out.println(numeros[10]); // ArrayIndexOutOfBoundsException
+    } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("Erro: Índice inexistente.");
+    } catch (Exception e) {
+        System.out.println("Erro genérico: " + e.getMessage());
+    } finally {
+        System.out.println("Este bloco sempre é executado.");
+    }
+```
+
+* **Ex 03** Lançando uma Exceção (throw e throws) - Lançando uma exceção personalizada ao validar uma regra de negócio.
+```java
+    public void sacar(double valor) throws Exception {
+        if (valor > 500) {
+            throw new Exception("Saldo insuficiente ou valor excede o limite.");
+        }
+    }
+```
 ---
 
 ### Java.io
