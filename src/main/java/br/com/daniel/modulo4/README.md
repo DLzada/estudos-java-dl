@@ -8,11 +8,11 @@ Exceções em Java são eventos inesperados que interrompem o fluxo normal do pr
 
 **Principais Conceitos de Exceptions:**
 * **Try/Catch/Finally:** O bloco `try` isola o código arriscado, o `catch` trata a exceção lançada, e o `finally` executa código de finalização (como fechar conexões) independentemente de erro.
-* **Checked vs. Unchecked Exceptions:** 
+* **Checked vs. Unchecked Exceptions vs. Error:** 
   * **Checked (Verificadas):** Herdadas de Exception. O compilador obriga o tratamento (ex: IOException, SQLException).
   * **Unchecked (RuntimeException):** Herdadas de RuntimeException. O compilador não obriga tratamento, indicando falhas de lógica (ex: NullPointerException, ArrayIndexOutOfBoundsException).
+  * **Error:** Problemas graves da JVM, como OutOfMemoryError, que não devem ser capturados.
 * **Hierarquia:** Todas herdam de Throwable, dividindo-se entre Exception (recuperável) e Error (grave, falha da JVM).
-* **Boas Práticas:** Utilize `try-catch` específicos, não capture Exception genérica e mantenha o stacktrace.
 
 **Exemplo prático:**
 ```java
@@ -27,6 +27,40 @@ Exceções em Java são eventos inesperados que interrompem o fluxo normal do pr
         System.out.println("Finalizando operação.");
     }
 ```
+
+### Debugging e aprofundamento em exceções:
+Debugging em Java envolve usar IDEs (como IntelliJ/Eclipse) para pausar a execução com breakpoints, inspecionar variáveis e analisar o fluxo de código. Exceções como citado anteriormente são objetos Throwable (Checked ou Unchecked) que representam erros, gerenciados com try-catch-finally para garantir a robustez e evitar interrupções inesperadas no programa.
+
+* **Debugging em Java:** A depuração (debugging) é o processo de encontrar e corrigir erros.
+  * **Breakpoints:** Clique na margem lateral da IDE para marcar a linha onde o código deve pausar.
+  * **Debug Mode:** Inicie a aplicação com o ícone de inseto (Debug) para analisar variáveis em tempo real.
+  * **Step Over/Into:** Navegue linha por linha para entender o fluxo de execução.
+  * **Evaluate Expression:** Avalie expressões ou altere valores de variáveis em tempo de execução sem reiniciar o app.
+
+
+* **Mais de Exeções - Principais Exeções comuns:** As principais exceções em Java, frequentemente encontradas, incluem `NullPointerException` (referência nula), `ArrayIndexOutOfBoundsException` (índice de array inválido), `ArithmeticException` (erro matemático), `ClassCastException` (conversão de tipo inválida) e `IllegalArgumentException` (argumento inválido). Dividindo-as em unchecked (tempo de execução) e checked (checadas pelo compilador) como foi dito.
+
+
+* **Exceções Não Checadas (Unchecked / RuntimeException):** Ocorrem em tempo de execução, geralmente por bugs de lógica, e não precisam ser declaradas ou capturadas obrigatoriamente.
+  * **NullPointerException (NPE):** Tentar usar uma referência de objeto que está null.
+  * **ArrayIndexOutOfBoundsException:** Acessar um índice de array que não existe (ex: índice -1 ou maior que o tamanho).
+  * **ArithmeticException:** Operações matemáticas ilegais, como divisão por zero.
+  * **ClassCastException:** Tentar converter um objeto para uma subclasse da qual ele não é uma instância.
+  * **IllegalArgumentException:** Passar um argumento inadequado para um método.
+  * **NumberFormatException:** Subclasse de IllegalArgumentException, ocorre ao tentar converter uma string para um tipo numérico, mas a string não tem o formato correto.
+  
+  
+* **Exceções Checadas (Checked Exceptions)**:O compilador obriga o tratamento `(try-catch)` ou a declaração `(throws)` porque representam situações previsíveis que o programa deve recuperar.
+  * **IOException:** Erros de entrada/saída, como falha na leitura ou escrita de arquivos.
+  * **FileNotFoundException:** Tentativa de acessar um arquivo que não existe.
+  * **SQLException:** Erros relacionados ao acesso a banco de dados.
+  * **ClassNotFoundException:** Tentar carregar uma classe que não é encontrada no classpath.
+    
+
+* **Boas Práticas no Tratamento de Exceções**
+  * **try-catch-finally:** Utilize o bloco `try` para o código de risco, `catch` para tratar a exceção e `finally` para garantir o fechamento de recursos (como conexões de banco de dados), independente de erro.
+  * **Evitar capturar Exception genérica:** Capture exceções específicas para saber exatamente o que falhou.
+  * **Unchecked vs Checked:** Use `checked` para erros recuperáveis pelo usuário e `unchecked` para erros de programação.
 ---
 
 ### Java.io
