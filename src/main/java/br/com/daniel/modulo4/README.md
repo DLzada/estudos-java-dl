@@ -1,5 +1,34 @@
 ## Módulo 4 - Gerenciando Exeções, IO e Dependências em Java
 
+### Exceptions
+
+* Entendendo Exeções:
+
+Exceções em Java são eventos inesperados que interrompem o fluxo normal do programa, representadas por objetos que herdam da classe `Throwable`. Para garantir a robustez do sistema, utiliza-se blocos `try-catch` para capturar e tratar erros, `finally` para limpeza de recursos, e `throw/throws` para propagar exceções.
+
+**Principais Conceitos de Exceptions:**
+* **Try/Catch/Finally:** O bloco `try` isola o código arriscado, o `catch` trata a exceção lançada, e o `finally` executa código de finalização (como fechar conexões) independentemente de erro.
+* **Checked vs. Unchecked Exceptions:** 
+  * **Checked (Verificadas):** Herdadas de Exception. O compilador obriga o tratamento (ex: IOException, SQLException).
+  * **Unchecked (RuntimeException):** Herdadas de RuntimeException. O compilador não obriga tratamento, indicando falhas de lógica (ex: NullPointerException, ArrayIndexOutOfBoundsException).
+* **Hierarquia:** Todas herdam de Throwable, dividindo-se entre Exception (recuperável) e Error (grave, falha da JVM).
+* **Boas Práticas:** Utilize `try-catch` específicos, não capture Exception genérica e mantenha o stacktrace.
+
+**Exemplo prático:**
+```java
+    try {
+        // Código que pode gerar erro
+        int resultado = 10 / 0;
+    } catch (ArithmeticException e) {
+        // Tratamento específico
+        System.out.println("Erro: Divisão por zero.");
+    } finally {
+        // Executado sempre
+        System.out.println("Finalizando operação.");
+    }
+```
+---
+
 ### Java.io
 O pacote java.io no Java é a API padrão para operações de Entrada e Saída (Input/Output), permitindo ler e gravar dados em arquivos, diretórios, rede ou memória através de fluxos de bytes ou caracteres (streams). Ele facilita a interação do programa com o sistema de arquivos, essencial para ler/gravar arquivos .txt, .csv ou binários.
 
