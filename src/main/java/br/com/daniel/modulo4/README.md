@@ -349,3 +349,91 @@ O pacote java.nio (introduzido no Java 1.4 e expandido no Java 7 como NIO.2) é 
 * **IO:** É focado em Streams. Se você pede para ler um arquivo, o programa "trava" (fica esperando) até que os dados cheguem.
 
 * **NIO:** É focado em Canais e Seletores. Ele permite lidar com várias conexões ou arquivos simultaneamente sem travar a execução (Non-blocking), sendo muito mais rápido para sistemas web modernos.
+
+Se o Files e o Path que vimos antes são a "casca" (mais fáceis de usar), os `Channels` e `Buffers` são o motor que faz tudo rodar rápido.  Imagine que o Channel é uma pista de corrida e o Buffer é o caminhão que transporta a carga. O dado nunca vai direto para a pista; ele sempre tem que estar dentro do caminhão.
+
+**O que é um Buffer?** Um Buffer é basicamente um bloco de memória (um array turbinado) onde você coloca os dados temporariamente.
+* No java.io, você lê byte por byte.
+* No java.nio, você enche um "balde" (Buffer) e processa tudo de uma vez.
+
+**Principais estados de um Buffer:**
+
+* **Capacity:** O tamanho total do "balde".
+* **Position:** Onde você está lendo ou escrevendo agora.
+* **Limit:** Até onde você pode ler/escrever no momento.
+
+**O que é um Channel?** O Channel (Canal) é o substituto dos Streams.
+
+* **Streams (io):** São unidirecionais (ou você só lê com InputStream ou só grava com OutputStream).
+* **Channels (nio):** São bidirecionais. O mesmo canal pode ler e gravar, desde que o Buffer esteja pronto.
+
+**Exemplo Prático:** Lendo um arquivo com `Channel` e `Buffer` Este é o modo "raiz" do NIO, usado quando você precisa de performance máxima (como em grandes arquivos de log ou processamento de dados brutos).
+
+```java
+    import java.io.RandomAccessFile;
+    import java.nio.ByteBuffer;
+    import java.nio.channels.FileChannel;
+    
+    public class ExemploCanalBuffer {
+        public static void main(String[] args) throws Exception {
+            // 1. Abre um arquivo através do RandomAccessFile para obter o Canal
+            RandomAccessFile arquivo = new RandomAccessFile("dados.txt", "r");
+            FileChannel canal = arquivo.getChannel();
+    
+            // 2. Cria um Buffer de 48 bytes (o "caminhão")
+            ByteBuffer buffer = ByteBuffer.allocate(48);
+    
+            // 3. O Canal lê os dados e coloca no Buffer
+            int bytesLidos = canal.read(buffer);
+    
+            while (bytesLidos != -1) {
+                System.out.println("Lidos: " + bytesLidos);
+    
+                // 4. "Gira" o buffer (Prepara para leitura dos dados que entraram)
+                // O limit vai para a posição atual e a posição volta para zero.
+                buffer.flip();
+    
+                while(buffer.hasRemaining()){
+                    System.out.print((char) buffer.get()); // Lê 1 byte por vez do buffer
+                }
+    
+                // 5. Limpa o buffer para a próxima rodada
+                buffer.clear();
+                bytesLidos = canal.read(buffer);
+            }
+            
+            arquivo.close();
+        }
+    }
+```
+
+**Por que isso é mais rápido?** A grande vantagem aqui é o Direct Buffers e o Memory Mapped Files.
+
+* **Direct Buffer:** O Java pede memória diretamente para o Sistema Operacional (fora da área comum do Java/JVM). Isso evita que o computador tenha que copiar o dado duas vezes.
+* **Mapeamento de Memória (MappedByteBuffer):** Você pode "fingir" que um arquivo gigante é apenas um array na memória. O SO cuida de carregar só as partes que você acessa.
+
+**Exemplo de Mapeamento de Memória (Muito rápido para arquivos imensos):**
+
+```java
+    import java.nio.MappedByteBuffer;
+    import java.nio.channels.FileChannel;
+    import java.nio.file.*;
+    
+    public class SuperRapido {
+        public static void main(String[] args) throws Exception {
+            Path path = Path.of("arquivo_gigante.bin");
+            
+            try (FileChannel canal = FileChannel.open(path, StandardOpenOption.READ)) {
+                // Mapeia os primeiros 10MB do arquivo direto na memória RAM
+                MappedByteBuffer buffer = canal.map(FileChannel.MapMode.READ_ONLY, 0, 1024 * 1024 * 10);
+                
+                // Agora você lê o arquivo como se fosse uma variável simples
+                if (buffer.hasRemaining()) {
+                    byte dado = buffer.get();
+                }
+            }
+        }
+    }
+```
+
+---
