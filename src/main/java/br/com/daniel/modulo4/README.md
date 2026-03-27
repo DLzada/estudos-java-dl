@@ -9,8 +9,102 @@ O pacote java.io no Java é a API padrão para operações de Entrada e Saída (
 * **FileReader/FileWriter:** Lê/grava dados em formato de caracteres (arquivos de texto).
 * **BufferedReader/BufferedWriter:** Otimiza a leitura/escrita, utilizando um buffer na memória para aumentar a performance.
 
-**Exemplo prático:**
+**Exemplos práticos:**
+* **Criando e gerenciando arquivos com `File`:**
+```java
+    import java.io.File;
+     
+    File arquivo = new File("dados.txt");
+     
+    if (!arquivo.exists()) {
+     arquivo.createNewFile(); // cria um novo arquivo
+    }
+    //exists() → Verifica se o arquivo já existe.
+    //createNewFile() → Cria o arquivo se ele não existir.
+```
+* **Escrevendo em Arquivos:**
+```java
+    import java.io.BufferedWriter;
+    import java.io.FileWriter;
+     
+    BufferedWriter writer = new BufferedWriter(new FileWriter("dados.txt"));
+    writer.write("Olá, mundo!");
+    writer.newLine(); // pula uma linha
+    writer.write("Segunda linha");
+    writer.close(); // sempre feche após escrever
+```
 
+* **Lendo Arquivos:**
+```java
+    import java.io.BufferedReader;
+    import java.io.FileReader;
+     
+    BufferedReader reader = new BufferedReader(new FileReader("dados.txt"));
+    String linha;
+    while ((linha = reader.readLine()) != null) {
+     System.out.println(linha);
+    }
+    reader.close();
+```
+
+* **Trabalhando com Diretórios:**
+```java
+    File pasta = new File("meuDiretorio");
+     
+    if (!pasta.exists()) {
+     pasta.mkdir(); // cria um diretório
+    }
+    Você também pode listar os arquivos de um diretório:
+    File[] arquivos = pasta.listFiles();
+    for (File f : arquivos) {
+     System.out.println(f.getName());
+    }
+```
+**Exemplos completos(Simples):**
+
+* **Ex 01**
+
+```java
+
+    import java.io.*;
+    
+     
+    
+    public class ArquivoExemplo {
+    
+      public static void main(String[] args) throws IOException {
+    
+          // Escrevendo no arquivo
+    
+          BufferedWriter writer = new BufferedWriter(new FileWriter("exemplo.txt"));
+    
+          writer.write("Linha 1");
+    
+          writer.newLine();
+    
+          writer.write("Linha 2");
+    
+          writer.close();
+    
+     
+    
+          // Lendo do arquivo
+    
+          BufferedReader reader = new BufferedReader(new FileReader("exemplo.txt"));
+    
+          String linha;
+    
+          while ((linha = reader.readLine()) != null) {
+    
+              System.out.println(linha);
+    
+          }
+    
+          reader.close();
+    
+      }
+```
+* **Ex 2**
 ```java
     import java.io.*;
     
