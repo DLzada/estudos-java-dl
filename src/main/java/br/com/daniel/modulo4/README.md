@@ -218,3 +218,134 @@ O pacote java.io no Java é a API padrão para operações de Entrada e Saída (
     }
 ```
 
+### Java NIO
+
+O pacote java.nio (introduzido no Java 1.4 e expandido no Java 7 como NIO.2) é uma API de Entrada e Saída alternativa ao java.io. Enquanto o java.io trabalha com fluxos de dados sequenciais (Streams) e é bloqueante, o java.nio trabalha com Buffers e Channels, sendo focado em alta performance e escalabilidade. Ele é ideal para lidar com grandes volumes de dados e operações de arquivos complexas de forma mais eficiente.
+
+**Principais Classes e Conceitos:**
+* **Path:** Substitui a classe File. Representa o caminho para um arquivo ou diretório no sistema de forma mais moderna.
+* **Paths / Path.of():** Classe utilitária para obter instâncias de Path.
+* **Files:** A "faz-tudo" do NIO. Possui métodos estáticos para criar, copiar, mover, deletar e ler arquivos em poucas linhas.
+* **Channel:** Como um "canal" de comunicação. Ao contrário do Stream (que é unidirecional), um Channel pode ler e gravar dados.
+* **Buffer:** Um bloco de memória onde os dados são colocados temporariamente antes de serem movidos pelo Channel.
+* **StandardOpenOption:** Enumerações para definir como abrir um arquivo (ex: APPEND, CREATE, READ).
+
+### Exemplos Práticos
+
+**Gerenciando Caminhos com `Path:`**
+```java
+    import java.nio.file.Path;
+    import java.nio.file.Paths;
+    
+    Path caminho = Paths.get("dados.txt"); 
+    // Ou na versão mais recente: Path caminho = Path.of("dados.txt");
+    
+    System.out.println("Nome do arquivo: " + caminho.getFileName());
+    System.out.println("Caminho absoluto: " + caminho.toAbsolutePath());
+```
+
+**Escrevendo em Arquivos (Forma Rápida):**
+```java
+    import java.nio.file.Files;
+    import java.nio.file.Path;
+    import java.nio.file.StandardOpenOption;
+    import java.util.List;
+    
+    Path path = Path.of("texto.txt");
+    String conteudo = "Aprendendo Java NIO!";
+    
+    // Escreve direto no arquivo (cria se não existir)
+    Files.writeString(path, conteudo); 
+    
+    // Para adicionar sem sobrescrever (Append):
+    Files.writeString(path, "\nNova linha", StandardOpenOption.APPEND);
+```
+
+**Lendo Arquivos:**
+```java
+    import java.nio.file.Files;
+    import java.nio.file.Path;
+    import java.util.List;
+    
+    Path path = Path.of("texto.txt");
+    
+    // Ler todas as linhas de uma vez como uma Lista
+    List<String> linhas = Files.readAllLines(path);
+    for (String l : linhas) {
+        System.out.println(l);
+    }
+    
+    // Ou ler tudo como uma única String (Java 11+)
+    String tudo = Files.readString(path);
+```
+
+**Copiando e Movendo Arquivos:**
+```java
+    Path origem = Path.of("original.txt");
+    Path destino = Path.of("copia.txt");
+    
+    Files.copy(origem, destino); // Copia
+    Files.move(origem, Path.of("pasta/novo_nome.txt")); // Move ou Renomeia
+    Files.deleteIfExists(destino); // Deleta com segurança
+```
+
+### Exemplos completos
+
+**Exemplo 01: Manipulação de Arquivo e Diretório(NIO.2)**
+```java
+    import java.nio.file.*;
+    import java.io.IOException;
+    
+    public class ExemploNioBasico {
+        public static void main(String[] args) {
+            Path pasta = Path.of("meu_projeto");
+            Path arquivo = pasta.resolve("notas.txt"); // Cria o caminho meu_projeto/notas.txt
+    
+            try {
+                // Criando diretório se não existir
+                if (Files.notExists(pasta)) {
+                    Files.createDirectory(pasta);
+                }
+    
+                // Escrevendo
+                Files.writeString(arquivo, "Estudando Full Stack!");
+    
+                // Lendo
+                String conteudo = Files.readString(arquivo);
+                System.out.println("Conteúdo: " + conteudo);
+    
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+```
+
+**Ex 02: Comparação Direta (Escrita e Leitura Rápida)**
+
+```java
+    import java.nio.file.*;
+    import java.util.Arrays;
+    import java.util.List;
+    
+    public class ExemploNioRapido {
+        public static void main(String[] args) throws Exception {
+            Path path = Path.of("lista.txt");
+            List<String> itens = Arrays.asList("Java", "Spring", "NIO", "PostgreSQL");
+    
+            // 1. Escrita simplificada de uma lista
+            Files.write(path, itens);
+    
+            // 2. Leitura usando Streams do Java 8+ (Muito eficiente para arquivos grandes)
+            System.out.println("--- Lendo com Files.lines ---");
+            Files.lines(path)
+                 .filter(s -> s.startsWith("J")) // Filtra só o que começa com J
+                 .forEach(System.out::println);
+        }
+    }
+```
+
+**Qual a principal diferença? - IO, NIO**
+* **IO:** É focado em Streams. Se você pede para ler um arquivo, o programa "trava" (fica esperando) até que os dados cheguem.
+
+* **NIO:** É focado em Canais e Seletores. Ele permite lidar com várias conexões ou arquivos simultaneamente sem travar a execução (Non-blocking), sendo muito mais rápido para sistemas web modernos.
