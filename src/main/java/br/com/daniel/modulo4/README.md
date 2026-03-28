@@ -537,3 +537,65 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
     * `mvn test`: Executa os testes unitários.
     * `mvn package`: Compila e empacota o código (gera um .jar ou .war no target).
     * `mvn install`: Instala o pacote gerado no repositório local, tornando-o disponível para outros projetos locais.
+
+### Gradle
+O Gradle é uma ferramenta moderna e open source de automação de build, amplamente utilizada no desenvolvimento Java, Kotlin e Android, que gerencia dependências e automatiza compilação, testes e empacotamento. Ele é flexível e usa uma DSL (Domain Specific Language) baseada em Groovy ou Kotlin.
+
+**Instale a versao mais recente:** `sdk install gradle`
+
+**Verifique a instalação:** `gradle -v`
+
+**Criando um Projeto Gradle:** Para iniciar um novo projeto, utilize o terminal com o comando `gradle init`.
+* **Crie uma nova pasta e entre nela:**
+```
+mkdir meu-projeto-gradle
+cd meu-projeto-gradle
+```
+
+* **Execute o assistente de inicialização:**
+````
+gradle init
+````
+
+**Principais Conceitos**
+
+* **Build Scripts (build.gradle):** Arquivo central onde você define dependências, plugins e configurações do projeto.
+* **Tasks (Tarefas):*() Unidades atômicas de trabalho. Tudo o que o Gradle faz é baseado em tasks (compilar, testar, empacotar). Pode-se listar todas as tasks com gradle tasks.
+* **Dependências:** Gerenciadas de forma inteligente, o Gradle baixa e organiza bibliotecas externas, permitindo definir versões e repositórios (ex: Maven Central).
+* **Plugins:** Adicionam novas tarefas e funcionalidades ao projeto. Ex: id 'java' ativa tarefas para compilar Java; id 'application' permite criar o executável.
+* **DSL (Groovy ou Kotlin):** O Gradle permite escrever a configuração usando uma DSL. O Kotlin DSL (.kts) é cada vez mais popular por fornecer autocompletar e melhor estruturação.
+* **Ciclo de Vida do Build (Build Lifecycle):** O Gradle executa o build em fases: Inicialização, Configuração (onde o build.gradle é lido) e Execução (onde as tasks solicitadas são rodadas).
+
+**Exemplos** - Estrutura do arquivo build.gradle.kts (Kotlin DSL):
+
+```
+plugins {
+    // Aplica o plugin Java para adicionar suporte ao Java
+    id 'java'
+    // Aplica o plugin de aplicação para construir uma CLI
+    id 'application'
+}
+
+repositories {
+    // Usa o Maven Central para buscar dependências
+    mavenCentral()
+}
+
+dependencies {
+    // Exemplo: Usando JUnit 5 para testes
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    
+    // Exemplo: Dependência comum (Guava)
+    implementation 'com.google.guava:guava:31.0.1-jre'
+}
+
+application {
+    // Define a classe principal da aplicação
+    mainClass = 'com.exemplo.App'
+}
+
+java {
+    // Define a versão do Java
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+```
