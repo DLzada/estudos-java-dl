@@ -437,3 +437,29 @@ Se o Files e o Path que vimos antes são a "casca" (mais fáceis de usar), os `C
 ```
 
 ---
+
+## Gerenciando Dependências - Maven e Grandle
+
+### Maven: Instalar o Maven usando o sdkman. É uma das formas mais eficientes e limpas de gerenciar ambientes Java, especialmente em sistemas baseados em Unix (Linux, macOS, WSL no Windows). O sdkman, permite instalar, alternar e gerenciar diferentes versões do Maven e do Java facilmente.
+
+**Instalando o sdkman** - (se ainda não tiver)**
+* **Abra o terminal e execute:** 
+```
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+
+**Verifique a instalação:** `sdk version`.
+
+**Instalando o Maven com sdkman**
+* Listar versões disponíveis:
+    ```sdk list maven```
+
+* Instalar a versão desejada (ex: 3.9.6):
+  ``` sdk install maven 3.9.6```
+
+* Definir versão padrão (opcional, caso tenha múltiplas):
+  ```sdk default maven 3.9.6```*
+
+* Verificar a instalação:
+  ```mvn -version```
