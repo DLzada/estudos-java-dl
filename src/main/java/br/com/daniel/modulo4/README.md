@@ -440,7 +440,8 @@ Se o Files e o Path que vimos antes são a "casca" (mais fáceis de usar), os `C
 
 ## Gerenciando Dependências - Maven e Grandle
 
-### Maven: Instalar o Maven usando o sdkman. É uma das formas mais eficientes e limpas de gerenciar ambientes Java, especialmente em sistemas baseados em Unix (Linux, macOS, WSL no Windows). O sdkman, permite instalar, alternar e gerenciar diferentes versões do Maven e do Java facilmente.
+### Maven: 
+Instalar o Maven usando o sdkman. É uma das formas mais eficientes e limpas de gerenciar ambientes Java, especialmente em sistemas baseados em Unix (Linux, macOS, WSL no Windows). O sdkman, permite instalar, alternar e gerenciar diferentes versões do Maven e do Java facilmente.
 
 **Instalando o sdkman** - (se ainda não tiver)**
 * **Abra o terminal e execute:** 
@@ -463,3 +464,76 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 * Verificar a instalação:
   ```mvn -version```
+
+**Criando Projetos Maven**: Após instalar, você pode criar projetos usando o arquétipo padrão (quickstart) ou ferramentas como o Spring Initializr.
+* **Usando o terminal (Maven Archetype)** - O comando abaixo cria uma estrutura padrão de projeto Java.
+```
+    mvn archetype:generate \
+      -DgroupId=com.seuprojeto \
+      -DartifactId=meu-app \
+      -DarchetypeArtifactId=maven-archetype-quickstart \
+      -DinteractiveMode=false
+```
+
+* `groupId`: Identificador único da sua organização.
+* `artifactId`: Nome do seu projeto (pasta).
+
+**Estrutura criada:**
+* `pom.xml`: Arquivo de configuração do projeto.
+* `src/main/java`: Seu código fonte.
+* `src/test/java`: Testes unitários.
+
+**Compilando e Rodando:**
+* **Entre na pasta do projeto e use:**
+```
+    cd meu-app
+    mvn clean package  # Compila e gera o JAR
+    mvn exec:java -Dexec.mainClass="com.seuprojeto.App" # Executa
+```
+
+* Lombok Java - Lib
+
+**Principais Conceitos do Maven:**
+* **POM (Project Object Model - pom.xml)**: É o coração do Maven. Um arquivo XML na raiz do projeto que contém metadados (nome, versão), dependências (bibliotecas externas), plugins e configurações de build.
+* **Gerenciamento de Dependências:** O Maven baixa automaticamente bibliotecas (arquivos .jar) de repositórios remotos e as gerencia, resolvendo conflitos de versões.
+* **Estrutura de Diretórios Padronizada:** O Maven define uma estrutura fixa para que todos os projetos Java tenham o mesmo padrão:
+  * `src/main/java`: Código-fonte principal.
+  * `src/main/resources`: Arquivos de configuração.
+  * `src/test/java`: Código de testes.
+  * `target`: Onde o Maven coloca os arquivos compilados e finais (`.jar/.war`)
+
+* **Repositórios:**
+  * **Local:** Pasta na máquina do desenvolvedor (geralmente .m2) onde o Maven armazena as dependências baixadas.
+  * **Central:** Repositório público na internet de onde o Maven baixa as bibliotecas
+  
+* Build Lifecycle (Ciclo de Vida): Fases ordenadas para construir o projeto. 
+  * **As principais são:** `validate`, `compile`, `test`, `package`, `install`, `deploy`.
+  * **Archetypes (Arquétipos):** Templates de projetos padronizados que facilitam a criação de novos projetos (ex: criar uma estrutura Spring Boot automaticamente).
+
+* **Exemplo Prático** `pom.xml` - Um exemplo básico de um arquivo pom.xml para um projeto Java:
+
+```
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.exemplo</groupId>
+    <artifactId>meu-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- Adicionando JUnit para testes -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+* **Comandos Comuns Maven:**
+    * `mvn clean`: Apaga a pasta target (limpa compilações anteriores).
+    * `mvn compile`: Compila o código fonte.
+    * `mvn test`: Executa os testes unitários.
+    * `mvn package`: Compila e empacota o código (gera um .jar ou .war no target).
+    * `mvn install`: Instala o pacote gerado no repositório local, tornando-o disponível para outros projetos locais.
