@@ -151,3 +151,71 @@ public class SecurityProperties {
 
 **Profiles (Ambientes diferentes):**
 Use `application-dev.yml` (desenvolvimento) ou `application-prod.yml` (produção). Ative no `application.properties`: `spring.profiles.active=prod`.
+
+
+### Conceito ORM e JPA
+
+**ORM** (Object-Relational Mapping) e **JPA** (Java Persistence API) são conceitos fundamentais para o desenvolvimento Java moderno, permitindo que desenvolvedores manipulem bancos de dados relacionais utilizando o paradigma orientado a objetos. O **ORM** atua como uma ponte, enquanto a **JPA** padroniza como essa ponte é construída em Java.
+
+* **Conceito ORM (Mapeamento Objeto-Relacional)** - O ORM é uma técnica que mapeia tabelas de um banco de dados relacional para classes em uma linguagem orientada a objetos (como Java), e vice-versa.
+    * **Problema:** Bancos relacionais usam tabelas/linhas, enquanto Java usa objetos/classes.
+    * **Solução ORM:** Transforma automaticamente objetos Java em SQL (`INSERT`, `UPDATE`, `SELECT`) e vice-versa.
+    * **Benefícios:** Produtividade, redução de código SQL manual, portabilidade de banco de dados e manutenção facilitada.
+  
+* **Conceito JPA (Java Persistence API)** - A JPA é uma especificação Java (um conjunto de regras e interfaces) para o mapeamento objeto-relacional.
+  * Ela define como as anotações e APIs devem funcionar para persistir objetos Java.
+  * **JPA** não é um framework, mas sim um padrão. Para usá-la, é necessário um provedor (implementação), sendo o `Hibernate` o mais popular.
+  * Outros provedores incluem **EclipseLink e OpenJPA**.
+  
+* **Exemplo de Mapeamento JPA** - O mapeamento é feito usando anotações da JPA (`javax.persistence.*` ou `jakarta.persistence.*`) sobre as classes Java (Entidades).
+> **Entidade Básica** - `Produto.java`
+
+```java
+    import jakarta.persistence.Entity;
+    import jakarta.persistence.Id;
+    import jakarta.persistence.GeneratedValue;
+    import jakarta.persistence.GenerationType;
+    import jakarta.persistence.Column;
+    import jakarta.persistence.Table;
+    
+    @Entity // Define que a classe é uma entidade JPA
+    @Table(name = "produtos") // Mapeia para a tabela 'produtos' no banco
+    public class Produto {
+    
+        @Id // Define a chave primária
+        @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-incremento
+        private Long id;
+    
+        @Column(name = "nome_produto", nullable = false, length = 100) // Configura a coluna
+        private String nome;
+    
+        private double preco; // Mapeado automaticamente com o mesmo nome
+    
+        // Getters e Setters
+    }
+```
+
+* **Mapeamento de Relacionamento (`Pedido - Cliente`)**
+```java
+    @Entity
+    public class Pedido {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+    
+        // Muitos pedidos para um cliente (N:1)
+        @ManyToOne
+        @JoinColumn(name = "cliente_id") // Define a FK
+        private Cliente cliente;
+    }
+```
+
+**Componentes Chave**
+* `@Entity`: Declara a classe como uma entidade persistente.
+* `@Id`: Identifica o atributo chave primária.
+* `@Table`: Define nome, schema e catálogos da tabela.
+* `@Column`: Mapeia detalhes da coluna (nome, tamanho, nulidade).
+* `@ManyToOne` / `@OneToMany` / `@OneToOne` / `@ManyToMany`: Definem relacionamentos entre entidades.
+* `persistence.xml`: Arquivo de configuração que define o provedor (`Hibernate`), banco de dados e credenciais.
+
+
