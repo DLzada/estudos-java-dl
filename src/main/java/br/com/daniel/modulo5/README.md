@@ -68,3 +68,42 @@ Beans e Components no Spring Boot são objetos gerenciados pelo contêiner IoC (
 * Use `@Component` para suas próprias classes (`@Service`, `@Repository`, `@Controller`).
 * Use `@Bean` quando não puder anotar a classe diretamente (ex: instanciar `DataSource`, `RestTemplate`, ou configurar uma lib externa).
 
+
+### Application Proprerties - @Value
+
+A anotação `@Value` no Spring Boot injeta valores de configuração de arquivos application.properties ou application.yml diretamente em campos de classes Java, permitindo acesso fácil a parâmetros externos. Também aceita valores padrão usando a sintaxe `${propriedade:default}`. É ideal para configurações simples e injeções pontuais.
+
+**Exemplos de Uso do `@Value`** - Configuração no application.properties:
+
+```
+# src/main/resources/application.properties
+app.nome=MinhaAplicacao
+app.versao=1.0.0
+app.limite=50
+```
+
+**Injeção com `@Value` no Java:**
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppConfig {
+
+    // Injeta o valor de app.nome
+    @Value("${app.nome}")
+    private String nomeApp;
+
+    // Injeta com valor padrão se app.versao não existir
+    @Value("${app.versao:0.0.0}")
+    private String versaoApp;
+
+    // Injeta um valor numérico
+    @Value("${app.limite}")
+    private int limite;
+
+    public void exibirConfiguracao() {
+        System.out.println("Nome: " + nomeApp + ", Versão: " + versaoApp + ", Limite: " + limite);
+    }
+}
+```
