@@ -20,4 +20,51 @@ A sua principal filosofia é "Just Run" (Apenas execute), focando na produtivida
 * `spring-boot-starter-validation`: Adiciona suporte para validação de beans (JSR-303/JSR-380), como usar @NotNull ou @Size.
 * `spring-boot-starter-amqp`: Utilizado para soluções de mensageria baseadas em AMQP e RabbitMQ.
 
-Para iniciar um projeto com essas tecnologias, a ferramenta recomendada é o [Spring Initializr](http://start.spring.io/) . 
+Para iniciar um projeto com essas tecnologias, a ferramenta recomendada é o [Spring Initializr](http://start.spring.io/) .
+
+### Beans X Components
+
+Beans e Components no Spring Boot são objetos gerenciados pelo contêiner IoC (Inversão de Controle). `@Component` é usado para detecção automática de classes próprias (`@Service`, `@Repository`), enquanto `@Bean` é utilizado em métodos dentro de classes `@Configuration` para registrar instâncias manualmente, comum para classes de bibliotecas de terceiros. 
+
+**O que são Beans e Components**
+* **Bean:** É qualquer objeto instanciado, montado e gerenciado pelo contêiner IoC do Spring.
+* `@Component`: Anotação a nível de classe que instrui o Spring a detectá-la automaticamente através de component scanning e transformá-la em um Bean.
+* `@Bean`: Anotação a nível de método usada dentro de classes @Configuration para definir explicitamente um Bean, geralmente para instanciar classes de terceiros. 
+
+
+**Exemplos Práticos**
+* Usando `@Component` (Autodetecção) - Ideal para classes que você cria e mantém o código-fonte (Services, Controllers, Repositories).
+
+```java
+    import org.springframework.stereotype.Component;
+    
+    @Component
+    public class MeuServico {
+        public String executar() {
+            return "Serviço executado!";
+        }
+    }
+```
+
+* Usando `@Bean` (Configuração Explícita) - Ideal quando você precisa configurar um objeto de uma biblioteca externa, como o RestTemplate. 
+
+```java
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+    import org.springframework.web.client.RestTemplate;
+    
+    @Configuration
+    public class AppConfig {
+    
+        @Bean
+        public RestTemplate restTemplate() {
+            // Exemplo de configuração manual
+            return new RestTemplate();
+        }
+    }
+```
+
+**Resumo de Quando Usar**
+* Use `@Component` para suas próprias classes (`@Service`, `@Repository`, `@Controller`).
+* Use `@Bean` quando não puder anotar a classe diretamente (ex: instanciar `DataSource`, `RestTemplate`, ou configurar uma lib externa).
+
