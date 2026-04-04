@@ -107,3 +107,47 @@ public class AppConfig {
     }
 }
 ```
+
+### Configuration Properties
+
+Configuration Properties no `Spring Boot` permitem externalizar configurações da aplicação (banco de dados, portas, chaves de API) usando arquivos `application.properties` ou `application.yml`. Elas facilitam a alteração de comportamentos sem recompilar o código, usando `@Value` para valores simples ou `@ConfigurationProperties` para mapear grupos de propriedades. 
+
+**Principais Formas de Configuração e Exemplos:**
+* **Arquivo `application.properties` (Padrão):**
+
+```
+# Porta da aplicação
+server.port=8081
+# Configuração de Banco de Dados
+spring.datasource.url=jdbc:mysql://localhost:3306/meudb
+spring.datasource.username=root
+spring.datasource.password=123456
+```
+
+* **Arquivo `application.yml` (Mais organizado):**
+
+```yml
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/meudb
+    username: root
+    password: 123456
+```
+
+**Anotação `@ConfigurationProperties` (Recomendado para grupos)** - Agrupa propriedades relacionadas com um prefixo, proporcionando tipagem forte.
+
+```java
+@Configuration
+@ConfigurationProperties(prefix = "app.security")
+public class SecurityProperties {
+    private String token;
+    private int timeout;
+    // getters e setters
+}
+// No application.yml: app.security.token=xyz, app.security.timeout=30  
+```
+
+**Profiles (Ambientes diferentes):**
+Use `application-dev.yml` (desenvolvimento) ou `application-prod.yml` (produção). Ative no `application.properties`: `spring.profiles.active=prod`.
