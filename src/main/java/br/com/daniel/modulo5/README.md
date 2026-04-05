@@ -218,4 +218,64 @@ Use `application-dev.yml` (desenvolvimento) ou `application-prod.yml` (produçã
 * `@ManyToOne` / `@OneToMany` / `@OneToOne` / `@ManyToMany`: Definem relacionamentos entre entidades.
 * `persistence.xml`: Arquivo de configuração que define o provedor (`Hibernate`), banco de dados e credenciais.
 
+---
+
+### Jpa Repository
+
+Ao utilizar o JpaRepository, você não precisa escrever implementações de banco de dados ou consultas SQL para operações comuns; o Spring gera essas implementações automaticamente em tempo de execução.
+
+**Principais Funcionalidades:** O `JpaRepository` estende outras interfaces (`CrudRepository` e `PagingAndSortingRepository`), oferecendo um conjunto completo de ferramentas:
+
+* **Operações CRUD:** Métodos prontos como `save()`, `findById()`, `findAll()`, `deleteById()` e `count()`.
+* **Paginação e Ordenação:** Suporte nativo para retornar listas paginadas e ordenadas através de parâmetros como `Pageable` e `Sort`.
+* **Query Methods:** Você pode criar consultas apenas definindo o nome do método (ex: `findByEmail(String email)`), e o Spring gera a consulta SQL automaticamente.
+* **Consultas Personalizadas:** Permite o uso da anotação `@Query` para escrever consultas complexas em `JPQL` ou `SQL` nativo diretamente na interface.
+
+**Exemplo Prático**
+1. Entidade (`Entity`):
+
+```java
+    @Entity
+    public class Produto {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+        private String nome;
+        private Double preco;
+        // Getters e Setters
+    }
+```
+
+2. Repository Interface:
+
+```java
+    import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.stereotype.Repository;
+    import java.util.List;
+    
+    @Repository
+    public interface ProdutoRepository extends JpaRepository<Produto, Long> {
+        // Busca automática por nome
+        List<Produto> findByNome(String nome);
+        
+        // Busca produtos com preço maior que o valor informado
+        List<Produto> findByPrecoGreaterThan(Double preco);
+    }
+```
+
+3. Uso no Service/Controller:
+
+```java
+    @Autowired
+    private ProdutoRepository produtoRepository;
+    
+    public void exemploUso() {
+        Produto p = new Produto();
+        p.setNome("Notebook");
+        p.setPreco(3500.0);
+        produtoRepository.save(p); // Salvar
+    
+        List<Produto> produtos = produtoRepository.findAll(); // Buscar todos
+    }
+```
 
