@@ -22,6 +22,8 @@ A sua principal filosofia é "Just Run" (Apenas execute), focando na produtivida
 
 Para iniciar um projeto com essas tecnologias, a ferramenta recomendada é o [Spring Initializr](http://start.spring.io/) .
 
+---
+
 ### Beans X Components
 
 Beans e Components no Spring Boot são objetos gerenciados pelo contêiner IoC (Inversão de Controle). `@Component` é usado para detecção automática de classes próprias (`@Service`, `@Repository`), enquanto `@Bean` é utilizado em métodos dentro de classes `@Configuration` para registrar instâncias manualmente, comum para classes de bibliotecas de terceiros. 
@@ -68,6 +70,7 @@ Beans e Components no Spring Boot são objetos gerenciados pelo contêiner IoC (
 * Use `@Component` para suas próprias classes (`@Service`, `@Repository`, `@Controller`).
 * Use `@Bean` quando não puder anotar a classe diretamente (ex: instanciar `DataSource`, `RestTemplate`, ou configurar uma lib externa).
 
+---
 
 ### Application Proprerties - @Value
 
@@ -107,6 +110,8 @@ public class AppConfig {
     }
 }
 ```
+
+---
 
 ### Configuration Properties
 
@@ -152,6 +157,7 @@ public class SecurityProperties {
 **Profiles (Ambientes diferentes):**
 Use `application-dev.yml` (desenvolvimento) ou `application-prod.yml` (produção). Ative no `application.properties`: `spring.profiles.active=prod`.
 
+---
 
 ### Conceito ORM e JPA
 
