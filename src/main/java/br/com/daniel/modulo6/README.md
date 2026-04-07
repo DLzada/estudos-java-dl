@@ -152,7 +152,7 @@ A `INNER JOIN` combina registros de duas tabelas (ex: Clientes e Pedidos) que po
     INNER JOIN Clientes ON Pedidos.ClienteID = Clientes.ID;
 ```
 
-**Subconsultas (Subqueries) **
+**Subconsultas (Subqueries)**
 Uma subconsulta pode ser usada para filtrar dados baseados no resultado de outra tabela (ex: produtos com preço acima da média).
 
 ```
