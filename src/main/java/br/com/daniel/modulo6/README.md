@@ -43,6 +43,7 @@
 ```
     DELETE FROM clientes WHERE id = 1;
 ```
+---
 
 ### MER e DER
 `MER` (Modelo Entidade-Relacionamento) e `DER` (Diagrama Entidade-Relacionamento) são ferramentas cruciais de modelagem de dados. O MER é o modelo conceitual (teórico) que define entidades, atributos e relacionamentos. O DER é a representação gráfica (visual) desse modelo, materializando o projeto com chaves primárias e estrangeiras para implementação do banco. 
@@ -65,7 +66,7 @@
     * **CLIENTE:** ID_Cliente (Chave Primária), Nome, Endereço.
     * **PEDIDO:** ID_Pedido, Data, Valor Total.
     * **PRODUTO:** ID_Produto, Nome, Preço.
-  
+
 * **Relacionamentos e Cardinalidade:**
 
   > CLIENTE --(1:N)-- PEDIDO (Um cliente pode fazer vários pedidos, um pedido pertence a um cliente).
