@@ -179,3 +179,48 @@ Selecionar clientes que fizeram pedidos acima da média total.
     );
 ```
 
+### NoSql
+
+Os bancos NoSQL são bancos de dados não relacionais focados em escalabilidade horizontal e flexibilidade de esquema. Os principais tipos incluem Chave-Valor (simples/rápido), Documento (JSON/BSON, ex: MongoDB), Família de Colunas (alto desempenho/colunas largas, ex: Cassandra) e Grafos.
+
+**Tipos de Bancos NoSQL**
+* **Banco Chave-Valor (Key-Value Store):** O modelo mais simples, armazena dados como pares (chave-valor), onde a chave é única.
+  * **Exemplos:** Redis, Amazon DynamoDB.
+  * **Uso:** Carrinhos de compras, cache de sessão, perfis de usuário.
+* **Banco de Documentos (Document Store):** Armazena dados em documentos, geralmente formato JSON ou BSON, permitindo estruturas flexíveis (heterogêneas).
+  * **Exemplos:** MongoDB, Couchbase.
+  * **Uso:** Sistemas de gerenciamento de conteúdo (CMS), catálogos de produtos.
+* **Banco de Família de Colunas (Column-Family Store):** Organiza dados em colunas largas, não em linhas, permitindo que cada linha tenha colunas diferentes.
+  * **Exemplos:** Apache Cassandra, HBase.
+  * **Uso:** IoT, dados de séries temporais, Data Warehousing.
+
+**Exemplos no MongoDB (Banco de Documentos)** - O MongoDB armazena dados em coleções (equivalente a tabelas) de documentos (equivalente a linhas) no formato JSON/BSON.
+* Exemplo de inserção de um documento no MongoDB:
+
+```
+    db.usuarios.insertOne({
+        "_id": ObjectId("60d5ec4a02222134567890ab"),
+        "nome": "João Silva",
+        "idade": 30,
+        "email": "joao@email.com",
+        "habilidades": ["NoSQL", "MongoDB", "Data Science"], // Array
+        "endereco": { // Subdocumento
+            "rua": "Rua A",
+            "cidade": "Picuí"
+        }
+    })
+```
+* Exemplo de consulta no MongoDB:
+```
+    // Buscar usuário por nome
+    db.usuarios.find({ "nome": "João Silva" })
+    
+    // Buscar todos os usuários de uma cidade específica (subdocumento)
+    db.usuarios.find({ "endereco.cidade": "Picuí" })
+```
+
+**Principais características do MongoDB:**
+
+* **Flexibilidade:** Novos campos podem ser adicionados sem alterar o esquema da tabela inteira.
+* **Performance:** Alta velocidade de leitura e gravação.
+* **Escalabilidade:** Suporte a sharding para escalonamento horizontal. 
