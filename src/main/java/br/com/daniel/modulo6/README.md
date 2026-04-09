@@ -328,3 +328,63 @@ O design de schema no MongoDB é um processo flexível e voltado para documentos
     </tr>
   </tbody>
 </table>
+
+
+### Manipulação de Dados - CRUD
+
+**Criar (Create - Inserção)** - Adiciona novos documentos a uma coleção.
+* `insertOne()`: Insere um único documento.
+* `insertMany()`: Insere múltiplos documentos. 
+
+```json
+// Exemplo: Inserindo um filme
+db.filmes.insertOne({
+  titulo: "Matrix",
+  genero: "Sci-Fi",
+  ano: 1999,
+  elenco: ["Keanu Reeves", "Laurence Fishburne"]
+})
+```
+
+**Ler (Read - Consulta)** - Seleciona documentos de uma coleção baseada em critérios.
+* `find()`: Retorna documentos.
+* `findOne()`: Retorna o primeiro documento que corresponde ao critério.
+
+```json
+// Exemplo: Buscar filmes de 1999
+db.filmes.find({ ano: 1999 })
+
+// Exemplo: Buscar um filme pelo título
+db.filmes.findOne({ titulo: "Matrix" })
+```
+
+**Atualizar (Update)** - Modifica documentos existentes.
+* `updateOne()`: Atualiza o primeiro documento que corresponde ao filtro.
+* `updateMany()`: Atualiza todos os documentos que correspondem ao filtro.
+* **Operadores comuns:** `$set` (define valor), `$inc` (incrementa), `$push` (adiciona item a array). 
+
+```json
+// Exemplo: Atualizar o ano de um filme
+db.filmes.updateOne(
+  { titulo: "Matrix" },
+  { $set: { ano: 2000 } }
+)
+
+// Exemplo: Adicionar um novo ator ao elenco
+db.filmes.updateOne(
+  { titulo: "Matrix" },
+  { $push: { elenco: "Carrie-Anne Moss" } }
+)
+```
+
+**Deletar (Delete)** - Remove documentos de uma coleção.
+* `deleteOne()`: Remove o primeiro documento que corresponde ao filtro.
+* `deleteMany()`: Remove todos os documentos que correspondem ao filtro.
+
+```json
+// Exemplo: Deletar um filme pelo título
+db.filmes.deleteOne({ titulo: "Matrix" })
+
+// Exemplo: Deletar todos os filmes com ano inferior a 1990
+db.filmes.deleteMany({ ano: { $lt: 1990 } })
+```
