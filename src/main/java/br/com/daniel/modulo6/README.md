@@ -223,4 +223,108 @@ Os bancos NoSQL são bancos de dados não relacionais focados em escalabilidade 
 
 * **Flexibilidade:** Novos campos podem ser adicionados sem alterar o esquema da tabela inteira.
 * **Performance:** Alta velocidade de leitura e gravação.
-* **Escalabilidade:** Suporte a sharding para escalonamento horizontal. 
+* **Escalabilidade:** Suporte a sharding para escalonamento horizontal.
+
+### Schema Design e boas praticas
+O design de schema no MongoDB é um processo flexível e voltado para documentos (BSON), que prioriza o desempenho de leitura e a forma como a aplicação acessa os dados, em vez de focar apenas na normalização, como nos bancos relacionais. Diferente do SQL, o MongoDB permite que documentos na mesma coleção tenham estruturas diferentes, oferecendo agilidade no desenvolvimento.
+
+**Conceitos Fundamentais de Schema Design**
+* **Documentos Incorporados (Embedding):** Relacionar dados armazenando-os juntos dentro de um único documento.
+* **Referências (Referencing/Linking):** Armazenar documentos em coleções separadas e usar _id para referenciá-los (semelhante a chaves estrangeiras).
+* **Desnormalização:** Duplicar dados para evitar joins e acelerar leituras.
+* **Validação de Schema:** Definir regras (via $jsonSchema) para garantir a integridade dos dados em produção, limitando a flexibilidade apenas onde necessário.
+* **Padrões de Acesso:** O design deve ser baseado em como sua aplicação lê e escreve os dados, não como eles se relacionam teoricamente.
+
+**Boas Práticas e Estratégias**
+* **Dados acessados juntos devem ser armazenados juntos:** Essa é a regra principal para otimização.
+* **Prefira Embedding (Incorporar) por padrão:** Use para relações 1:1 ou 1:poucos, onde a leitura precisa ser rápida.
+* **Use Referencing para dados grandes ou dinâmicos:** Evite arrays que crescem sem limites ("unbounded arrays").
+* **Evite documentos gigantes:** Limite o tamanho para garantir performance, lembrando que documentos não podem exceder 16MB.
+* **Indexe campos de consulta:** Campos usados em $match, $sort ou $lookup devem ser indexados.
+* **Planeje a Evolução:** Use o Schema Versioning Pattern para lidar com mudanças na estrutura dos dados ao longo do tempo.
+
+**Exemplos de Schema Design**
+**A. Incorporação (Embedding) - Recomendado para "um-para-poucos"** - Ideal para dados que mudam pouco e são lidos juntos, como endereço de um usuário.
+
+```json
+// Coleção users
+{
+  "_id": ObjectId("1"),
+  "nome": "João Silva",
+  "endereco": {
+    "rua": "Rua A",
+    "cidade": "São Paulo"
+  }
+}
+```
+
+**B. Referência (Referencing) - Recomendado para "um-para-muitos" grande** - Ideal quando o "muitos" pode crescer indefinidamente (ex: logs, pedidos).
+
+```json
+// Coleção orders (Pedidos)
+{
+  "_id": ObjectId("101"),
+  "data": "2026-04-09",
+  "cliente_id": ObjectId("1"), // Referência
+  "itens": [...]
+}
+```
+
+**C. Padrão de Subconjunto (Subset Pattern)** - Útil quando você tem muitos dados, mas a aplicação só precisa de um subconjunto frequentemente.
+**Exemplo:** O perfil do filme e os 10 últimos comentários (em vez de todos os 5000 comentários).
+
+```json
+{
+  "_id": ObjectId("1"),
+  "titulo": "Inception",
+  "diretor": "Christopher Nolan",
+  "ultimos_comentarios": [ // Embed apenas os recentes
+    {"user": "ana", "texto": "Otimo filme!"},
+    {"user": "bob", "texto": "Muito confuso."}
+  ]
+}
+```
+
+**D. Padrão de Bucket (Bucket Pattern)** - Ideal para dados de séries temporais (IoT, telemetria) para evitar muitos documentos pequenos.
+```json
+{
+  "sensor_id": "sensor_01",
+  "dia": "2026-04-09",
+  "leituras": [ // Agrupando dados do dia
+    {"timestamp": ISODate("..."), "valor": 20},
+    {"timestamp": ISODate("..."), "valor": 22}
+  ]
+}
+```
+
+<table>
+  <caption>Boas Práticas de Modelagem NoSQL</caption>
+  <thead>
+    <tr>
+      <th scope="col">Situação</th>
+      <th scope="col">Recomendação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Relação 1:1</td>
+      <td><code>Incorporar (Embed)</code></td>
+    </tr>   
+    <tr>
+      <td>Relação 1:Poucos (estáticos)</td>
+      <td><code>Incorporar (Embed)</code></td>
+    </tr>
+    <tr>
+      <td>Relação 1:Muitos (ilimitado)</td>
+      <td><code>Referenciar (Parent Ref)</code></td>
+    </tr>
+    <tr>
+      <td>Dados acessados juntos</td>
+      <td><code>Incorporar (Embed)</code></td>
+    </tr>
+    <tr>
+      <td>Dados compartilhados</td>
+      <td><code>Referenciar (Reference)</code></td>
+    </tr>
+  </tbody>
+</table>
