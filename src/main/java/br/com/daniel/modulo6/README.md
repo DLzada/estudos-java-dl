@@ -139,6 +139,7 @@ Tabelas em bancos de dados relacionais funcionam como planilhas, organizando dad
     INSERT INTO Clientes (ID, Nome, Email, Data_Cadastro)
     VALUES (1, 'Ana Silva', 'ana@email.com', '2023-01-15');
 ```
+---
 
 ### JOINs
 Consultas com junções (JOINs) e subconsultas em SQL são ferramentas essenciais para combinar e filtrar dados de múltiplas tabelas. JOIN conecta tabelas por colunas relacionadas (INNER, LEFT), sendo geralmente mais eficiente. Subconsultas são consultas aninhadas que isolam lógica complexa, usadas frequentemente no WHERE ou FROM para cálculos específicos.
@@ -178,6 +179,7 @@ Selecionar clientes que fizeram pedidos acima da média total.
         WHERE Total > (SELECT AVG(Total) FROM Pedidos)
     );
 ```
+---
 
 ### NoSql
 
@@ -224,7 +226,7 @@ Os bancos NoSQL são bancos de dados não relacionais focados em escalabilidade 
 * **Flexibilidade:** Novos campos podem ser adicionados sem alterar o esquema da tabela inteira.
 * **Performance:** Alta velocidade de leitura e gravação.
 * **Escalabilidade:** Suporte a sharding para escalonamento horizontal.
-
+---
 ### Schema Design e boas praticas
 O design de schema no MongoDB é um processo flexível e voltado para documentos (BSON), que prioriza o desempenho de leitura e a forma como a aplicação acessa os dados, em vez de focar apenas na normalização, como nos bancos relacionais. Diferente do SQL, o MongoDB permite que documentos na mesma coleção tenham estruturas diferentes, oferecendo agilidade no desenvolvimento.
 
@@ -328,7 +330,7 @@ O design de schema no MongoDB é um processo flexível e voltado para documentos
     </tr>
   </tbody>
 </table>
-
+---
 
 ### Manipulação de Dados - CRUD
 
