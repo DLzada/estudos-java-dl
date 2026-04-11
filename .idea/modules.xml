@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/src/main/java/br/com/daniel/exercises/exercises.iml" filepath="$PROJECT_DIR$/src/main/java/br/com/daniel/exercises/exercises.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/main/main.iml" filepath="$PROJECT_DIR$/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/main/java/br/com/daniel/modulo2/modulo2.iml" filepath="$PROJECT_DIR$/src/main/java/br/com/daniel/modulo2/modulo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/java/br/com/daniel/spring-security-simple/spring-security-simple.iml" filepath="$PROJECT_DIR$/src/main/java/br/com/daniel/spring-security-simple/spring-security-simple.iml" />
     </modules>
   </component>
 </project>
