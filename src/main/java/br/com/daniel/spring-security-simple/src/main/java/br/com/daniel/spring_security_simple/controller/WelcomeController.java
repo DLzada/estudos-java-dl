@@ -2,6 +2,7 @@ package br.com.daniel.spring_security_simple.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+//Welcome Controller
 @RestController
 public class WelcomeController {
     @GetMapping
