@@ -1,4 +1,4 @@
-package br.com.daniel.spring_security_simple;
+package br.com.daniel.spring_security_simple.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

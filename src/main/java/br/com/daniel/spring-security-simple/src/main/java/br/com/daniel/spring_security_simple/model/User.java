@@ -1,6 +1,6 @@
 package br.com.daniel.spring_security_simple.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
