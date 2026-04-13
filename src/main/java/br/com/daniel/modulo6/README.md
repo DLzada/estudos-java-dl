@@ -534,3 +534,92 @@ public class ParametrizadoTest {
 * **Refatoração Segura:** Garante que mudanças no código não quebrem funcionalidades existentes.
 * **Documentação:** Serve como exemplo de como utilizar o código.
 * **Integração:** Compatível com ferramentas de build como Maven e Gradle e todas as principais IDEs (Eclipse, IntelliJ).
+
+**Assumptions (Suposições)** - `org.junit.jupiter.api.Assumptions`
+As suposições são usadas para verificar se as pré-condições para um teste são verdadeiras. Se a suposição falhar (false), o teste é abortado (ignorado), mas não falha.
+* `assumeTrue(...)`: Executa o teste apenas se a condição for verdadeira.
+* `assumeFalse(...)`: Executa o teste apenas se a condição for falsa.
+* `assumingThat(...)`: Executa um bloco de código se a condição for verdadeira, mas continua o teste depois, independentemente do resultado.
+
+**Exemplo de Assumptions**
+
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assumptions.*;
+
+class AssumptionTest {
+    @Test
+    void testOnlyOnDevEnvironment() {
+        String env = System.getProperty("env");
+        // O teste só continua se env for "DEV"
+        assumeTrue("DEV".equals(env), "Aborted: Não é ambiente de DEV");
+        
+        // ... código do teste
+    }
+
+    @Test
+    void testInDifferentEnvironments() {
+        String env = System.getProperty("env");
+        // Executa lógica específica se for Windows
+        assumingThat("WIN".equals(env), () -> {
+            // ... lógica Windows
+        });
+        // Esta parte roda sempre
+    }
+}
+```
+
+**Testes Condicionais (Anotações)** - `org.junit.jupiter.api.condition`
+O JUnit 5 oferece anotações para habilitar ou desabilitar testes com base no ambiente operacional, variáveis de sistema, propriedades Java ou scripts.
+
+**A. Condições de Sistema Operacional** (`@EnabledOnOs`, `@DisabledOnOs`)
+```java
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
+
+class OsConditionTest {
+    @Test
+    @EnabledOnOs(OS.WINDOWS)
+    void onlyOnWindows() {
+        // Roda apenas no Windows
+    }
+}
+```
+**B.Condições Java** (`@EnabledOnJre`, `@DisabledOnJre`)
+```java
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.JRE;
+
+@Test
+@EnabledOnJre(JRE.JAVA_17)
+void onlyOnJava17() {
+    // Roda apenas com Java 17
+}
+```
+
+**C. Variáveis de Ambiente e Propriedades** (`@EnabledIfEnvironmentVariable`, `@EnabledIfSystemProperty`)
+
+```java
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+
+@Test
+@EnabledIfEnvironmentVariable(named = "DB_TYPE", matches = "POSTGRES")
+void onlyOnPostgres() {
+    // Roda se a variável de ambiente DB_TYPE for POSTGRES
+}
+```
+
+* **D. Desabilitar Testes** (`@Disabled`)
+```java
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+@Disabled("Ainda não implementado")
+@Test
+void testSkipped() {
+    // Este teste será ignorado
+}
+```
+
+
