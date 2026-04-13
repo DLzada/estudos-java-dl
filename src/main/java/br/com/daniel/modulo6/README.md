@@ -390,3 +390,147 @@ db.filmes.deleteOne({ titulo: "Matrix" })
 // Exemplo: Deletar todos os filmes com ano inferior a 1990
 db.filmes.deleteMany({ ano: { $lt: 1990 } })
 ```
+### JUNIT
+O JUnit é o framework de testes unitários mais popular para a linguagem Java. Ele é amplamente utilizado para validar o comportamento de pequenas unidades de código (métodos e classes) de forma automatizada, garantindo que o software funcione conforme o esperado.
+
+**Conceitos Principais do JUnit 5**
+* **Teste Unitário:** Valida a menor parte testável do código (geralmente um método) isoladamente.
+* **Asserções (`Assertions`):** Métodos que verificam se o resultado esperado é igual ao resultado real.
+* **Anotações:** Define como os métodos de teste devem ser executados (ex: `@Test`, `@BeforeEach`).
+* **Fixture (Setup/Teardown):** Preparação do ambiente antes do teste e limpeza após o teste.
+* **Testes Parametrizados:** Executa o mesmo teste múltiplas vezes com dados diferentes.
+
+<table>
+  <thead>
+    <tr>
+      <th>Anotação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <code>@Test</code></td>
+      <td>Define que o método é um caso de teste.</td>
+    </tr>   
+    <tr>
+      <td><code>@BeforeEach</code></td>
+      <td>Executado antes de cada método de teste (@Test). Usado para inicializar objetos.</td>
+    </tr>
+    <tr>
+      <td><code>@AfterEach</code></td>
+      <td>Executado após cada método de teste. Usado para limpar recursos.</td>
+    </tr>
+    <tr>
+      <td><code>@BeforeAll</code></td>
+      <td>Executado uma vez antes de todos os testes da classe (deve ser static).</td>
+    </tr>
+    <tr>
+      <td><code>@AfterAll</code></td>
+      <td>Executado uma vez após todos os testes da classe (deve ser static).</td>
+    </tr>
+    <tr>
+      <td><code>@Disabled</code></td>
+      <td>Ignora o teste na execução.</td>
+    </tr>
+    <tr>
+      <td><code>@DisplayName</code></td>
+      <td>Define um nome personalizado para o teste na IDE.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+**Exemplos Práticos em Java**
+Para usar os exemplos, certifique-se de importar o JUnit 5 (`org.junit.jupiter.api.*`) e JUnit Jupiter Assertions (`org.junit.jupiter.api.Assertions.*`).
+
+**A. Exemplo Básico (Assertions)** - Testa se a soma de dois números está correta.
+
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CalculadoraTest {
+
+    @Test
+    public void testSoma() {
+        Calculadora calc = new Calculadora();
+        int resultado = calc.somar(2, 3);
+        // Esperado, Atual, Mensagem
+        assertEquals(5, resultado, "2 + 3 deve ser 5");
+    }
+}
+```
+
+**B.Exemplo com Setup e Teardown** - Utiliza `@BeforeEach` para criar uma nova instância antes de cada teste. 
+
+```java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class ListaTest {
+    private ArrayList<String> lista;
+
+    @BeforeEach
+    public void setup() {
+        lista = new ArrayList<>();
+        lista.add("Item 1");
+    }
+
+    @Test
+    public void testListaNaoVazia() {
+        assertTrue(lista.size() > 0);
+    }
+}
+```
+
+**C.Exemplo de Asserções Avançadas** - Verifica exceções, nulidade e igualdade.
+
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class UsuarioTest {
+    @Test
+    public void testVerificacoes() {
+        String nome = "JUnit";
+        String nulo = null;
+
+        assertNotNull(nome);
+        assertNull(nulo);
+        assertSame(nome, "JUnit"); // Verifica referência
+        assertThrows(ArithmeticException.class, () -> {
+            int i = 1 / 0; // Testa se lança exceção
+        });
+    }
+}
+```
+
+**D. Teste Parametrizado** - Executa o teste várias vezes com os dados da `@CsvSource`.
+
+```java
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ParametrizadoTest {
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, 1, 2",
+        "2, 3, 5",
+        "10, 20, 30"
+    })
+    public void testSomaParametrizada(int a, int b, int esperado) {
+        Calculadora calc = new Calculadora();
+        assertEquals(esperado, calc.somar(a, b));
+    }
+}
+```
+
+**Vantagens do JUnit**
+* **Automatização:** Testes rápidos e automáticos.
+* **Qualidade:** Detecta bugs precocemente.
+* **Refatoração Segura:** Garante que mudanças no código não quebrem funcionalidades existentes.
+* **Documentação:** Serve como exemplo de como utilizar o código.
+* **Integração:** Compatível com ferramentas de build como Maven e Gradle e todas as principais IDEs (Eclipse, IntelliJ).
