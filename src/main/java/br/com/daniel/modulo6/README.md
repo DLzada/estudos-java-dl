@@ -622,4 +622,77 @@ void testSkipped() {
 }
 ```
 
+### Mockito
+O Mockito é a biblioteca de "mocking" mais popular para Java, usada para criar objetos simulados (mocks) que imitam o comportamento de classes reais em testes unitários. Seu objetivo principal é isolar a classe que você está testando de suas dependências externas, como bancos de dados ou APIs.
 
+**Conceitos Básicos** - Para dominar o Mockito, você precisa entender quatro pilares
+* **Mock:** Um objeto falso que substitui uma classe real. Ele não executa o código original, apenas registra as chamadas e retorna o que você mandar.
+* **Stubbing (Configuração de Comportamento):** Definir o que o mock deve retornar quando um método específico for chamado (ex: "quando chamar getUser, retorne este objeto fixo").
+* **Verification (Verificação):** Checar se um método do mock foi realmente chamado, quantas vezes e com quais parâmetros.
+* **Spy:** Uma "cópia" de um objeto real. Ele executa o código original, mas permite que você monitore chamadas ou altere apenas alguns métodos específicos.
+
+**Anotações Principais** - No JUnit 5, usamos a extensão `MockitoExtension.class` para habilitar as anotações:
+* `@Mock`: Cria uma instância simulada da dependência.
+* `@InjectMocks`: Cria a instância da classe que será testada e injeta automaticamente nela os mocks criados com @Mock.
+* `@Spy`: Cria um objeto parcial (mistura de real e mock).
+
+**Exemplos Práticos** - Configurando o Teste
+
+```java
+@ExtendWith(MockitoExtension.class)
+class UsuarioServiceTest {
+
+    @Mock
+    private UsuarioRepository repository; // Dependência simulada
+
+    @InjectMocks
+    private UsuarioService service; // Classe sendo testada
+}
+```
+
+
+**Exemplo de Stubbing (Simular retorno)** - Dizemos ao Mockito para retornar um valor específico quando um método for chamado.
+
+```java
+@Test
+void deveRetornarUsuarioQuandoExistir() {
+    Usuario mockUsuario = new Usuario(1, "Ana");
+    
+    // Configuração (Stub)
+    Mockito.when(repository.findById(1)).thenReturn(Optional.of(mockUsuario));
+
+    // Execução
+    Usuario resultado = service.buscarPorId(1);
+
+    // Asserção (JUnit)
+    assertEquals("Ana", resultado.getNome());
+}
+```
+
+
+**Exemplo de Verificação (Checar chamadas)** - Garante que o código executou uma ação importante, como salvar no banco.
+
+```java
+@Test
+void deveChamarSaveNoRepository() {
+    Usuario novoUsuario = new Usuario("Carlos");
+    
+    service.salvar(novoUsuario);
+
+    // Verifica se o método save foi chamado exatamente 1 vez com qualquer objeto Usuario
+    Mockito.verify(repository, Mockito.times(1)).save(any(Usuario.class));
+}
+```
+
+**Exemplo de Lançamento de Exceção** - Útil para testar como sua aplicação lida com erros inesperados.
+
+```java
+@Test
+void deveLancarErroQuandoBancoFalhar() {
+    // Configura o mock para lançar erro
+    Mockito.when(repository.save(any())).thenThrow(new RuntimeException("Erro de conexão"));
+
+    // Verifica se a exceção é propagada
+    assertThrows(RuntimeException.class, () -> service.salvar(new Usuario()));
+}
+```
