@@ -1,6 +1,7 @@
 package br.com.daniel.spring_produtos.service;
 
 import br.com.daniel.spring_produtos.database.model.ProdutoEntity;
+import br.com.daniel.spring_produtos.dto.ProdutoDto;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -36,5 +37,25 @@ public class ProdutoService {
 
     public List<ProdutoEntity> findAll(){
         return new ArrayList<>(PRODUTOS);
+    }
+
+    public ProdutoEntity createProduct(ProdutoDto produtoDto){
+
+        Integer identificador = PRODUTOS.stream()
+                .mapToInt(ProdutoEntity::getId)
+                .max()
+                .orElse(0) + 1;
+
+
+        ProdutoEntity novoProduto = ProdutoEntity.builder()
+                .id(identificador)
+                .nome(produtoDto.getNome())
+                .preco(produtoDto.getPreco())
+                .quantidade(produtoDto.getQuantidade())
+                .build();
+
+        PRODUTOS.add(novoProduto);
+
+        return novoProduto;
     }
 }
