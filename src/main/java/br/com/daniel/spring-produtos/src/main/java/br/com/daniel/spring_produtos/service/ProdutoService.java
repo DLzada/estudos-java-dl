@@ -33,4 +33,8 @@ public class ProdutoService {
                 .quantidade(10)
                 .build());
     }
+
+    public List<ProdutoEntity> findAll(){
+        return new ArrayList<>(PRODUTOS);
+    }
 }
