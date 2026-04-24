@@ -2,6 +2,7 @@ package br.com.daniel.spring_produtos.service;
 
 import br.com.daniel.spring_produtos.database.model.ProdutoEntity;
 import br.com.daniel.spring_produtos.dto.ProdutoDto;
+import br.com.daniel.spring_produtos.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -59,11 +60,11 @@ public class ProdutoService {
         return novoProduto;
     }
 
-    public ProdutoEntity updateProduct(ProdutoDto produtoDto, Integer id) {
+    public ProdutoEntity updateProduct(ProdutoDto produtoDto, Integer id) throws NotFoundException {
         ProdutoEntity produto = PRODUTOS.stream()
                 .filter(p -> p.getId().equals(id))
                 .findAny()
-                .orElseThrow(() -> new RuntimeException("Produto nao encontrado"));
+                .orElseThrow(() -> new NotFoundException("Produto nao encontrado"));
 
         produto.setNome(produtoDto.getNome());
         produto.setPreco(produtoDto.getPreco());

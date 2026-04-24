@@ -2,6 +2,7 @@ package br.com.daniel.spring_produtos.controller;
 
 import br.com.daniel.spring_produtos.database.model.ProdutoEntity;
 import br.com.daniel.spring_produtos.dto.ProdutoDto;
+import br.com.daniel.spring_produtos.exception.NotFoundException;
 import br.com.daniel.spring_produtos.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ public class ProdutoController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ProdutoEntity updateProduct(@PathVariable Integer id,
-                                       @RequestBody ProdutoDto produtoDto){
+                                       @RequestBody ProdutoDto produtoDto) throws NotFoundException {
         this.id = id;
         this.produtoDto = produtoDto;
         return produtoService.updateProduct(produtoDto, id);
