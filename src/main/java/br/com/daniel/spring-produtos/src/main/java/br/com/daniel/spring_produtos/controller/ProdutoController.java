@@ -38,4 +38,10 @@ public class ProdutoController {
         this.produtoDto = produtoDto;
         return produtoService.updateProduct(produtoDto, id);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeProduct(@PathVariable Integer id){
+        produtoService.removeProduct(id);
+    }
 }
