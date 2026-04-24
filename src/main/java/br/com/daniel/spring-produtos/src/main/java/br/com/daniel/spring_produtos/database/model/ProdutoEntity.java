@@ -4,12 +4,10 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
 public class ProdutoEntity {
     private Integer id;
     private String nome;

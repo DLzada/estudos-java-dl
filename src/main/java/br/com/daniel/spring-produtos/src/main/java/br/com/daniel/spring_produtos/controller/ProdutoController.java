@@ -15,6 +15,8 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
+    private Integer id;
+    private ProdutoDto produtoDto;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -26,5 +28,14 @@ public class ProdutoController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProdutoEntity createProduct(@RequestBody ProdutoDto produtoDto){
         return produtoService.createProduct(produtoDto);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProdutoEntity updateProduct(@PathVariable Integer id,
+                                       @RequestBody ProdutoDto produtoDto){
+        this.id = id;
+        this.produtoDto = produtoDto;
+        return produtoService.updateProduct(produtoDto, id);
     }
 }
