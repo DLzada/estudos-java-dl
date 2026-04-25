@@ -17,10 +17,13 @@ public class AvaliacoesFisicasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(nullable = false)
     private BigDecimal peso;
+
     @Column(nullable = false)
     private BigDecimal altura;
+
     @Column(name = "percentual_gordura_corporal", nullable = false)
     private BigDecimal porcentagemGorduraCorporal;
 

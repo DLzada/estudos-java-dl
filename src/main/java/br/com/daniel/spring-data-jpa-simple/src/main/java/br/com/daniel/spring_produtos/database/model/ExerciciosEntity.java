@@ -3,16 +3,14 @@ package br.com.daniel.spring_produtos.database.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "alunos")
+@Table(name = "exercicios")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class AlunosEntity {
+public class ExerciciosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +19,8 @@ public class AlunosEntity {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @OneToOne
-    @JoinColumn(name = "avaliacao_fisica_id")
-    private AvaliacoesFisicasEntity avaliacaoFisica;
+    @Column(name = "grupo_muscular", nullable = false)
+    private String grupoMuscular;
 
 }
 
