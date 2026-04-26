@@ -25,4 +25,8 @@ public class ExerciciosService {
 
         exerciciosRespository.save(exercicio);
     }
+
+    public List<ExerciciosEntity> getExerciciosByGrupoMuscular(String grupoMuscular){
+        return exerciciosRespository.findAllByGrupoMuscular(grupoMuscular);
+    }
 }
