@@ -1,7 +1,9 @@
 package br.com.daniel.spring_produtos.service;
 
+import br.com.daniel.spring_produtos.database.model.AlunosEntity;
 import br.com.daniel.spring_produtos.database.repository.IAlunosRespository;
 import br.com.daniel.spring_produtos.dto.AlunoDto;
+import br.com.daniel.spring_produtos.exception.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,17 @@ import org.springframework.stereotype.Service;
 public class AlunosService {
     private final IAlunosRespository alunosRespository;
 
-    public void criarAluno(AlunoDto alunoDto){
+    public void criarAluno(AlunoDto alunoDto) throws BadRequestException{
+        AlunosEntity aluno = alunosRespository.findByEmail(alunoDto.getEmail())
+                .orElse(null);
+
+        if(aluno != null){
+            throw new BadRequestException("Aluno ja cadastrado com este email");
+        }
+
+        alunosRespository.save(AlunosEntity.builder()
+                        .nome(alunoDto.getNome())
+                        .email(alunoDto.getEmail())
+                        .build());
     }
 }
