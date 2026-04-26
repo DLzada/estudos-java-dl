@@ -28,7 +28,7 @@ public class AvaliacaoFisicaService {
        avaliacaoFisica = AvaliacoesFisicasEntity.builder()
                .peso(avaliacaoFisicaDto.getPeso())
                .altura(avaliacaoFisicaDto.getAltura())
-               .porcentagemGorduraCorporal(avaliacaoFisicaDto.getPercentualGorduraCorporal())
+               .porcentagemGorduraCorporal(avaliacaoFisicaDto.getPorcentagemGorduraCorporal())
                .build();
 
        aluno.setAvaliacaoFisica(avaliacaoFisica);
