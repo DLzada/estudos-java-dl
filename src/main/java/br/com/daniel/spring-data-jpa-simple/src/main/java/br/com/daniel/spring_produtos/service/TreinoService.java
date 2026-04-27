@@ -37,7 +37,7 @@ public class TreinoService {
 
         for(Integer exercicioId : treinoDto.getExerciciosIds()){
             ExerciciosEntity exercicio = exerciciosRespository.findById(exercicioId)
-                    .orElseThrow(() -> new NotFoundException("Exercicio nao encontrado"));
+                    .orElseThrow(() -> new NotFoundException(String.format("Exercicio %s nao encontrado", exercicioId)));
 
             exercicios.add(exercicio);
         }
