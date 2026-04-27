@@ -1,5 +1,6 @@
 package br.com.daniel.spring_produtos.database.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class AvaliacoesFisicasEntity {
 
     @Id
