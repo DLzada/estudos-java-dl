@@ -29,7 +29,7 @@ public class AlunosService {
     }
 
     public AvaliacoesFisicasEntity getAlunoAvaliacoes(Integer alunoId) throws NotFoundException {
-        AlunosEntity aluno = alunosRespository.findById(alunoId)
+        AlunosEntity aluno = alunosRespository.findByIdFetch(alunoId)
                 .orElseThrow(() -> new NotFoundException("Aluno nao encontrada"));
 
         AvaliacoesFisicasEntity avaliacao = aluno.getAvaliacaoFisica();
