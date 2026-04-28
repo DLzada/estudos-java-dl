@@ -47,7 +47,7 @@ public class AlunosService {
         return avaliacao;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void deletarAluno(Integer alunoId) throws NotFoundException{
         AlunosEntity aluno = alunosRespository.findById(alunoId)
                 .orElseThrow(() -> new NotFoundException("Aluno nao encontrada"));
