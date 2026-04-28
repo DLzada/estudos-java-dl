@@ -31,7 +31,9 @@ public class AlunosController {
     }
 
     @GetMapping("/{alunoId}/avaliacao")
+    @ResponseStatus(HttpStatus.OK)
     public AvaliacoesFisicasEntity getAvaliacaoFisica(@PathVariable Integer alunoId) throws NotFoundException {
         return alunosService.getAlunoAvaliacoes(alunoId);
     }
+
 }

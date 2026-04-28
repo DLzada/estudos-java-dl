@@ -48,7 +48,7 @@ public class AlunosService {
     }
 
     @Transactional
-    public void deletarAuno(Integer alunoId) throws NotFoundException{
+    public void deletarAluno(Integer alunoId) throws NotFoundException{
         AlunosEntity aluno = alunosRespository.findById(alunoId)
                 .orElseThrow(() -> new NotFoundException("Aluno nao encontrada"));
 
