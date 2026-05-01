@@ -60,7 +60,7 @@ public class TokenProvider {
     }
 
     //extrair informacoes do token
-    private String getUserName(String token){
+    public String getUserName(String token){
         return getClaims(token).getSubject();
     }
 }
