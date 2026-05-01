@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-data-jpa-simple
+    name: spring-security-gym
   data-source:
     url: jdbc:mysql://localhost:3307/gym_spring?createDatabaseIfNotExist=true
     username: ${DATABASE_USERNAME}
