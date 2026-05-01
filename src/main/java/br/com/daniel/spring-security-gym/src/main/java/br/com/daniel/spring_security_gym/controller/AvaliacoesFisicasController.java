@@ -1,0 +1,42 @@
+package br.com.daniel.spring_security_gym.controller;
+
+import br.com.daniel.spring_security_gym.dto.AvaliacaoFisicaDto;
+import br.com.daniel.spring_security_gym.dto.AvaliacoesFisicasProjection;
+import br.com.daniel.spring_security_gym.exception.BadRequestException;
+import br.com.daniel.spring_security_gym.exception.NotFoundException;
+import br.com.daniel.spring_security_gym.service.AvaliacaoFisicaService;
+import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/v1/avaliacoes")
+@RequiredArgsConstructor
+@Validated
+public class AvaliacoesFisicasController {
+    private final AvaliacaoFisicaService avaliacaoFisicaService;
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void criarAvaliacaoFisica(@Valid @RequestBody AvaliacaoFisicaDto avaliacaoFisicaDto) throws NotFoundException,BadRequestException {
+        avaliacaoFisicaService.criarAvaliacaoFisica(avaliacaoFisicaDto);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<AvaliacoesFisicasProjection> getAllAvaliacoes(){
+        return avaliacaoFisicaService.getAllAvaliacoes();
+    }
+
+    @GetMapping("/page/{page}/size/{size}")
+    @ResponseStatus(HttpStatus.OK)
+    public Page<AvaliacoesFisicasProjection> getAllAvaliacoesPageble(@PathVariable Integer page,
+                                                                     @PathVariable Integer size){
+        return avaliacaoFisicaService.getAllAvaliacoesPageable(page, size);
+    }
+}
