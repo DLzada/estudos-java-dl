@@ -10,7 +10,7 @@
     <groupId>br.com.daniel</groupId>
     <artifactId>spring-security-gym</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-data-jpa-simple</name>
+    <name>spring-security-simple</name>
 
     <properties>
         <java.version>17</java.version>

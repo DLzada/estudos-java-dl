@@ -8,7 +8,7 @@
         <version>3.2.5</version> <relativePath/>
     </parent>
     <groupId>br.com.daniel</groupId>
-    <artifactId>spring-produtos</artifactId>
+    <artifactId>spring-data-jpa-simple</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-data-jpa-simple</name>
 
